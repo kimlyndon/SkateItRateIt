@@ -28,7 +28,11 @@
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <items>
                                     <navigationItem title="Skate It" id="fbX-US-1Ln" userLabel="Skate It">
-                                        <barButtonItem key="leftBarButtonItem" title="Get Gear!" id="cxZ-ND-fKI"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Get Gear!" id="cxZ-ND-fKI">
+                                            <connections>
+                                                <segue destination="Fhw-T2-Had" kind="presentation" id="A2x-rG-UeY"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Drop In!" id="kkr-LU-XaC"/>
                                     </navigationItem>
                                 </items>
@@ -63,17 +67,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wYV-Ok-ZPa">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="feM-ev-S4A">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Get Gear!" id="uiS-Zr-6S0">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="5nX-e6-NtA">
+                                            <connections>
+                                                <segue destination="BYZ-38-t0r" kind="presentation" id="fXu-ax-nC8"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="wYV-Ok-ZPa" firstAttribute="top" secondItem="5Ly-I0-6l4" secondAttribute="top" id="8h0-Lx-Y1t"/>
+                            <constraint firstItem="wYV-Ok-ZPa" firstAttribute="top" secondItem="5Ly-I0-6l4" secondAttribute="top" constant="64" id="8h0-Lx-Y1t"/>
+                            <constraint firstItem="feM-ev-S4A" firstAttribute="trailing" secondItem="bYD-3z-BES" secondAttribute="trailing" id="Brk-Za-Qhg"/>
+                            <constraint firstItem="feM-ev-S4A" firstAttribute="leading" secondItem="bYD-3z-BES" secondAttribute="leading" id="Exz-dW-dOz"/>
+                            <constraint firstItem="feM-ev-S4A" firstAttribute="top" secondItem="bYD-3z-BES" secondAttribute="top" id="dGe-ff-TXU"/>
                             <constraint firstItem="wYV-Ok-ZPa" firstAttribute="trailing" secondItem="bYD-3z-BES" secondAttribute="trailing" id="fdq-Zt-8bA"/>
                             <constraint firstItem="wYV-Ok-ZPa" firstAttribute="bottom" secondItem="bYD-3z-BES" secondAttribute="bottom" id="mi1-TP-s48"/>
                             <constraint firstItem="wYV-Ok-ZPa" firstAttribute="leading" secondItem="bYD-3z-BES" secondAttribute="leading" id="mpM-DE-TgZ"/>
@@ -83,7 +102,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Nw-W8-Jy9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="578" y="-379"/>
+            <point key="canvasLocation" x="577.5" y="-380"/>
         </scene>
         <!--Pin View Controller-->
         <scene sceneID="vlY-aU-ud1">
