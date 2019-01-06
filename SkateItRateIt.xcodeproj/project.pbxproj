@@ -14,6 +14,7 @@
 		980DFD0721A4D488007C60EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 980DFD0621A4D488007C60EA /* Assets.xcassets */; };
 		980DFD0A21A4D488007C60EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 980DFD0821A4D488007C60EA /* LaunchScreen.storyboard */; };
 		980FBF3321E175D100CB377C /* CSSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980FBF3221E175D100CB377C /* CSSViewController.swift */; };
+		985733EF21E2908A00956E38 /* PinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985733EE21E2908A00956E38 /* PinViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		980DFD0921A4D488007C60EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		980DFD0B21A4D488007C60EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		980FBF3221E175D100CB377C /* CSSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSSViewController.swift; sourceTree = "<group>"; };
+		985733EE21E2908A00956E38 /* PinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				980DFCFC21A4D487007C60EA /* AppDelegate.swift */,
 				980FBF3121E1758F00CB377C /* ViewControllers */,
+				985733ED21E2901C00956E38 /* WebView */,
 				980DFD0021A4D487007C60EA /* Main.storyboard */,
 				980DFD0621A4D488007C60EA /* Assets.xcassets */,
 				980DFD0821A4D488007C60EA /* LaunchScreen.storyboard */,
@@ -73,9 +76,17 @@
 			isa = PBXGroup;
 			children = (
 				980DFCFE21A4D487007C60EA /* MapViewController.swift */,
-				980FBF3221E175D100CB377C /* CSSViewController.swift */,
+				985733EE21E2908A00956E38 /* PinViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		985733ED21E2901C00956E38 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				980FBF3221E175D100CB377C /* CSSViewController.swift */,
+			);
+			path = WebView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +163,7 @@
 				980DFCFF21A4D487007C60EA /* MapViewController.swift in Sources */,
 				980DFCFD21A4D487007C60EA /* AppDelegate.swift in Sources */,
 				980FBF3321E175D100CB377C /* CSSViewController.swift in Sources */,
+				985733EF21E2908A00956E38 /* PinViewController.swift in Sources */,
 				980DFD0521A4D487007C60EA /* SkateItRateIt.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
