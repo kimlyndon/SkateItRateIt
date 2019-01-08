@@ -16,7 +16,7 @@ class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     
-    var ref: DatabaseReference?
+    var ref: DatabaseReference!
     
     let newPin =  MKPointAnnotation()
     let locationManager = CLLocationManager()

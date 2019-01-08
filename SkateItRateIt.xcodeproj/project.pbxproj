@@ -17,6 +17,7 @@
 		9857340E21E5245D00956E38 /* Kingfisher.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 985733FD21E5237600956E38 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9857341021E524DA00956E38 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9857340F21E524DA00956E38 /* PhotoViewController.swift */; };
 		9857341B21E53E2700956E38 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9857341A21E53E2700956E38 /* GoogleService-Info.plist */; };
+		9857341E21E5484400956E38 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9857341D21E5484400956E38 /* Users.swift */; };
 		A0B11A652E2EF2DAB6CC1780 /* Pods_SkateItRateIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CD6B16CEAECA018B9B0AD33 /* Pods_SkateItRateIt.framework */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +109,7 @@
 		985733F221E5237500956E38 /* Kingfisher.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Kingfisher.xcodeproj; path = Kingfisher/Kingfisher.xcodeproj; sourceTree = "<group>"; };
 		9857340F21E524DA00956E38 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		9857341A21E53E2700956E38 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9857341D21E5484400956E38 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		F14A9E9260B9735F66AF2698 /* Pods-SkateItRateIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkateItRateIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SkateItRateIt/Pods-SkateItRateIt.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				980DFCFC21A4D487007C60EA /* AppDelegate.swift */,
+				9857341D21E5484400956E38 /* Users.swift */,
 				980FBF3121E1758F00CB377C /* ViewControllers */,
 				985733ED21E2901C00956E38 /* WebView */,
 				980DFD0021A4D487007C60EA /* Main.storyboard */,
@@ -389,6 +392,7 @@
 				980DFCFD21A4D487007C60EA /* AppDelegate.swift in Sources */,
 				980FBF3321E175D100CB377C /* CSSViewController.swift in Sources */,
 				985733EF21E2908A00956E38 /* PinViewController.swift in Sources */,
+				9857341E21E5484400956E38 /* Users.swift in Sources */,
 				9857341021E524DA00956E38 /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
