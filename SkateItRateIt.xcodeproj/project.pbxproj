@@ -10,24 +10,105 @@
 		980DFCFD21A4D487007C60EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980DFCFC21A4D487007C60EA /* AppDelegate.swift */; };
 		980DFCFF21A4D487007C60EA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980DFCFE21A4D487007C60EA /* MapViewController.swift */; };
 		980DFD0221A4D487007C60EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 980DFD0021A4D487007C60EA /* Main.storyboard */; };
-		980DFD0521A4D487007C60EA /* SkateItRateIt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 980DFD0321A4D487007C60EA /* SkateItRateIt.xcdatamodeld */; };
 		980DFD0721A4D488007C60EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 980DFD0621A4D488007C60EA /* Assets.xcassets */; };
 		980DFD0A21A4D488007C60EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 980DFD0821A4D488007C60EA /* LaunchScreen.storyboard */; };
 		980FBF3321E175D100CB377C /* CSSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980FBF3221E175D100CB377C /* CSSViewController.swift */; };
 		985733EF21E2908A00956E38 /* PinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985733EE21E2908A00956E38 /* PinViewController.swift */; };
+		985733F121E51C6500956E38 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 985733F021E51C6400956E38 /* GoogleService-Info.plist */; };
+		9857340E21E5245D00956E38 /* Kingfisher.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 985733FD21E5237600956E38 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9857341021E524DA00956E38 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9857340F21E524DA00956E38 /* PhotoViewController.swift */; };
+		A0B11A652E2EF2DAB6CC1780 /* Pods_SkateItRateIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CD6B16CEAECA018B9B0AD33 /* Pods_SkateItRateIt.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		985733FC21E5237600956E38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 985733F221E5237500956E38 /* Kingfisher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D1ED2D351AD2D09F00CFC3EB;
+			remoteInfo = "Kingfisher-iOS";
+		};
+		985733FE21E5237600956E38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 985733F221E5237500956E38 /* Kingfisher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D13F49D61BEDA67C00CE335D;
+			remoteInfo = "Kingfisher-tvOS";
+		};
+		9857340021E5237600956E38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 985733F221E5237500956E38 /* Kingfisher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4B2944481C3D01B20088C3E7;
+			remoteInfo = "Kingfisher-macOS";
+		};
+		9857340221E5237600956E38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 985733F221E5237500956E38 /* Kingfisher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D16799EB1C4E74460020FD12;
+			remoteInfo = "Kingfisher-watchOS";
+		};
+		9857340421E5237600956E38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 985733F221E5237500956E38 /* Kingfisher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D1ED2D3F1AD2D09F00CFC3EB;
+			remoteInfo = KingfisherTests;
+		};
+		9857340621E5237600956E38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 985733F221E5237500956E38 /* Kingfisher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4B37667F1C478F940001443F;
+			remoteInfo = "KingfisherTests-tvOS";
+		};
+		9857340821E5237600956E38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 985733F221E5237500956E38 /* Kingfisher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D10EC2311C3D632300A4211C;
+			remoteInfo = "KingfisherTests-macOS";
+		};
+		9857340A21E523F900956E38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 985733F221E5237500956E38 /* Kingfisher.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D1ED2D341AD2D09F00CFC3EB;
+			remoteInfo = "Kingfisher-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9857340D21E5242900956E38 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9857340E21E5245D00956E38 /* Kingfisher.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0CD6B16CEAECA018B9B0AD33 /* Pods_SkateItRateIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SkateItRateIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FD3664D9B1A2FCD3F7139CB /* Pods-SkateItRateIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkateItRateIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-SkateItRateIt/Pods-SkateItRateIt.release.xcconfig"; sourceTree = "<group>"; };
 		980DFCF921A4D487007C60EA /* SkateItRateIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkateItRateIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		980DFCFC21A4D487007C60EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		980DFCFE21A4D487007C60EA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		980DFD0121A4D487007C60EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		980DFD0421A4D487007C60EA /* SkateItRateIt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SkateItRateIt.xcdatamodel; sourceTree = "<group>"; };
 		980DFD0621A4D488007C60EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		980DFD0921A4D488007C60EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		980DFD0B21A4D488007C60EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		980FBF3221E175D100CB377C /* CSSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSSViewController.swift; sourceTree = "<group>"; };
 		985733EE21E2908A00956E38 /* PinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewController.swift; sourceTree = "<group>"; };
+		985733F021E51C6400956E38 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		985733F221E5237500956E38 /* Kingfisher.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Kingfisher.xcodeproj; path = Kingfisher/Kingfisher.xcodeproj; sourceTree = "<group>"; };
+		9857340F21E524DA00956E38 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		F14A9E9260B9735F66AF2698 /* Pods-SkateItRateIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkateItRateIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SkateItRateIt/Pods-SkateItRateIt.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0B11A652E2EF2DAB6CC1780 /* Pods_SkateItRateIt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,8 +126,11 @@
 		980DFCF021A4D487007C60EA = {
 			isa = PBXGroup;
 			children = (
+				985733F221E5237500956E38 /* Kingfisher.xcodeproj */,
 				980DFCFB21A4D487007C60EA /* SkateItRateIt */,
 				980DFCFA21A4D487007C60EA /* Products */,
+				C2DF82C7B8C72A34A46DC4FE /* Pods */,
+				D2C262C3BDD760F58E5B8954 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,7 +152,7 @@
 				980DFD0621A4D488007C60EA /* Assets.xcassets */,
 				980DFD0821A4D488007C60EA /* LaunchScreen.storyboard */,
 				980DFD0B21A4D488007C60EA /* Info.plist */,
-				980DFD0321A4D487007C60EA /* SkateItRateIt.xcdatamodeld */,
+				985733F021E51C6400956E38 /* GoogleService-Info.plist */,
 			);
 			path = SkateItRateIt;
 			sourceTree = "<group>";
@@ -77,6 +162,7 @@
 			children = (
 				980DFCFE21A4D487007C60EA /* MapViewController.swift */,
 				985733EE21E2908A00956E38 /* PinViewController.swift */,
+				9857340F21E524DA00956E38 /* PhotoViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -89,6 +175,37 @@
 			path = WebView;
 			sourceTree = "<group>";
 		};
+		985733F321E5237500956E38 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				985733FD21E5237600956E38 /* Kingfisher.framework */,
+				985733FF21E5237600956E38 /* Kingfisher.framework */,
+				9857340121E5237600956E38 /* Kingfisher.framework */,
+				9857340321E5237600956E38 /* Kingfisher.framework */,
+				9857340521E5237600956E38 /* KingfisherTests.xctest */,
+				9857340721E5237600956E38 /* KingfisherTests-tvOS.xctest */,
+				9857340921E5237600956E38 /* KingfisherTests-macOS.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C2DF82C7B8C72A34A46DC4FE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F14A9E9260B9735F66AF2698 /* Pods-SkateItRateIt.debug.xcconfig */,
+				2FD3664D9B1A2FCD3F7139CB /* Pods-SkateItRateIt.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D2C262C3BDD760F58E5B8954 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0CD6B16CEAECA018B9B0AD33 /* Pods_SkateItRateIt.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -96,13 +213,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 980DFD0E21A4D488007C60EA /* Build configuration list for PBXNativeTarget "SkateItRateIt" */;
 			buildPhases = (
+				7A466A3DD71C6A07FFFBBC25 /* [CP] Check Pods Manifest.lock */,
 				980DFCF521A4D487007C60EA /* Sources */,
 				980DFCF621A4D487007C60EA /* Frameworks */,
 				980DFCF721A4D487007C60EA /* Resources */,
+				E629556C519F9A3005D56DED /* [CP] Embed Pods Frameworks */,
+				9857340D21E5242900956E38 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9857340B21E523F900956E38 /* PBXTargetDependency */,
 			);
 			name = SkateItRateIt;
 			productName = SkateItRateIt;
@@ -135,6 +256,12 @@
 			mainGroup = 980DFCF021A4D487007C60EA;
 			productRefGroup = 980DFCFA21A4D487007C60EA /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 985733F321E5237500956E38 /* Products */;
+					ProjectRef = 985733F221E5237500956E38 /* Kingfisher.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				980DFCF821A4D487007C60EA /* SkateItRateIt */,
@@ -142,18 +269,112 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		985733FD21E5237600956E38 /* Kingfisher.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Kingfisher.framework;
+			remoteRef = 985733FC21E5237600956E38 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		985733FF21E5237600956E38 /* Kingfisher.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Kingfisher.framework;
+			remoteRef = 985733FE21E5237600956E38 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9857340121E5237600956E38 /* Kingfisher.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Kingfisher.framework;
+			remoteRef = 9857340021E5237600956E38 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9857340321E5237600956E38 /* Kingfisher.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Kingfisher.framework;
+			remoteRef = 9857340221E5237600956E38 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9857340521E5237600956E38 /* KingfisherTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = KingfisherTests.xctest;
+			remoteRef = 9857340421E5237600956E38 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9857340721E5237600956E38 /* KingfisherTests-tvOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "KingfisherTests-tvOS.xctest";
+			remoteRef = 9857340621E5237600956E38 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9857340921E5237600956E38 /* KingfisherTests-macOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "KingfisherTests-macOS.xctest";
+			remoteRef = 9857340821E5237600956E38 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		980DFCF721A4D487007C60EA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				980DFD0A21A4D488007C60EA /* LaunchScreen.storyboard in Resources */,
+				985733F121E51C6500956E38 /* GoogleService-Info.plist in Resources */,
 				980DFD0721A4D488007C60EA /* Assets.xcassets in Resources */,
 				980DFD0221A4D487007C60EA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7A466A3DD71C6A07FFFBBC25 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SkateItRateIt-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E629556C519F9A3005D56DED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SkateItRateIt/Pods-SkateItRateIt-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SkateItRateIt/Pods-SkateItRateIt-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		980DFCF521A4D487007C60EA /* Sources */ = {
@@ -164,11 +385,19 @@
 				980DFCFD21A4D487007C60EA /* AppDelegate.swift in Sources */,
 				980FBF3321E175D100CB377C /* CSSViewController.swift in Sources */,
 				985733EF21E2908A00956E38 /* PinViewController.swift in Sources */,
-				980DFD0521A4D487007C60EA /* SkateItRateIt.xcdatamodeld in Sources */,
+				9857341021E524DA00956E38 /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9857340B21E523F900956E38 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Kingfisher-iOS";
+			targetProxy = 9857340A21E523F900956E38 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		980DFD0021A4D487007C60EA /* Main.storyboard */ = {
@@ -308,6 +537,7 @@
 		};
 		980DFD0F21A4D488007C60EA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F14A9E9260B9735F66AF2698 /* Pods-SkateItRateIt.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -326,6 +556,7 @@
 		};
 		980DFD1021A4D488007C60EA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2FD3664D9B1A2FCD3F7139CB /* Pods-SkateItRateIt.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -364,19 +595,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		980DFD0321A4D487007C60EA /* SkateItRateIt.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				980DFD0421A4D487007C60EA /* SkateItRateIt.xcdatamodel */,
-			);
-			currentVersion = 980DFD0421A4D487007C60EA /* SkateItRateIt.xcdatamodel */;
-			path = SkateItRateIt.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 980DFCF121A4D487007C60EA /* Project object */;
 }
