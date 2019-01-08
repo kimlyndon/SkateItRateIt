@@ -28,4 +28,7 @@ class CSSViewController: UIViewController {
         webView.load(request)
     }
     
+    @IBAction func backButtonPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 }
