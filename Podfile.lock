@@ -4,6 +4,9 @@ PODS:
     - FirebaseAnalytics (= 5.0.1)
   - Firebase/CoreOnly (5.4.0):
     - FirebaseCore (= 5.0.5)
+  - Firebase/Database (5.4.0):
+    - Firebase/CoreOnly
+    - FirebaseDatabase (= 5.0.2)
   - FirebaseAnalytics (5.0.1):
     - FirebaseCore (~> 5.0)
     - FirebaseInstanceID (~> 3.0)
@@ -19,6 +22,7 @@ PODS:
   - GoogleToolboxForMac/Defines (2.1.4)
   - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
     - GoogleToolboxForMac/Defines (= 2.1.4)
+  - Kingfisher (5.0.1)
   - leveldb-library (1.20)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -28,7 +32,8 @@ PODS:
 
 DEPENDENCIES:
   - Firebase/Core
-  - FirebaseDatabase
+  - Firebase/Database
+  - Kingfisher (~> 5.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -38,6 +43,7 @@ SPEC REPOS:
     - FirebaseDatabase
     - FirebaseInstanceID
     - GoogleToolboxForMac
+    - Kingfisher
     - leveldb-library
     - nanopb
 
@@ -48,9 +54,10 @@ SPEC CHECKSUMS:
   FirebaseDatabase: 27be5ac5bc75e0b17537b2bbfada8258addcc8cd
   FirebaseInstanceID: f3f0657372592ecdfdfe2cac604a5a75758376a6
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
+  Kingfisher: 4f771421b9208185217550528a06fd48756cb7c2
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
 
-PODFILE CHECKSUM: 99f2a611f9df20f0c05b55cbefe8fb06100b2eb1
+PODFILE CHECKSUM: a19190e8e19200333437d0e9ca8cb428c47d6eb8
 
 COCOAPODS: 1.5.3

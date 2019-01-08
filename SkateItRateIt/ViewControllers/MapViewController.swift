@@ -16,12 +16,16 @@ class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     
+    var ref: DatabaseReference?
+    
+    let newPin =  MKPointAnnotation()
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 10000
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = Database.database().reference()
         checkLocationServices()
     }
     
@@ -70,7 +74,7 @@ class MapViewController: UIViewController {
 }
 
 extension MapViewController: CLLocationManagerDelegate {
-    
+   
     // Update as user moves.
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // Last known location. If no location use guard statement
@@ -78,6 +82,9 @@ extension MapViewController: CLLocationManagerDelegate {
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         let region = MKCoordinateRegion.init(center: center, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
         mapView.setRegion(region, animated: true)
+        
+        newPin.coordinate = location.coordinate
+        mapView.addAnnotation(newPin)
     }
     
     // When permission auth changes.
