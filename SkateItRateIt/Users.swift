@@ -13,4 +13,9 @@ struct Users {
         static let rating = "rating"
         static let photos = "photos"
     }
+    
+    struct Location {
+        static let latitude = "latitude"
+        static let longitude = "longitude"
+    }
 }
