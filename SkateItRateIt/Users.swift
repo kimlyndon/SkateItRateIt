@@ -6,6 +6,8 @@
 //  Copyright © 2019 Kim Lyndon. All rights reserved.
 //
 
+// This file is for the Firebase Realtime Database JSON data.
+
 struct Users {
     
     struct Pin {
