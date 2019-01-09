@@ -1,5 +1,5 @@
 //
-//  Users.swift
+//  PinModel.swift
 //  SkateItRateIt
 //
 //  Created by Kim Lyndon on 1/8/19.
@@ -8,16 +8,13 @@
 
 // This file is for the Firebase Realtime Database JSON data.
 
-struct Users {
+class PinModel {
     
     struct Pin {
-        static let address = "address"
-        static let rating = "rating"
-        static let photos = "photos"
-    }
-    
-    struct Location {
         static let latitude = "latitude"
         static let longitude = "longitude"
+        static let photos = "photos"
+        static let rating = "rating"
     }
+    
 }

@@ -25,7 +25,9 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Database.database().isPersistenceEnabled = true
         ref = Database.database().reference()
+        ref.childByAutoId().setValue(["Pin"])
         checkLocationServices()
     }
     
