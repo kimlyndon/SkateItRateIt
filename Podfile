@@ -7,7 +7,7 @@ target 'SkateItRateIt' do
 
   # Pods for SkateItRateIt
 pod 'Firebase/Core'
-pod 'Kingfisher', '~> 5.0'
+pod 'Kingfisher'
 pod 'Firebase/Database'
 
 end
