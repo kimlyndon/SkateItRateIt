@@ -26,7 +26,7 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
-        ref.childByAutoId().setValue(["address", "photos", "rating"]) 
+        ref.childByAutoId().setValue(["Pin"])
         checkLocationServices()
     }
     
