@@ -10,18 +10,11 @@
 
 class PinModel {
     
-    var id: String?
-    var latitude: Double?
-    var longitude: Double?
-    var photos: NSSet?
-    var rating: Double?
-    
-    init(id: String?, latitude: Double?, longitude: Double?, photos: NSSet?, rating: Double?) {
-        self.id = id
-        self.latitude = latitude
-        self.longitude = longitude
-        self.photos = photos
-        self.rating = rating
+    struct Pin {
+        static let latitude = "latitude"
+        static let longitude = "longitude"
+        static let photos = "photos"
+        static let rating = "rating"
     }
     
 }
