@@ -25,7 +25,9 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        FirebaseApp.configure()
         ref = Database.database().reference()
+        Database.database().isPersistenceEnabled = true
         ref.childByAutoId().setValue(["Pin"])
         checkLocationServices()
     }
