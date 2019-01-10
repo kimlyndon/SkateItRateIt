@@ -11,6 +11,7 @@
 class PinModel {
     
     struct Pin {
+        static let user = "user"
         static let latitude = "latitude"
         static let longitude = "longitude"
         static let photos = "photos"
