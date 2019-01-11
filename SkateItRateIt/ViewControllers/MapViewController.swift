@@ -12,7 +12,7 @@ import CoreLocation
 import Firebase
 
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     
@@ -30,6 +30,14 @@ class MapViewController: UIViewController {
         ref = Database.database().reference()
         checkLocationServices()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+        
+        func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithOtherGestureRecognizer: UIGestureRecognizer) -> Bool {
+            return true
+        }
     
     func setupLocationManager() {
         locationManager.delegate = self
@@ -83,9 +91,22 @@ class MapViewController: UIViewController {
          ref.childByAutoId().setValue([pinInfo])
         
     }
+    
+    
+    @IBAction func getTouchLocation(_ gestureRecognizer: UILongPressGestureRecognizer) {
+        if gestureRecognizer.state == .began {
+            let point = gestureRecognizer.location(in: self.mapView)
+            let coordinate = self.mapView.convert(point, toCoordinateFrom: self.mapView)
+            
+            //add map annotation
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = coordinate
+            
+            //add annotation to map
+            self.mapView.addAnnotation(annotation)
+    }
+  }
 }
-
-
 
 extension MapViewController: CLLocationManagerDelegate {
    
@@ -99,8 +120,6 @@ extension MapViewController: CLLocationManagerDelegate {
         
         newPin.coordinate = location.coordinate
         
-       
-      
     }
     
     // When permission auth changes.
