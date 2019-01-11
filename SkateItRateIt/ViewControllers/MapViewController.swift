@@ -88,11 +88,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     //Drop pin to current location
     @IBAction func dropIn(_ sender: UIBarButtonItem) {
          mapView.addAnnotation(newPin)
-         ref.childByAutoId().setValue([pinInfo])
+        ref.childByAutoId().setValue([pinInfo]) //TODO: Find the right way to reference database!
         
     }
     
-    
+    // Long press pin drop
     @IBAction func getTouchLocation(_ gestureRecognizer: UILongPressGestureRecognizer) {
         if gestureRecognizer.state == .began {
             let point = gestureRecognizer.location(in: self.mapView)
@@ -104,8 +104,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
             
             //add annotation to map
             self.mapView.addAnnotation(annotation)
+             ref.childByAutoId().setValue([pinInfo]) //TODO: Find the right way to reference database!
+        }
     }
-  }
 }
 
 extension MapViewController: CLLocationManagerDelegate {
@@ -127,6 +128,24 @@ extension MapViewController: CLLocationManagerDelegate {
         checkLocationAuthorization()
     }
     
-    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        let reuseId = "pin"
+        
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
+        
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView!.canShowCallout = false
+            pinView!.pinTintColor = .red
+            pinView!.animatesDrop = true
+            pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        }
+        else {
+            pinView!.annotation = annotation
+        }
+        
+        return pinView
+    }
 }
 
