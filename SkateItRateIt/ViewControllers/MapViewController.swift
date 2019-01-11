@@ -63,7 +63,8 @@ class MapViewController: UIViewController {
             locationManager.startUpdatingLocation()
             break
         case .denied:
-            // Show alert with instructions on how to enable
+            let alertController = UIAlertController(title: "Enable Location Services", message: "This app works only when location services are enabled. Please go to your Settings and enable location services for this app.", preferredStyle: .alert)
+            present(alertController, animated: true, completion: nil)
             break
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
@@ -83,6 +84,8 @@ class MapViewController: UIViewController {
         
     }
 }
+
+
 
 extension MapViewController: CLLocationManagerDelegate {
    
