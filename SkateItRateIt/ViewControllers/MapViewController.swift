@@ -17,6 +17,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     
     var ref: DatabaseReference!
+    var pinInfo = [PinModel]()
     
     let newPin =  MKPointAnnotation()
     let locationManager = CLLocationManager()
@@ -27,7 +28,6 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         Database.database().isPersistenceEnabled = true
         ref = Database.database().reference()
-        ref.childByAutoId().setValue(["Pin"])
         checkLocationServices()
     }
     
@@ -73,6 +73,13 @@ class MapViewController: UIViewController {
             break
         }
     }
+    
+    //Drop pin to current location
+    @IBAction func dropIn(_ sender: UIBarButtonItem) {
+         mapView.addAnnotation(newPin)
+        ref.childByAutoId().setValue([pinInfo])
+        
+    }
 }
 
 extension MapViewController: CLLocationManagerDelegate {
@@ -86,7 +93,9 @@ extension MapViewController: CLLocationManagerDelegate {
         mapView.setRegion(region, animated: true)
         
         newPin.coordinate = location.coordinate
-        mapView.addAnnotation(newPin)
+        
+       
+      
     }
     
     // When permission auth changes.
