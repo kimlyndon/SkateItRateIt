@@ -77,7 +77,7 @@ class MapViewController: UIViewController {
     //Drop pin to current location
     @IBAction func dropIn(_ sender: UIBarButtonItem) {
          mapView.addAnnotation(newPin)
-        ref.childByAutoId().setValue([pinInfo])
+         ref.childByAutoId().setValue([pinInfo])
         
     }
 }
