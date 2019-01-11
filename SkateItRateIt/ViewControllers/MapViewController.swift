@@ -49,7 +49,9 @@ class MapViewController: UIViewController {
             setupLocationManager()
             checkLocationAuthorization()
         } else {
-            //TODO: Show Alert letting the user know they have to enable location services
+            
+            let alertController = UIAlertController(title: "Location Services", message: "Please enable location services", preferredStyle: .alert)
+            present(alertController, animated: true, completion: nil)
         }
     }
     
