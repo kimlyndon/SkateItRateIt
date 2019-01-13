@@ -173,7 +173,11 @@
                                 <items>
                                     <barButtonItem systemItem="done" id="gN2-EV-Rhe"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="YnL-be-4II"/>
-                                    <barButtonItem systemItem="camera" id="A9b-Rn-ycy"/>
+                                    <barButtonItem systemItem="camera" id="A9b-Rn-ycy">
+                                        <connections>
+                                            <action selector="useCamera:" destination="BHC-oE-rax" id="Wby-Mf-3WV"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate It!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3i-DW-6hL">
@@ -204,6 +208,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yNR-D1-Kd6"/>
                     </view>
+                    <connections>
+                        <outlet property="camera" destination="A9b-Rn-ycy" id="ZU5-Mo-d9T"/>
+                        <outlet property="doneButton" destination="gN2-EV-Rhe" id="aJc-Z9-Hmj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pwr-lq-UJy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

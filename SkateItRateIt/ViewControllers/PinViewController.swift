@@ -8,7 +8,10 @@
 
 import UIKit
 
-class PinViewController: UIViewController {
+class PinViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    @IBOutlet weak var camera: UIBarButtonItem!
     
+    @IBOutlet weak var doneButton: UIBarButtonItem!
+   
 }
