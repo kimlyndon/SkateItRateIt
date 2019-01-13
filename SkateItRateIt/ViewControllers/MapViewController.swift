@@ -76,6 +76,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         }
     }
     
+    
     // Did the user enable location services? If not, show alert.
     func checkLocationServices() {
         if CLLocationManager.locationServicesEnabled() {
@@ -164,6 +165,7 @@ extension MapViewController: CLLocationManagerDelegate {
         checkLocationAuthorization()
     }
     
+    // Make the annotation a red pin
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         let reuseId = "pin"

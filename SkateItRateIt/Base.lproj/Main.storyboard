@@ -172,6 +172,8 @@
                                 <rect key="frame" x="0.0" y="436" width="320" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="done" id="gN2-EV-Rhe"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Tub-BT-JLu"/>
+                                    <barButtonItem title="PhotoAlbum" id="q1Q-L3-MrB"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="YnL-be-4II"/>
                                     <barButtonItem systemItem="camera" id="A9b-Rn-ycy"/>
                                 </items>
@@ -204,6 +206,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yNR-D1-Kd6"/>
                     </view>
+                    <connections>
+                        <outlet property="camera" destination="A9b-Rn-ycy" id="ZU5-Mo-d9T"/>
+                        <outlet property="doneButton" destination="gN2-EV-Rhe" id="aJc-Z9-Hmj"/>
+                        <outlet property="photoAlbumButton" destination="q1Q-L3-MrB" id="LHw-wt-aMV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pwr-lq-UJy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
