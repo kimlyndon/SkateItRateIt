@@ -10,7 +10,17 @@ import UIKit
 
 class PinViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    
+    
     @IBOutlet weak var camera: UIBarButtonItem!
     @IBOutlet weak var photoAlbumButton: UIBarButtonItem!
-    @IBOutlet weak var doneButton: UIBarButtonItem!   
+    @IBOutlet weak var doneButton: UIBarButtonItem!
+    
+  
+    
+    @IBAction func cameraButtonPressed() {
+    let pinVc = UIImagePickerController()
+        pinVc.sourceType = UIImagePickerController.SourceType.camera
+    self.present(pinVc, animated: true, completion: nil)
+}
 }

@@ -34,10 +34,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
-        
-        func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithOtherGestureRecognizer: UIGestureRecognizer) -> Bool {
-            return true
-        }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithOtherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
     
     func setupLocationManager() {
         locationManager.delegate = self
@@ -50,6 +50,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
             mapView.setRegion(region, animated: true)
         }
     }
+    
     
     // Did the user enable location services? If not, show alert.
     func checkLocationServices() {
@@ -87,7 +88,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     
     //Drop pin to current location
     @IBAction func dropIn(_ sender: UIBarButtonItem) {
-         mapView.addAnnotation(newPin)
+        mapView.addAnnotation(newPin)
         ref.childByAutoId().setValue([pinInfo]) //TODO: Find the right way to reference database!
         
     }
@@ -104,13 +105,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
             
             //add annotation to map
             self.mapView.addAnnotation(annotation)
-             ref.childByAutoId().setValue([pinInfo]) //TODO: Find the right way to reference database!
+            ref.childByAutoId().setValue([pinInfo]) //TODO: Find the right way to reference database!
         }
     }
 }
 
 extension MapViewController: CLLocationManagerDelegate {
-   
+    
     // Update as user moves.
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // Last known location. If no location use guard statement
@@ -128,6 +129,7 @@ extension MapViewController: CLLocationManagerDelegate {
         checkLocationAuthorization()
     }
     
+    // Make the annotation a red pin
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         let reuseId = "pin"
