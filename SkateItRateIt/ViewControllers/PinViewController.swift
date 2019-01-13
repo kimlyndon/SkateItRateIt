@@ -12,6 +12,5 @@ class PinViewController: UIViewController, UIImagePickerControllerDelegate, UINa
     
     @IBOutlet weak var camera: UIBarButtonItem!
     @IBOutlet weak var photoAlbumButton: UIBarButtonItem!
-    @IBOutlet weak var doneButton: UIBarButtonItem!
-   
+    @IBOutlet weak var doneButton: UIBarButtonItem!   
 }
