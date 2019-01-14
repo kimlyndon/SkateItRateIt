@@ -15,7 +15,7 @@
             <objects>
                 <navigationController id="zKe-34-4cZ" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XXt-E6-e2U">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -281,13 +281,25 @@
                         <constraints>
                             <constraint firstItem="fKe-xc-v0N" firstAttribute="bottom" secondItem="b5W-Sq-ze5" secondAttribute="top" id="1fe-iz-n9k"/>
                             <constraint firstAttribute="trailing" secondItem="fKe-xc-v0N" secondAttribute="trailing" id="53Z-ZW-rt4"/>
+                            <constraint firstItem="fKe-xc-v0N" firstAttribute="leading" secondItem="Qcp-AQ-0H4" secondAttribute="leading" id="66F-K6-Hhi"/>
                             <constraint firstItem="fKe-xc-v0N" firstAttribute="top" secondItem="tsJ-5b-Ygd" secondAttribute="bottom" id="6Z6-1v-Q7C"/>
                             <constraint firstItem="fKe-xc-v0N" firstAttribute="leading" secondItem="kz9-ao-Bpr" secondAttribute="leading" id="BBi-tc-DaF"/>
+                            <constraint firstItem="b5W-Sq-ze5" firstAttribute="leading" secondItem="Qcp-AQ-0H4" secondAttribute="leading" id="Ci4-0H-Wxl"/>
+                            <constraint firstItem="tsJ-5b-Ygd" firstAttribute="leading" secondItem="Qcp-AQ-0H4" secondAttribute="leading" id="KWR-Jy-UIY"/>
+                            <constraint firstItem="b5W-Sq-ze5" firstAttribute="bottom" secondItem="Qcp-AQ-0H4" secondAttribute="bottom" id="Qff-1I-Zkl"/>
                             <constraint firstItem="fKe-xc-v0N" firstAttribute="top" secondItem="kz9-ao-Bpr" secondAttribute="top" constant="64" id="ROS-RG-9ZB"/>
                             <constraint firstItem="fKe-xc-v0N" firstAttribute="leading" secondItem="b5W-Sq-ze5" secondAttribute="leading" id="T3J-ek-DvP"/>
+                            <constraint firstItem="b5W-Sq-ze5" firstAttribute="top" secondItem="fKe-xc-v0N" secondAttribute="bottom" id="WHx-2W-TB6"/>
+                            <constraint firstItem="fKe-xc-v0N" firstAttribute="centerY" secondItem="kz9-ao-Bpr" secondAttribute="centerY" id="YKU-hi-u9W"/>
                             <constraint firstItem="fKe-xc-v0N" firstAttribute="trailing" secondItem="tsJ-5b-Ygd" secondAttribute="trailing" id="c5a-HB-asv"/>
+                            <constraint firstItem="tsJ-5b-Ygd" firstAttribute="top" secondItem="Qcp-AQ-0H4" secondAttribute="top" id="ftx-bG-DSd"/>
+                            <constraint firstItem="fKe-xc-v0N" firstAttribute="trailing" secondItem="Qcp-AQ-0H4" secondAttribute="trailing" id="g4U-ai-329"/>
+                            <constraint firstItem="tsJ-5b-Ygd" firstAttribute="trailing" secondItem="Qcp-AQ-0H4" secondAttribute="trailing" id="hYN-WO-Zsl"/>
+                            <constraint firstItem="b5W-Sq-ze5" firstAttribute="trailing" secondItem="Qcp-AQ-0H4" secondAttribute="trailing" id="hYm-iO-dox"/>
                             <constraint firstItem="fKe-xc-v0N" firstAttribute="trailing" secondItem="b5W-Sq-ze5" secondAttribute="trailing" id="hma-9b-0Em"/>
                             <constraint firstItem="fKe-xc-v0N" firstAttribute="leading" secondItem="tsJ-5b-Ygd" secondAttribute="leading" id="mWW-uj-lvn"/>
+                            <constraint firstItem="fKe-xc-v0N" firstAttribute="top" secondItem="tsJ-5b-Ygd" secondAttribute="bottom" id="uho-zD-PhL"/>
+                            <constraint firstItem="fKe-xc-v0N" firstAttribute="centerX" secondItem="kz9-ao-Bpr" secondAttribute="centerX" id="var-qH-1xe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qcp-AQ-0H4"/>
                     </view>

@@ -56,7 +56,7 @@ class PhotoEditorViewController: UIViewController, UIImagePickerControllerDelega
         
     }
     
-    @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
+    @IBAction func backButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     

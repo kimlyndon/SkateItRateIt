@@ -34,7 +34,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         /*
              NOTE KIM: 
          
-        - once you have loaded all of the pins you can drop them to the map by a simple add pin method as you ll ilterate the pins you have loaded. e.g. for pin in loadedPins 
+        - once you have loaded all of the pins you can drop them to the map by a simple add pin method as you ll ilterate the pins you have loaded. e.g. for pin in loadedPins.   Isn't this completed in the dropIn and getTouchLocation?
          */
     
     
