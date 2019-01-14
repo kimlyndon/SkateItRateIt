@@ -11,22 +11,6 @@ import MapKit
 import CoreLocation
 import Firebase
 
-
-/*
- NOTE KIM:
- 
- Here are some points on how the Firebase works.  
-- Everything on firebase (FB) has node (firebase calls it “chid” ) and its value.
-- FB sends and receives values as key value pairs.
-- You can fetch and put any value of the node by  giving reference of the specific node key (e.g. Pins).
-- While fetching /sending node ’s value every child node and their corresponding values will be fetch/send all at once ( usually regarded as snapshot ).
-- If a specific node does not exist and you try to send it, it ll create a new node (entry). If the node who’s value you are sending exist already, i ll override the existing value (sort of editing).
-- Database (who’s reference you get) does not store images (files), for storing images (files) you ll use  https://firebase.google.com/docs/storage/ and you ll upload files by reading here https://firebase.google.com/docs/storage/ios/upload-files once you have uploaded a file you ll store the url of the file in you FB database. so there are two different things. FB Database and FB Storage.
- 
- */
-
-
-
 class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
@@ -147,12 +131,7 @@ extension MapViewController: CLLocationManagerDelegate {
         mapView.setRegion(region, animated: true)
         
         /*  NOTE KIM:
-           mapView.setRegion(region, animated: true)
-          - you don't need to set map's location here all of the time this delegate method is called. it is updated on user's device location change and you can only use it for storing user's last location only.
           - For showing user's location on map just call a method of map to show user's location.
-         
-            newPin.coordinate = location.coordinate
-          - Again don't store pin's location like that, you got to drop pin on visible map's centre and not on user location's current location, i believe.
         */
         newPin.coordinate = location.coordinate
         
@@ -168,8 +147,8 @@ extension MapViewController: CLLocationManagerDelegate {
     }
     
     // Make the annotation a red pin
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKPinAnnotationView? {
+    
         let reuseId = "pin"
         
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
@@ -187,6 +166,8 @@ extension MapViewController: CLLocationManagerDelegate {
         
         return pinView
     }
+    
+    
     
 }
 
