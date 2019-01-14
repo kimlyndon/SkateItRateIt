@@ -33,10 +33,10 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We will use your current location to determine distance to pinned location.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Allow access to camera to upload photos to location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We will use your current location to determine distance to pinned location.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Allow access to album to upload saved photos</string>
 	<key>UILaunchStoryboardName</key>

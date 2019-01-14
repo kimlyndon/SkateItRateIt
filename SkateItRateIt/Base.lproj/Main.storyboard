@@ -241,8 +241,16 @@
                                 <items>
                                     <navigationItem title="Photo Check" id="t7N-g6-DP0">
                                         <barButtonItem key="backBarButtonItem" title="Back" id="9uf-yJ-klz"/>
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="fym-4h-RXA"/>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="OVD-2K-8GK"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="fym-4h-RXA">
+                                            <connections>
+                                                <action selector="backButtonPressed:" destination="616-EY-N3l" id="g1q-Bs-E4I"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="OVD-2K-8GK">
+                                            <connections>
+                                                <action selector="editButtonPressed:" destination="616-EY-N3l" id="SdE-NK-epH"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -284,7 +292,9 @@
                         <viewLayoutGuide key="safeArea" id="Qcp-AQ-0H4"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="fym-4h-RXA" id="Eph-IE-6H7"/>
                         <outlet property="camera" destination="JRa-7f-IQ0" id="l7m-sO-846"/>
+                        <outlet property="editButton" destination="OVD-2K-8GK" id="Etk-k6-egc"/>
                         <outlet property="imagePickerView" destination="fKe-xc-v0N" id="6YM-Z7-RwZ"/>
                         <outlet property="photoAlbumButton" destination="O8U-2v-04e" id="nZy-Ae-V3P"/>
                         <outlet property="shareButton" destination="5vq-cp-rZF" id="whn-pU-Pax"/>
