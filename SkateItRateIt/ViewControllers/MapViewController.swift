@@ -41,6 +41,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.showsUserLocation = true
         Database.database().isPersistenceEnabled = true
         ref = Database.database().reference()
         checkLocationServices()

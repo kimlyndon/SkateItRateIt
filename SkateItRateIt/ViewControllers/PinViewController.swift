@@ -23,4 +23,10 @@ class PinViewController: UIViewController, UIImagePickerControllerDelegate, UINa
         pinVc.sourceType = UIImagePickerController.SourceType.camera
     self.present(pinVc, animated: true, completion: nil)
 }
+    
+    @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
+       dismiss(animated: true, completion: nil)
+        
+    }
+    
 }
