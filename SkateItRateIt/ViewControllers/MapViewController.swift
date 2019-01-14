@@ -44,20 +44,17 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         Database.database().isPersistenceEnabled = true
         ref = Database.database().reference()
         checkLocationServices()
-        self.ref.child("Pins").observeSingleEvent(of: .value, with: { (snapshot) in
-        })
-
-        
+    }
         
         /*
              NOTE KIM: 
          
         - once you have loaded all of the pins you can drop them to the map by a simple add pin method as you ll ilterate the pins you have loaded. e.g. for pin in loadedPins 
          */
-        
-      
-    }
     
+
+
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         centerViewOnUserLocation()
@@ -133,7 +130,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
             
             //add annotation to map
             self.mapView.addAnnotation(annotation)
-            ref.childByAutoId().setValue(["location":["Lat":35.23344, "long":-80.85261]])
+            self.ref.child("Pins").childByAutoId().setValue(["location":["Lat":35.23344, "long":-80.85261]])
         }
     }
 }
@@ -186,4 +183,5 @@ extension MapViewController: CLLocationManagerDelegate {
         return pinView
     }
 }
+
 
