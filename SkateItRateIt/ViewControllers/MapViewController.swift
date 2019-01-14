@@ -147,28 +147,31 @@ extension MapViewController: CLLocationManagerDelegate {
     }
     
     // Make the annotation a red pin
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKPinAnnotationView? {
-    
-        let reuseId = "pin"
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
-        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
-        
-        if pinView == nil {
-            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-            pinView!.canShowCallout = false
-            pinView!.pinTintColor = .red
-            pinView!.animatesDrop = true
-            pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        if (annotation is MKUserLocation){
+            return nil
+            
+        } else {
+            
+            let reuseId = "pin"
+            
+            var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
+            
+            if pinView == nil {
+                pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+                pinView!.canShowCallout = false
+                pinView!.pinTintColor = .red
+                pinView!.animatesDrop = true
+                pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+                
+            } else {
+                
+                pinView!.annotation = annotation
+            }
+            
+            return pinView
         }
-        else {
-            pinView!.annotation = annotation
-        }
-        
-        return pinView
     }
-    
-    
-    
 }
-
 
