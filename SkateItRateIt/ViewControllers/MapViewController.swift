@@ -37,9 +37,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         - once you have loaded all of the pins you can drop them to the map by a simple add pin method as you ll ilterate the pins you have loaded. e.g. for pin in loadedPins 
          */
     
-
-
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         centerViewOnUserLocation()
@@ -129,10 +127,6 @@ extension MapViewController: CLLocationManagerDelegate {
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         let region = MKCoordinateRegion.init(center: center, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
         mapView.setRegion(region, animated: true)
-        
-        /*  NOTE KIM:
-          - For showing user's location on map just call a method of map to show user's location.
-        */
         newPin.coordinate = location.coordinate
         
     }
