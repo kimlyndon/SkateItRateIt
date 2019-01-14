@@ -178,11 +178,10 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Tub-BT-JLu"/>
-                                    <barButtonItem title="PhotoAlbum" id="q1Q-L3-MrB"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="YnL-be-4II"/>
-                                    <barButtonItem systemItem="camera" id="A9b-Rn-ycy">
+                                    <barButtonItem title="Grab Pic" id="A9b-Rn-ycy">
                                         <connections>
-                                            <action selector="cameraButtonPressed" destination="BHC-oE-rax" id="1ns-qB-5Ua"/>
+                                            <segue destination="616-EY-N3l" kind="presentation" id="8zD-6u-un4"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -216,14 +215,84 @@
                         <viewLayoutGuide key="safeArea" id="yNR-D1-Kd6"/>
                     </view>
                     <connections>
-                        <outlet property="camera" destination="A9b-Rn-ycy" id="ZU5-Mo-d9T"/>
                         <outlet property="doneButton" destination="gN2-EV-Rhe" id="aJc-Z9-Hmj"/>
-                        <outlet property="photoAlbumButton" destination="q1Q-L3-MrB" id="LHw-wt-aMV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pwr-lq-UJy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="579" y="534"/>
+        </scene>
+        <!--Photo Editor View Controller-->
+        <scene sceneID="rBs-pB-cBN">
+            <objects>
+                <viewController id="616-EY-N3l" userLabel="Photo Editor View Controller" customClass="PhotoEditorViewController" customModule="SkateItRateIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kz9-ao-Bpr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fKe-xc-v0N" userLabel="ImagePickerView">
+                                <rect key="frame" x="0.0" y="64" width="320" height="372"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="372" id="cYJ-Rk-zm6"/>
+                                </constraints>
+                            </imageView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tsJ-5b-Ygd">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Photo Check" id="t7N-g6-DP0">
+                                        <barButtonItem key="backBarButtonItem" title="Back" id="9uf-yJ-klz"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="fym-4h-RXA"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="OVD-2K-8GK"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5W-Sq-ze5">
+                                <rect key="frame" x="0.0" y="436" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="camera" id="JRa-7f-IQ0">
+                                        <connections>
+                                            <action selector="cameraButtonPressed" destination="616-EY-N3l" id="apM-Q3-PZr"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="G6H-dB-u7h"/>
+                                    <barButtonItem systemItem="action" id="5vq-cp-rZF">
+                                        <connections>
+                                            <action selector="shareButtonPressed:" destination="616-EY-N3l" id="ho7-cZ-LR9"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="9CO-h4-KkF"/>
+                                    <barButtonItem title="Album" id="O8U-2v-04e">
+                                        <connections>
+                                            <action selector="pickAnImageFromAlbum:" destination="616-EY-N3l" id="TGd-F7-1uG"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fKe-xc-v0N" firstAttribute="bottom" secondItem="b5W-Sq-ze5" secondAttribute="top" id="1fe-iz-n9k"/>
+                            <constraint firstAttribute="trailing" secondItem="fKe-xc-v0N" secondAttribute="trailing" id="53Z-ZW-rt4"/>
+                            <constraint firstItem="fKe-xc-v0N" firstAttribute="top" secondItem="tsJ-5b-Ygd" secondAttribute="bottom" id="6Z6-1v-Q7C"/>
+                            <constraint firstItem="fKe-xc-v0N" firstAttribute="leading" secondItem="kz9-ao-Bpr" secondAttribute="leading" id="BBi-tc-DaF"/>
+                            <constraint firstItem="fKe-xc-v0N" firstAttribute="top" secondItem="kz9-ao-Bpr" secondAttribute="top" constant="64" id="ROS-RG-9ZB"/>
+                            <constraint firstItem="fKe-xc-v0N" firstAttribute="leading" secondItem="b5W-Sq-ze5" secondAttribute="leading" id="T3J-ek-DvP"/>
+                            <constraint firstItem="fKe-xc-v0N" firstAttribute="trailing" secondItem="tsJ-5b-Ygd" secondAttribute="trailing" id="c5a-HB-asv"/>
+                            <constraint firstItem="fKe-xc-v0N" firstAttribute="trailing" secondItem="b5W-Sq-ze5" secondAttribute="trailing" id="hma-9b-0Em"/>
+                            <constraint firstItem="fKe-xc-v0N" firstAttribute="leading" secondItem="tsJ-5b-Ygd" secondAttribute="leading" id="mWW-uj-lvn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Qcp-AQ-0H4"/>
+                    </view>
+                    <connections>
+                        <outlet property="camera" destination="JRa-7f-IQ0" id="l7m-sO-846"/>
+                        <outlet property="imagePickerView" destination="fKe-xc-v0N" id="6YM-Z7-RwZ"/>
+                        <outlet property="photoAlbumButton" destination="O8U-2v-04e" id="nZy-Ae-V3P"/>
+                        <outlet property="shareButton" destination="5vq-cp-rZF" id="whn-pU-Pax"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C2x-2c-Q4P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1408.125" y="533.75"/>
         </scene>
         <!--Photo View Controller-->
         <scene sceneID="XgL-ne-N3Z">
@@ -268,7 +337,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VlS-4g-NE3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1461" y="534"/>
+            <point key="canvasLocation" x="2156" y="18"/>
         </scene>
     </scenes>
 </document>
