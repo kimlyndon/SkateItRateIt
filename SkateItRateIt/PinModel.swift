@@ -18,6 +18,8 @@ class PinInfo: NSObject, MKAnnotation {
         self.locationName = locationName
         self.coordinate = coordinate
         
+        
+        
         super.init()
     }
     

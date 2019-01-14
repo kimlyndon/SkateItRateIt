@@ -21,6 +21,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     let newPin =  MKPointAnnotation() //  NOTE KIM:  you don't specifically need to have a class property here, just create a pin and add it to map's pins.
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 10000
+    let annotation = MKPointAnnotation()
     
     
     override func viewDidLoad() {
@@ -97,8 +98,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     
     //Drop pin to current location
     @IBAction func dropIn(_ sender: UIBarButtonItem) {
-        mapView.addAnnotation(newPin) //
-        self.ref.child("Pins").childByAutoId().setValue(["location":["Lat":35.23344, "long":-80.85261]])
+        mapView.addAnnotation(newPin)
+        self.ref.child("Pins").childByAutoId().setValue(["location":["Lat": Double(annotation.coordinate.latitude), "long":Double(annotation.coordinate.longitude)]])
     }
     
     // Long press pin drop
@@ -108,14 +109,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
             let coordinate = self.mapView.convert(point, toCoordinateFrom: self.mapView)
             
             //add map annotation
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = coordinate
+           annotation.coordinate = coordinate
             
             //add annotation to map
             self.mapView.addAnnotation(annotation)
-            self.ref.child("Pins").childByAutoId().setValue(["location":["Lat":35.23344, "long":-80.85261]])
+            self.ref.child("Pins").childByAutoId().setValue(["location":["Lat": Double(annotation.coordinate.latitude), "long":Double(annotation.coordinate.longitude)]])
+            
         }
     }
+    
 }
 
 extension MapViewController: CLLocationManagerDelegate {
