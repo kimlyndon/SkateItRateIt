@@ -9,5 +9,6 @@ target 'SkateItRateIt' do
 pod 'Firebase/Core'
 pod 'Kingfisher'
 pod 'Firebase/Database'
+pod 'Firebase/Storage'
 
 end

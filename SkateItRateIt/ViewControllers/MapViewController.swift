@@ -32,7 +32,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     @IBOutlet weak var mapView: MKMapView!
     
     var ref: DatabaseReference!
-    var pinInfo = [PinModel]() //  NOTE KIM:  you are creating array here, it should be named pin array .. pin info is not right property name.
+    var pinArray = [PinInfo]()
     
     let newPin =  MKPointAnnotation() //  NOTE KIM:  you don't specifically need to have a class property here, just create a pin and add it to map's pins.
     let locationManager = CLLocationManager()
@@ -44,11 +44,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         Database.database().isPersistenceEnabled = true
         ref = Database.database().reference()
         checkLocationServices()
+        self.ref.child("Pins").observeSingleEvent(of: .value, with: { (snapshot) in
+        })
+
+        
         
         /*
-             NOTE KIM: if you want to fetch all of the pins do
-            self.ref.child("Pins").observeSingleEvent(of: .value, with: { (snapshot) in
-        })
+             NOTE KIM: 
          
         - once you have loaded all of the pins you can drop them to the map by a simple add pin method as you ll ilterate the pins you have loaded. e.g. for pin in loadedPins 
          */
@@ -58,6 +60,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        centerViewOnUserLocation()
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithOtherGestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -104,7 +107,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
             locationManager.requestWhenInUseAuthorization()
             break
         case .restricted:
-            // Show an alert how to enable
+            let alertController = UIAlertController(title: "Enable Location Services", message: "This app works only when location services are enabled. Please go to your Settings and enable location services for this app.", preferredStyle: .alert)
+            present(alertController, animated: true, completion: nil)
             break
         case .authorizedAlways:
             break
@@ -114,12 +118,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     //Drop pin to current location
     @IBAction func dropIn(_ sender: UIBarButtonItem) {
         mapView.addAnnotation(newPin) //
-        ref.childByAutoId().setValue([pinInfo]) //TODO: Find the right way to reference database!
-        
-        /*
-             NOTE KIM: For sending data with "Pins" head node
-            self.ref.child("Pins").childByAutoId().setValue(["location":["Lat":35.23344,"long":-80.85261]])
-        */
+        self.ref.child("Pins").childByAutoId().setValue(["location":["Lat":35.23344, "long":-80.85261]])
     }
     
     // Long press pin drop
@@ -134,7 +133,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
             
             //add annotation to map
             self.mapView.addAnnotation(annotation)
-            ref.childByAutoId().setValue([pinInfo]) //TODO: Find the right way to reference database!
+            ref.childByAutoId().setValue(["location":["Lat":35.23344, "long":-80.85261]])
         }
     }
 }
@@ -148,6 +147,7 @@ extension MapViewController: CLLocationManagerDelegate {
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         let region = MKCoordinateRegion.init(center: center, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
         mapView.setRegion(region, animated: true)
+        
         /*  NOTE KIM:
            mapView.setRegion(region, animated: true)
           - you don't need to set map's location here all of the time this delegate method is called. it is updated on user's device location change and you can only use it for storing user's last location only.

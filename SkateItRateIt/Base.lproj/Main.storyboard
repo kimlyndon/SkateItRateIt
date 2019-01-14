@@ -175,7 +175,11 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Tub-BT-JLu"/>
                                     <barButtonItem title="PhotoAlbum" id="q1Q-L3-MrB"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="YnL-be-4II"/>
-                                    <barButtonItem systemItem="camera" id="A9b-Rn-ycy"/>
+                                    <barButtonItem systemItem="camera" id="A9b-Rn-ycy">
+                                        <connections>
+                                            <action selector="cameraButtonPressed" destination="BHC-oE-rax" id="1ns-qB-5Ua"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate It!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3i-DW-6hL">
