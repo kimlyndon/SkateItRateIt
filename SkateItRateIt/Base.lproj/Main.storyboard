@@ -88,6 +88,7 @@
                     <navigationItem key="navigationItem" id="jk2-zg-L36"/>
                     <connections>
                         <outlet property="mapView" destination="EPZ-G4-luR" id="jMK-kq-saf"/>
+                        <segue destination="BHC-oE-rax" kind="presentation" identifier="pin" modalTransitionStyle="crossDissolve" id="8pS-Sw-8G1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -97,7 +98,7 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-478" y="129"/>
+            <point key="canvasLocation" x="-317" y="129"/>
         </scene>
         <!--CSS View Controller-->
         <scene sceneID="0ht-hb-eCd">

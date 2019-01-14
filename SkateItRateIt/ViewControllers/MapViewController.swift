@@ -162,6 +162,10 @@ extension MapViewController: CLLocationManagerDelegate {
         checkLocationAuthorization()
     }
     
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        performSegue(withIdentifier: "pin", sender: self)
+    }
+    
     // Make the annotation a red pin
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
@@ -182,6 +186,7 @@ extension MapViewController: CLLocationManagerDelegate {
         
         return pinView
     }
+    
 }
 
 
