@@ -15,7 +15,7 @@
             <objects>
                 <navigationController id="zKe-34-4cZ" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XXt-E6-e2U">
-                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -231,10 +231,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fKe-xc-v0N" userLabel="ImagePickerView">
-                                <rect key="frame" x="0.0" y="64" width="320" height="372"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="372" id="cYJ-Rk-zm6"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="64" width="320" height="352"/>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tsJ-5b-Ygd">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -255,7 +252,7 @@
                                 </items>
                             </navigationBar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5W-Sq-ze5">
-                                <rect key="frame" x="0.0" y="436" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="416" width="320" height="64"/>
                                 <items>
                                     <barButtonItem systemItem="camera" id="JRa-7f-IQ0">
                                         <connections>

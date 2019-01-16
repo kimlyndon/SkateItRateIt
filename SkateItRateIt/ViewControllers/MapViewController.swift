@@ -94,6 +94,32 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         case .authorizedAlways:
             break
         }
+        //Load Pins: NOT SURE HOW TO REFORMAT THE CODE WITHOUT CORE DATA!
+        
+       /* fileprivate func loadPins() {
+            if let fetchedObjects = fetchedResultsController.fetchedObjects {
+                
+                var annotations = [MKPointAnnotation]()
+                
+                //iterate through fetchedObjects
+                for object in fetchedObjects {
+                    
+                    //gather lat & lon to create coordinates
+                    let lat = CLLocationDegrees(object.latitude)
+                    let long = CLLocationDegrees(object.longitude)
+                    
+                    let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                    
+                    //create annotation
+                    let annotation = MKPointAnnotation()
+                    annotation.coordinate = coordinate
+                    
+                    annotations.append(annotation)
+                }
+                
+                //add annotation to map
+                self.mapView.addAnnotations(annotations)
+            }*/
     }
     
     //Drop pin to current location
@@ -118,6 +144,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         }
     }
     
+   /* func addPin(coordinate: CLLocationCoordinate2D) {
+        let pin = pinArray
+        pin.latitude = coordinate.latitude
+        pin.longitude = coordinate.longitude
+        pin.id = String(arc4random())
+     try! dataController.viewContext.save()  //NOTE: not sure what to do here.
+    }*/
 }
 
 extension MapViewController: CLLocationManagerDelegate {

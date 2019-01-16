@@ -13,10 +13,12 @@ import MapKit
 class PinInfo: NSObject, MKAnnotation {
     let locationName: String
     let coordinate: CLLocationCoordinate2D
+    let userId: String
     
     init(locationName: String, coordinate: CLLocationCoordinate2D) {
         self.locationName = locationName
         self.coordinate = coordinate
+        self.userId = userId
         
         
         
