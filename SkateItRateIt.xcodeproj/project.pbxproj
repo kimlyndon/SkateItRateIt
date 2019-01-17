@@ -88,17 +88,12 @@
 		980DFCFB21A4D487007C60EA /* SkateItRateIt */ = {
 			isa = PBXGroup;
 			children = (
+				98A5C41B21F12ECB00A891B8 /* ModelAndCell */,
 				980DFCFC21A4D487007C60EA /* AppDelegate.swift */,
-				9857341D21E5484400956E38 /* PinModel.swift */,
-				98A5C41721ED025A00A891B8 /* PhotoEditorViewController.swift */,
-				98A5C41921F12A8E00A891B8 /* PhotoCell.swift */,
 				980FBF3121E1758F00CB377C /* ViewControllers */,
 				985733ED21E2901C00956E38 /* WebView */,
-				980DFD0021A4D487007C60EA /* Main.storyboard */,
-				980DFD0621A4D488007C60EA /* Assets.xcassets */,
-				980DFD0821A4D488007C60EA /* LaunchScreen.storyboard */,
-				980DFD0B21A4D488007C60EA /* Info.plist */,
-				9857341A21E53E2700956E38 /* GoogleService-Info.plist */,
+				98A5C41C21F12F2100A891B8 /* SupportingFiles */,
+				98A5C41D21F12F5A00A891B8 /* AssetsImages */,
 			);
 			path = SkateItRateIt;
 			sourceTree = "<group>";
@@ -109,6 +104,7 @@
 				980DFCFE21A4D487007C60EA /* MapViewController.swift */,
 				985733EE21E2908A00956E38 /* PinViewController.swift */,
 				9857340F21E524DA00956E38 /* PhotoViewController.swift */,
+				98A5C41721ED025A00A891B8 /* PhotoEditorViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -119,6 +115,34 @@
 				980FBF3221E175D100CB377C /* CSSViewController.swift */,
 			);
 			path = WebView;
+			sourceTree = "<group>";
+		};
+		98A5C41B21F12ECB00A891B8 /* ModelAndCell */ = {
+			isa = PBXGroup;
+			children = (
+				9857341D21E5484400956E38 /* PinModel.swift */,
+				98A5C41921F12A8E00A891B8 /* PhotoCell.swift */,
+			);
+			path = ModelAndCell;
+			sourceTree = "<group>";
+		};
+		98A5C41C21F12F2100A891B8 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				980DFD0821A4D488007C60EA /* LaunchScreen.storyboard */,
+				980DFD0021A4D487007C60EA /* Main.storyboard */,
+				980DFD0B21A4D488007C60EA /* Info.plist */,
+				9857341A21E53E2700956E38 /* GoogleService-Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		98A5C41D21F12F5A00A891B8 /* AssetsImages */ = {
+			isa = PBXGroup;
+			children = (
+				980DFD0621A4D488007C60EA /* Assets.xcassets */,
+			);
+			path = AssetsImages;
 			sourceTree = "<group>";
 		};
 		C2DF82C7B8C72A34A46DC4FE /* Pods */ = {
