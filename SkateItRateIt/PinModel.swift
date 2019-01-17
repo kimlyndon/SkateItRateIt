@@ -13,12 +13,12 @@ import MapKit
 class PinInfo: NSObject {
     var locationName: String
     var coordinate: CLLocationCoordinate2D
-    var userId: String
+    var rating: String
     
-    init(locationName: String, coordinate: CLLocationCoordinate2D, userId: String) {
+    init(locationName: String, coordinate: CLLocationCoordinate2D, rating: String) {
         self.locationName = locationName
         self.coordinate = coordinate
-        self.userId = userId
+        self.rating = rating
         super.init()
     }
     
@@ -29,7 +29,7 @@ class PinInfo: NSObject {
     init(dictionary : Dictionary<String, Any>){
     
         self.locationName = dictionary["locationNAme"] as! String
-        self.userId = dictionary["userID"] as! String
+        self.rating = dictionary["rating"] as! String
         
         let locationDictionary  =  dictionary["location"] as! Dictionary<String, Any>
         self.coordinate = CLLocationCoordinate2D.init(latitude: locationDictionary["Lat"] as! Double, longitude: locationDictionary["long"]  as! Double)
@@ -39,7 +39,7 @@ class PinInfo: NSObject {
         let  dictionary = [
             "location" : ["Lat":self.coordinate.latitude, "long":self.coordinate.longitude],
             "locationNAme" : self.locationName,
-            "userID" : self.userId
+            "rating" : self.rating
             ] as [String : Any]
        
         return dictionary 

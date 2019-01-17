@@ -18,7 +18,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     var ref: DatabaseReference!
     var pinArray = [PinInfo]()
     
-    let newPin =  MKPointAnnotation() //  NOTE KIM:  you don't specifically need to have a class property here, just create a pin and add it to map's pins.
+    let newPin =  MKPointAnnotation() 
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 10000
     let annotation = MKPointAnnotation()
@@ -90,13 +90,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
             break
         }
         
-        
-        //https://stackoverflow.com/questions/44354730/loading-map-pins-from-firebase-onto-mapkit-in-swift-for-all-users-to-be-able-to SIMILAR PROJECT WITH SAME QUESTION. WOULD THIS BE THE WAY TO GO?
-        
-        //OR ADAPT THE FOLLOWING CODE?
-        
-        //Load Pins: NOT SURE HOW TO REFORMAT THE CODE WITHOUT CORE DATA!
     }
+    
+    //Load Pins:
     
     fileprivate func loadPins()
     {
@@ -120,6 +116,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         //add annotation to map
         self.mapView.addAnnotations(annotations)
     }
+    
     //Drop pin to current location
     @IBAction func dropIn(_ sender: UIBarButtonItem) {
         self.mapView.addAnnotation(self.newPin)
@@ -144,7 +141,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     
     func addPin(coordinate: CLLocationCoordinate2D) {
         
-        let pin = PinInfo.init(locationName: "some name", coordinate: coordinate, userId: "anyid") // create an object of the model you have created. now that it has been initialised you can change any of the individial value of it as well. like pin.locationName etc.
+        let pin = PinInfo.init(locationName: "Skate Spot", coordinate: coordinate, rating: "rating") // create an object of the model you have created. now that it has been initialised you can change any of the individial value of it as well. like pin.locationName etc.
         self.ref.child("Pins").childByAutoId().setValue( pin.makeDictionary() ) // now i have added a method in model class to convert the data store in a model to change into dictionary and then i am sedning to firebase.
         
         // And thats all you got to do to store data to firebase, easy isn't it!
