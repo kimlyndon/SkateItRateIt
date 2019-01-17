@@ -101,7 +101,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         //fetch the data from firebase.
         self.ref.child("Pins").observeSingleEvent(of: .value, with: { (snapshot) in
             
-            //iterate among child
+            //iterate among children
             for child in snapshot.children.allObjects  as! [DataSnapshot]
             {
                 let pin  = PinInfo.init(dictionary:child.value as! Dictionary<String, Any>)

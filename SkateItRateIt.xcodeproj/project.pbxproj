@@ -18,6 +18,7 @@
 		9857341B21E53E2700956E38 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9857341A21E53E2700956E38 /* GoogleService-Info.plist */; };
 		9857341E21E5484400956E38 /* PinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9857341D21E5484400956E38 /* PinModel.swift */; };
 		98A5C41821ED025A00A891B8 /* PhotoEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A5C41721ED025A00A891B8 /* PhotoEditorViewController.swift */; };
+		98A5C41A21F12A8E00A891B8 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A5C41921F12A8E00A891B8 /* PhotoCell.swift */; };
 		A0B11A652E2EF2DAB6CC1780 /* Pods_SkateItRateIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CD6B16CEAECA018B9B0AD33 /* Pods_SkateItRateIt.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		9857341A21E53E2700956E38 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9857341D21E5484400956E38 /* PinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinModel.swift; sourceTree = "<group>"; };
 		98A5C41721ED025A00A891B8 /* PhotoEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditorViewController.swift; sourceTree = "<group>"; };
+		98A5C41921F12A8E00A891B8 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		F14A9E9260B9735F66AF2698 /* Pods-SkateItRateIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkateItRateIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SkateItRateIt/Pods-SkateItRateIt.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,6 +91,7 @@
 				980DFCFC21A4D487007C60EA /* AppDelegate.swift */,
 				9857341D21E5484400956E38 /* PinModel.swift */,
 				98A5C41721ED025A00A891B8 /* PhotoEditorViewController.swift */,
+				98A5C41921F12A8E00A891B8 /* PhotoCell.swift */,
 				980FBF3121E1758F00CB377C /* ViewControllers */,
 				985733ED21E2901C00956E38 /* WebView */,
 				980DFD0021A4D487007C60EA /* Main.storyboard */,
@@ -261,6 +264,7 @@
 				980DFCFD21A4D487007C60EA /* AppDelegate.swift in Sources */,
 				980FBF3321E175D100CB377C /* CSSViewController.swift in Sources */,
 				985733EF21E2908A00956E38 /* PinViewController.swift in Sources */,
+				98A5C41A21F12A8E00A891B8 /* PhotoCell.swift in Sources */,
 				98A5C41821ED025A00A891B8 /* PhotoEditorViewController.swift in Sources */,
 				9857341E21E5484400956E38 /* PinModel.swift in Sources */,
 				9857341021E524DA00956E38 /* PhotoViewController.swift in Sources */,
