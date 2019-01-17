@@ -31,12 +31,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         ref = Database.database().reference()
         checkLocationServices()
     }
-        
-        /*
-             NOTE KIM: 
-         
-        - once you have loaded all of the pins you can drop them to the map by a simple add pin method as you ll ilterate the pins you have loaded. e.g. for pin in loadedPins.   Isn't this completed in the dropIn and getTouchLocation?
-         */
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -94,6 +88,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         case .authorizedAlways:
             break
         }
+        
+        
+        //https://stackoverflow.com/questions/44354730/loading-map-pins-from-firebase-onto-mapkit-in-swift-for-all-users-to-be-able-to SIMILAR PROJECT WITH SAME QUESTION. WOULD THIS BE THE WAY TO GO?
+        
+        //OR ADAPT THE FOLLOWING CODE?
+        
         //Load Pins: NOT SURE HOW TO REFORMAT THE CODE WITHOUT CORE DATA!
         
        /* fileprivate func loadPins() {
@@ -120,12 +120,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
                 //add annotation to map
                 self.mapView.addAnnotations(annotations)
             }*/
+        
+
     }
     
     //Drop pin to current location
     @IBAction func dropIn(_ sender: UIBarButtonItem) {
-        mapView.addAnnotation(newPin)
-        self.ref.child("Pins").childByAutoId().setValue(["location":["Lat": Double(annotation.coordinate.latitude), "long":Double(annotation.coordinate.longitude)]])
+        self.mapView.addAnnotation(self.newPin)
+        self.ref.child("Pins").childByAutoId().setValue(["location":["Lat": Double(self.annotation.coordinate.latitude), "long":Double(annotation.coordinate.longitude)]])
     }
     
     // Long press pin drop
@@ -135,11 +137,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
             let coordinate = self.mapView.convert(point, toCoordinateFrom: self.mapView)
             
             //add map annotation
-           annotation.coordinate = coordinate
+            self.annotation.coordinate = coordinate
             
             //add annotation to map
-            self.mapView.addAnnotation(annotation)
-            self.ref.child("Pins").childByAutoId().setValue(["location":["Lat": Double(annotation.coordinate.latitude), "long":Double(annotation.coordinate.longitude)]])
+            self.mapView.addAnnotation(self.annotation)
+            self.ref.child("Pins").childByAutoId().setValue(["location":["Lat": Double(self.annotation.coordinate.latitude), "long":Double(annotation.coordinate.longitude)]])
             
         }
     }
@@ -148,7 +150,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         let pin = pinArray
         pin.latitude = coordinate.latitude
         pin.longitude = coordinate.longitude
-        pin.id = String(arc4random())
+        pin.userId = String(arc4random())
      try! dataController.viewContext.save()  //NOTE: not sure what to do here.
     }*/
 }

@@ -15,7 +15,7 @@ class PinInfo: NSObject, MKAnnotation {
     let coordinate: CLLocationCoordinate2D
     let userId: String
     
-    init(locationName: String, coordinate: CLLocationCoordinate2D) {
+    init(locationName: String, coordinate: CLLocationCoordinate2D, userId: String) {
         self.locationName = locationName
         self.coordinate = coordinate
         self.userId = userId
