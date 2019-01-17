@@ -5,6 +5,7 @@
 //  Created by Kim Lyndon on 1/8/19.
 //  Copyright © 2019 Kim Lyndon. All rights reserved.
 //
+// dictionary init code attributed to Fahad Shafique
 
 
 import Foundation
@@ -28,7 +29,7 @@ class PinInfo: NSObject {
     
     init(dictionary : Dictionary<String, Any>){
     
-        self.locationName = dictionary["locationNAme"] as! String
+        self.locationName = dictionary["locationName"] as! String
         self.rating = dictionary["rating"] as! String
         
         let locationDictionary  =  dictionary["location"] as! Dictionary<String, Any>
@@ -38,7 +39,7 @@ class PinInfo: NSObject {
     func makeDictionary() -> Dictionary<String, Any>  {
         let  dictionary = [
             "location" : ["Lat":self.coordinate.latitude, "long":self.coordinate.longitude],
-            "locationNAme" : self.locationName,
+            "locationName" : self.locationName,
             "rating" : self.rating
             ] as [String : Any]
        

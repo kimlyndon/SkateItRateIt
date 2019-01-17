@@ -5,6 +5,7 @@
 //  Created by Kim Lyndon on 11/20/18.
 //  Copyright © 2018 Kim Lyndon. All rights reserved.
 //
+//  loadPin method code for Firebase attributed to Fahad Shafique
 
 import UIKit
 import MapKit
@@ -68,7 +69,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         }
     }
     
-    // What level did the user authorize?
+    // Check level of user authorization
     func checkLocationAuthorization() {
         switch CLLocationManager.authorizationStatus() {
         case .authorizedWhenInUse:
@@ -93,20 +94,26 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     }
     
     //Load Pins:
-    
-    fileprivate func loadPins()
-    {
+    fileprivate func loadPins() {
+        
        var annotations = [MKPointAnnotation]()
         
-        self.ref.child("Pins").observeSingleEvent(of: .value, with: { (snapshot) in // that's is how we fetch the data from firebase.
+        //fetch the data from firebase.
+        self.ref.child("Pins").observeSingleEvent(of: .value, with: { (snapshot) in
             
-            for child in snapshot.children.allObjects  as! [DataSnapshot] // here we are iterating among different child we wll be getting formt he firebase
+            //iterate among child
+            for child in snapshot.children.allObjects  as! [DataSnapshot]
             {
-                let pin  = PinInfo.init(dictionary:child.value as! Dictionary<String, Any>) // i have created a new inintialiser for pininfo sp that you can send in dictionary fetched from the firebase and you can create a model out of it.
-                self.pinArray.append(pin) // adding to the array so that it can be used later in the controller.
+                let pin  = PinInfo.init(dictionary:child.value as! Dictionary<String, Any>)
+                
+                //add to the array
+                self.pinArray.append(pin)
+                
                 //create annotation
                 let annotation = MKPointAnnotation()
-                annotation.coordinate = pin.coordinate // user created pin coorodates to give coordinates to map. 
+                
+                // user created pin coorodates to give coordinates to map.
+                annotation.coordinate = pin.coordinate
                 
                 annotations.append(annotation)
             }
@@ -134,17 +141,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
             
             //add annotation to map
             self.mapView.addAnnotation(self.annotation)
-            self.ref.child("Pins").childByAutoId().setValue(["location":["Lat": Double(self.annotation.coordinate.latitude), "long":Double(annotation.coordinate.longitude)]]) // its better if you create a pininfo object and send that to firebase because that is what you got to be using. just like i did in add pin method.
-            
+            self.ref.child("Pins").childByAutoId().setValue(["location":["Lat": Double(self.annotation.coordinate.latitude), "long":Double(annotation.coordinate.longitude)]])
         }
     }
     
     func addPin(coordinate: CLLocationCoordinate2D) {
         
-        let pin = PinInfo.init(locationName: "Skate Spot", coordinate: coordinate, rating: "rating") // create an object of the model you have created. now that it has been initialised you can change any of the individial value of it as well. like pin.locationName etc.
-        self.ref.child("Pins").childByAutoId().setValue( pin.makeDictionary() ) // now i have added a method in model class to convert the data store in a model to change into dictionary and then i am sedning to firebase.
-        
-        // And thats all you got to do to store data to firebase, easy isn't it!
+        // create an object of the model
+        let pin = PinInfo.init(locationName: "some name", coordinate: coordinate, rating: "rating")
+        self.ref.child("Pins").childByAutoId().setValue( pin.makeDictionary() )
     }
 }
 
