@@ -88,8 +88,8 @@
 		980DFCFB21A4D487007C60EA /* SkateItRateIt */ = {
 			isa = PBXGroup;
 			children = (
-				98A5C41B21F12ECB00A891B8 /* ModelAndCell */,
 				980DFCFC21A4D487007C60EA /* AppDelegate.swift */,
+				98A5C41B21F12ECB00A891B8 /* ModelAndCell */,
 				980FBF3121E1758F00CB377C /* ViewControllers */,
 				985733ED21E2901C00956E38 /* WebView */,
 				98A5C41C21F12F2100A891B8 /* SupportingFiles */,
@@ -440,7 +440,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 87T6RG3PX5;
-				INFOPLIST_FILE = SkateItRateIt/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SkateItRateIt/SupportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -459,7 +459,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 87T6RG3PX5;
-				INFOPLIST_FILE = SkateItRateIt/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SkateItRateIt/SupportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

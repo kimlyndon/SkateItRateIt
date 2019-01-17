@@ -216,6 +216,7 @@
                     </view>
                     <connections>
                         <outlet property="doneButton" destination="gN2-EV-Rhe" id="aJc-Z9-Hmj"/>
+                        <outlet property="picker" destination="ezN-7A-hxI" id="vRY-Uv-mhy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pwr-lq-UJy" userLabel="First Responder" sceneMemberID="firstResponder"/>
