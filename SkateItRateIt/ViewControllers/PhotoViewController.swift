@@ -54,7 +54,7 @@ class PhotoViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("***Collection View: Number of items in section***")
-        return imageView.numberOfObjects ?? 3
+        return photoView.numberOfObjects ?? 3 //TODO: Fix this
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -73,10 +73,10 @@ class PhotoViewController: UICollectionViewController {
         cell.backgroundColor = UIColor.darkGray
         cell.imageView.alpha = 0.5
         cell.addSubview(activityIndicator)
-        cell.imageView.image = #imageLiteral(resourceName: "VirtualTourist_1024")
+        cell.imageView.image = #imageLiteral(resourceName: "Screen Shot 2019-01-02 at 1.13.10 PM")
         activityIndicator.startAnimating()
         
-        let aPhoto = ImageView.object(at: indexPath)
+        let aPhoto =  .object(indexPath) //TODO: Finish this
         
         if aPhoto.image != nil {
             
@@ -85,8 +85,8 @@ class PhotoViewController: UICollectionViewController {
             activityIndicator.stopAnimating()
             activityIndicator.hidesWhenStopped = true
             return cell
+        }
+    }
 }
-}
-}
-            
+
  
