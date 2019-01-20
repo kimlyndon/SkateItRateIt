@@ -54,7 +54,7 @@ class PhotoViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("***Collection View: Number of items in section***")
-        return photoView.numberOfObjects ?? 3 //TODO: Fix this
+        return photoView.numberOfObjects ?? 3 //TODO: Fix this (number of images per row)
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -76,7 +76,7 @@ class PhotoViewController: UICollectionViewController {
         cell.imageView.image = #imageLiteral(resourceName: "Screen Shot 2019-01-02 at 1.13.10 PM")
         activityIndicator.startAnimating()
         
-        let aPhoto =  .object(indexPath) //TODO: Finish this
+        let aPhoto =  .object(indexPath) //TODO: Finish this (data to display)
         
         if aPhoto.image != nil {
             

@@ -25,13 +25,13 @@ class PhotoEditorViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     
-    /*private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+  /*  private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imagePickerView.image = image
         }
         
         self.dismiss(animated: true, completion: nil)
-    }*/
+    } */
     
     func pick(sourceType: UIImagePickerController.SourceType) {
         let imagePicker = UIImagePickerController()
@@ -59,7 +59,10 @@ class PhotoEditorViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         //TODO: Code for saving
+     let pictureViewController = PhotoViewController()
+        present(pictureViewController, animated: true, completion: nil)
     }
+    
     
     
     @IBAction func cameraButtonPressed() {
