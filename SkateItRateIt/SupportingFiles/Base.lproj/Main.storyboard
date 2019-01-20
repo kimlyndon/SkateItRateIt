@@ -15,7 +15,7 @@
             <objects>
                 <navigationController id="zKe-34-4cZ" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XXt-E6-e2U">
-                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -244,9 +244,9 @@
                                                 <action selector="backButtonPressed:" destination="616-EY-N3l" id="g1q-Bs-E4I"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="OVD-2K-8GK">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="OVD-2K-8GK">
                                             <connections>
-                                                <action selector="editButtonPressed:" destination="616-EY-N3l" id="SdE-NK-epH"/>
+                                                <action selector="saveButtonPressed:" destination="616-EY-N3l" id="dcC-KD-jhH"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -304,9 +304,9 @@
                     <connections>
                         <outlet property="backButton" destination="fym-4h-RXA" id="Eph-IE-6H7"/>
                         <outlet property="camera" destination="JRa-7f-IQ0" id="l7m-sO-846"/>
-                        <outlet property="editButton" destination="OVD-2K-8GK" id="Etk-k6-egc"/>
                         <outlet property="imagePickerView" destination="fKe-xc-v0N" id="6YM-Z7-RwZ"/>
                         <outlet property="photoAlbumButton" destination="O8U-2v-04e" id="nZy-Ae-V3P"/>
+                        <outlet property="saveButton" destination="OVD-2K-8GK" id="BHU-UZ-fma"/>
                         <outlet property="shareButton" destination="5vq-cp-rZF" id="whn-pU-Pax"/>
                     </connections>
                 </viewController>

@@ -12,7 +12,7 @@ class PhotoEditorViewController: UIViewController, UIImagePickerControllerDelega
 
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var backButton: UIBarButtonItem!
-    @IBOutlet weak var editButton: UIBarButtonItem!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var camera: UIBarButtonItem!
     @IBOutlet weak var photoAlbumButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
@@ -51,18 +51,14 @@ class PhotoEditorViewController: UIViewController, UIImagePickerControllerDelega
         return newImage
     }
     
-    func save() {
-        //TODO: save images when shared button utilized.
-        
-    }
     
     @IBAction func backButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
     
-    @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
-        //TODO: Code for editing
+    @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
+        //TODO: Code for saving
     }
     
     
