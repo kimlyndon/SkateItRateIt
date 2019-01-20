@@ -40,7 +40,7 @@ class PhotoViewController: UICollectionViewController {
         
     }
     
- /*   // MARK: - COLLECTION VIEW
+    // MARK: - COLLECTION VIEW
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
@@ -52,12 +52,12 @@ class PhotoViewController: UICollectionViewController {
     }
     
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("***Collection View: Number of items in section***")
-        return photoView.numberOfObjects ?? 3
+        return imageView.numberOfObjects ?? 3
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if indexPath.item == 3 {
             print("***Collection View: Cell For Row at Index Path***")
@@ -76,18 +76,17 @@ class PhotoViewController: UICollectionViewController {
         cell.imageView.image = #imageLiteral(resourceName: "VirtualTourist_1024")
         activityIndicator.startAnimating()
         
-        let aPhoto = image.object(at: indexPath)
+        let aPhoto = ImageView.object(at: indexPath)
         
         if aPhoto.image != nil {
             
-            cell.photoView.image = UIImage(data: aPhoto.image!)
-            cell.photoView.alpha = 1.0
+            cell.imageView.image = UIImage(data: aPhoto.image!)
+            cell.imageView.alpha = 1.0
             activityIndicator.stopAnimating()
             activityIndicator.hidesWhenStopped = true
             return cell
-            
-        } else { */
-            
-    
 }
-
+}
+}
+            
+ 

@@ -141,7 +141,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
             
             //add annotation to map
             self.mapView.addAnnotation(self.annotation)
-            self.ref.child("Pins").childByAutoId().setValue(["location":["Lat": Double(self.annotation.coordinate.latitude), "long":Double(annotation.coordinate.longitude)]])
+            self.ref.child("Pins").childByAutoId().setValue(["location":["Lat": Double(self.annotation.coordinate.latitude), "long":Double(annotation.coordinate.longitude)]]) //TODO: Change this to match the addPin codek
         }
     }
     
