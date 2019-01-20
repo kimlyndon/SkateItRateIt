@@ -76,7 +76,7 @@ class PhotoEditorViewController: UIViewController, UIImagePickerControllerDelega
         let images = generateImage()
         let activityViewController = UIActivityViewController(activityItems: [images], applicationActivities: nil)
         activityViewController.completionWithItemsHandler = {activity, didComplete, item, error in if didComplete {
-            self.save()
+            self.saveButtonPressed(self.saveButton)
             self.dismiss(animated: true, completion: nil)
             self.navigationController?.popViewController(animated: true)
             }
