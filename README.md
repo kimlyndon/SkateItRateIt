@@ -33,7 +33,7 @@
 #### Image Citation
 The AppIcon image is of the Foundation Spot in Asheville, NC. Photography credit goes to Eclipse Carbon (Aug. 2016)
 
-<img src = 
+<img src = "images/github-small.png"
       
 The Launch Screen image is an original artwork by my 6 year old daughter who loves to skate with her daddy. 
 
