@@ -12,14 +12,15 @@ import Foundation
 import MapKit
 
 class PinInfo: NSObject {
-    var locationName: String
-    var coordinate: CLLocationCoordinate2D
-    var rating: String
+    var locationName: String?
+    var coordinate: CLLocationCoordinate2D?
+    var rating: [Int]?
+    var id: String?
+    var photoUrl: [String]?
     
-    init(locationName: String, coordinate: CLLocationCoordinate2D, rating: String) {
+    init(locationName: String, coordinate: CLLocationCoordinate2D) {
         self.locationName = locationName
         self.coordinate = coordinate
-        self.rating = rating
         super.init()
     }
     
@@ -28,9 +29,15 @@ class PinInfo: NSObject {
     }
     
     init(dictionary : Dictionary<String, Any>){
-    
-        self.locationName = dictionary["locationName"] as! String
-        self.rating = dictionary["rating"] as! String
+        if let spot = dictionary["locationName"] as? String {
+            self.locationName = spot
+        }
+       
+       /* if let rate = dictionary["rating"] as? String{
+            self.rating = rate
+        }*/
+        
+        
         
         let locationDictionary  =  dictionary["location"] as! Dictionary<String, Any>
         self.coordinate = CLLocationCoordinate2D.init(latitude: locationDictionary["Lat"] as! Double, longitude: locationDictionary["long"]  as! Double)
@@ -38,7 +45,7 @@ class PinInfo: NSObject {
     
     func makeDictionary() -> Dictionary<String, Any>  {
         let  dictionary = [
-            "location" : ["Lat":self.coordinate.latitude, "long":self.coordinate.longitude],
+            "location" : ["Lat":self.coordinate?.latitude, "long":self.coordinate?.longitude],
             "locationName" : self.locationName,
             "rating" : self.rating
             ] as [String : Any]
