@@ -135,13 +135,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         if gestureRecognizer.state == .began {
             let point = gestureRecognizer.location(in: self.mapView)
             let coordinate = self.mapView.convert(point, toCoordinateFrom: self.mapView)
+            let pin = PinInfo.init(locationName: "some name", coordinate: coordinate, rating: "rating")
             
             //add map annotation
             self.annotation.coordinate = coordinate
             
             //add annotation to map
             self.mapView.addAnnotation(self.annotation)
-            self.ref.child("Pins").childByAutoId().setValue(["location":["Lat": Double(self.annotation.coordinate.latitude), "long":Double(annotation.coordinate.longitude)]]) //TODO: Change this to match the addPin codek
+            
+            self.ref.child("Pins").childByAutoId().setValue( pin.makeDictionary() )
         }
     }
     
@@ -171,6 +173,7 @@ extension MapViewController: CLLocationManagerDelegate {
         checkLocationAuthorization()
     }
     
+    //Segue to ReviewViewController when user taps pin
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         performSegue(withIdentifier: "pin", sender: self)
     }
