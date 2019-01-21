@@ -20,7 +20,7 @@
   This scene allows the user to choose from the camera option to take a photo, choose an image from the photo album, share that image to social media or through e-mail and text, and save the image to the persisted collection view. The user can navigate back to the previous screen and then back to the map if preferred, depending on the order in which the user decides to use the app. 
   
 ### Photo View
-  This is the saved and persisted photo collection associated with each "Spot." As more users save photos, the collection will grow. There is currently no option to remove photos but this option will be available in a later update. 
+  This is the saved and persisted photo collection associated with each "Spot." As more users save photos, the collection will grow. There is currently no option to remove photos but this option will be available in a later update. Once the user is finished viewing images, the "Done" button will take them back to the previous scene. 
   
   
 ## How To: 
@@ -45,11 +45,11 @@ The AppIcon image is of the Foundation Spot in Asheville, NC. Photography credit
       
 The Launch Screen image is an original artwork by my 6 year old daughter who loves to skate with her daddy. 
 
-<img src = "images/IMG_7307.jpg" height="100">
+<img src = "images/IMG_7307.jpg" width="80">
 
 The ebay.com store belongs to Jeremy Lyndon (husband).  
 
-![](images/Screen%20Shot%202019-01-02%20at%201.13.10%20PM.png)
+<img src = "images/Screen%20Shot%202019-01-02%20at%201.13.10%20PM.png" width="80">
       
 
 
