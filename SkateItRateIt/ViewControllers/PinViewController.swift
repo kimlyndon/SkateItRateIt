@@ -11,8 +11,8 @@ import UIKit
 class PinViewController: UIViewController, UINavigationControllerDelegate {
     
    
+    @IBOutlet weak var getDirectionsButton: UIBarButtonItem!
     @IBOutlet weak var doneButton: UIBarButtonItem!
-    
     @IBOutlet weak var picker: UIPickerView!
     
     let reviews = ["Lame! Don't waste your gas. 😒",
@@ -53,7 +53,14 @@ class PinViewController: UIViewController, UINavigationControllerDelegate {
         view.endEditing(true)
     }
     
+    @IBAction func getDirections(_ sender: UIBarButtonItem) {
+    }
+    
+    
+    
+    
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
+         dismiss(animated: true, completion: nil)
     }
 }
     
