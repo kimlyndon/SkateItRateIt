@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 class PhotoEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+    
+    var storageRef: StorageReference!
+    let imageCache = NSCache<NSString, UIImage>()
 
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var backButton: UIBarButtonItem!
@@ -18,6 +22,7 @@ class PhotoEditorViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var shareButton: UIBarButtonItem!
     
     var imagePicker = UIImagePickerController()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +37,9 @@ class PhotoEditorViewController: UIViewController, UIImagePickerControllerDelega
         
         self.dismiss(animated: true, completion: nil)
     } */
+    func configureStorage() {
+        storageRef = Storage.storage().reference()
+    }
     
     func pick(sourceType: UIImagePickerController.SourceType) {
         let imagePicker = UIImagePickerController()
@@ -51,6 +59,22 @@ class PhotoEditorViewController: UIViewController, UIImagePickerControllerDelega
         return newImage
     }
     
+    func uploadPhotos(photoData: Data) {
+        // build a path using the user’s ID and a timestamp
+        let imagePath = "spot_photos/" + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpg"
+        // set content type to “image/jpeg” in firebase storage metadata
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
+        // create a child node at imagePath with imageData and metadata
+        storageRef!.child(imagePath).putData(photoData, metadata: metadata) { (metadata, error) in
+            if error != nil {
+                print("Error uploading photo")
+                return
+            }
+            // use sendMessage to add imageURL to database
+           /* self.sendMessage(data: [Constants.MessageFields.imageUrl: self.storageRef!.child((metadata?.path)!).description])*/
+        }
+    }
     
     @IBAction func backButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
