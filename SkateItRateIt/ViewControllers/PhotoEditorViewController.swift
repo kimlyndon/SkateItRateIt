@@ -25,7 +25,7 @@ class PhotoEditorViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     
-  /*  private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+  /* private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imagePickerView.image = image
         }
@@ -51,6 +51,11 @@ class PhotoEditorViewController: UIViewController, UIImagePickerControllerDelega
         return newImage
     }
     
+    func save() {
+        //TODO: code to save chosen images to collection view.
+        
+    }
+    
     
     @IBAction func backButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -58,20 +63,22 @@ class PhotoEditorViewController: UIViewController, UIImagePickerControllerDelega
     
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
-        //TODO: Code for saving to collectionView
      let pictureViewController = PhotoViewController()
         present(pictureViewController, animated: true, completion: nil)
+        save()
     }
     
     
     
     @IBAction func cameraButtonPressed() {
       pick(sourceType: .camera)
+        save()
     }
     
     @IBAction func pickAnImageFromAlbum(_ sender: UIBarButtonItem) {
         pick(sourceType: .photoLibrary)
         imagePicker.allowsEditing = true
+        save()
         present(imagePicker, animated: true, completion: nil)
     }
     

@@ -53,6 +53,7 @@ class PhotoViewController: UICollectionViewController {
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        let photoView = PhotoViewController()
         print("***Collection View: Number of items in section***")
         return photoView.numberOfObjects ?? 3 //TODO: Fix this (number of images per row)
     }
