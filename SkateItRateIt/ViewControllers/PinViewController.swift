@@ -36,7 +36,7 @@ class PinViewController: UIViewController, UIImagePickerControllerDelegate, UIPi
         self.picker.dataSource = self
         
         //Input the data into the array
-        pickerData = [""] //TODO: Determine review options for positive, neutral, and negative reviews.
+        pickerData = ["Lame! Don't waste your gas. 😒", "Needs improvement. 🤨", "Worth the trip! 😎", "Sick! 😜", "Gnarley! Gotta try it! 🤩"]
     }
     
     override func didReceiveMemoryWarning() {
