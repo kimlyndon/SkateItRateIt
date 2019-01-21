@@ -33,14 +33,14 @@
 #### Image Citation
 The AppIcon image is of the Foundation Spot in Asheville, NC. Photography credit goes to Eclipse Carbon (Aug. 2016)
 
-![](images/Screen%20Shot%202019-01-21%20at%201.28.27%20PM.png)
-![](images/Screen%20Shot%202019-01-21%20at%201.38.54%20PM.png)
+<img src = "images/Screen%20Shot%202019-01-21%20at%201.28.27%20PM.png" width="200">
+<img src = "images/Screen%20Shot%202019-01-21%20at%201.38.54%20PM.png" width="150">
       
 The Launch Screen image is an original artwork by my 6 year old daughter who loves to skate with her daddy. 
 
-![](images/IMG_7307.jpg)
+<img src = "images/IMG_7307.jpg" height="100">
 
-The ebay.com store blongs to Jeremy Lyndon (husband).  
+The ebay.com store belongs to Jeremy Lyndon (husband).  
 
 ![](images/Screen%20Shot%202019-01-02%20at%201.13.10%20PM.png)
       
