@@ -30,6 +30,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         mapView.showsUserLocation = true
         Database.database().isPersistenceEnabled = true
         ref = Database.database().reference()
+        ref.keepSynced(true)
         checkLocationServices()
         self.loadPins()
     }
