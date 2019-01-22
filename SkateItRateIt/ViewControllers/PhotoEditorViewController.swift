@@ -9,9 +9,10 @@
 import UIKit
 import FirebaseStorage
 
-class PhotoEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+class PhotoEditorViewController: UIViewController,  UINavigationControllerDelegate  {
     
     var storageRef: StorageReference!
+    let storage = Storage.storage()
     let imageCache = NSCache<NSString, UIImage>()
 
     @IBOutlet weak var imagePickerView: UIImageView!
@@ -23,21 +24,12 @@ class PhotoEditorViewController: UIViewController, UIImagePickerControllerDelega
     
     var imagePicker = UIImagePickerController()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureStorage()
         imagePicker.delegate = self
     }
     
-    
-  /* private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            imagePickerView.image = image
-        }
-        
-        self.dismiss(animated: true, completion: nil)
-    } */
     func configureStorage() {
         storageRef = Storage.storage().reference()
     }
@@ -60,22 +52,6 @@ class PhotoEditorViewController: UIViewController, UIImagePickerControllerDelega
         return newImage
     }
     
-    func uploadPhotos(photoData: Data) {
-        // build a path using the user’s ID and a timestamp
-        let imagePath = "spot_photos/" + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpg"
-        // set content type to “image/jpeg” in firebase storage metadata
-        let metadata = StorageMetadata()
-        metadata.contentType = "image/jpeg"
-        // create a child node at imagePath with imageData and metadata
-        storageRef!.child(imagePath).putData(photoData, metadata: metadata) { (metadata, error) in
-            if error != nil {
-                print("Error uploading photo")
-                return
-            }
-            // use sendMessage to add imageURL to database
-           /* self.sendMessage(data: [Constants.MessageFields.imageUrl: self.storageRef!.child((metadata?.path)!).description])*/
-        }
-    }
     
     @IBAction func backButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -89,10 +65,9 @@ class PhotoEditorViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     
-    
     @IBAction func cameraButtonPressed() {
       pick(sourceType: .camera)
-        
+    
     }
     
     @IBAction func pickAnImageFromAlbum(_ sender: UIBarButtonItem) {
@@ -115,3 +90,44 @@ class PhotoEditorViewController: UIViewController, UIImagePickerControllerDelega
         
     }
 }
+
+extension PhotoEditorViewController: UIImagePickerControllerDelegate {
+
+    
+    private func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: AnyObject]) {
+        
+        // constant to hold the information about the photo
+        if let photo = info[UIImagePickerControllerOriginalImage] as? UIImage, let photoData = UIImageJPEGRepresentation(photo, 0.8) {
+            
+            // call function to upload photo message
+            uploadPhotos(photoData: photoData)
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func uploadPhotos(photoData: Data) {
+        
+        // build a path using the user’s ID and a timestamp
+        let imagePath = "spot_photos/" + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpg"
+        
+        // set content type to “image/jpeg” in firebase storage metadata
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
+        
+        // create a child node at imagePath with imageData and metadata
+        storageRef!.child(imagePath).putData(photoData, metadata: metadata) { (metadata, error) in
+            if error != nil {
+                print("Error uploading photo")
+                return
+            }
+            // add imageURL to database
+            self.saveButton([PinInfo.photoUrl: self.storageRef!.child((metadata?.path)!).description])
+        }
+}
+
+}
+

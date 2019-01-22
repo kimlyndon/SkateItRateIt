@@ -27,13 +27,13 @@ class PinViewController: UIViewController, UINavigationControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         createReviewPicker()
+        picker.delegate = self
         createToolbar()
     }
     
     func createReviewPicker() {
         let reviewPicker = UIPickerView()
         reviewPicker.delegate = self
-        picker.inputView = reviewPicker
     }
     
     func createToolbar() {
@@ -45,8 +45,6 @@ class PinViewController: UIViewController, UINavigationControllerDelegate {
         
         toolBar.setItems([doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
-        
-        picker.inputAccessoryView = toolBar
     }
     
     @objc func dismissKeyboard() {
@@ -84,9 +82,7 @@ extension PinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     // Capture the picker view selection
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
         selectedReview = reviews[row]
-        picker.textInputMode = selectedReview
         
     }
 
