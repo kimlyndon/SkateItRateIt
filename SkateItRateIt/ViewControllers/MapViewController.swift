@@ -106,15 +106,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
             for child in snapshot.children.allObjects  as! [DataSnapshot]
             {
                 let pin  = PinInfo.init(dictionary:child.value as! Dictionary<String, Any>)
+                pin.id = child.key
                 
                 //add to the array
                 self.pinArray.append(pin)
                 
                 //create annotation
                 let annotation = MKPointAnnotation()
+                annotation.title = "View Rating"
+                annotation.subtitle = "Get Directions" //TODO: Add means to get actual directions
                 
-                // user created pin coorodates to give coordinates to map.
-                annotation.coordinate = pin.coordinate
+                // user created pin coordinates to add on map.
+                annotation.coordinate = pin.coordinate!
                 
                 annotations.append(annotation)
             }
@@ -136,7 +139,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         if gestureRecognizer.state == .began {
             let point = gestureRecognizer.location(in: self.mapView)
             let coordinate = self.mapView.convert(point, toCoordinateFrom: self.mapView)
-            let pin = PinInfo.init(locationName: "some name", coordinate: coordinate, rating: "rating")
+            let pin = PinInfo.init(locationName: "Spot", coordinate: coordinate)
             
             //add map annotation
             self.annotation.coordinate = coordinate
@@ -151,7 +154,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     func addPin(coordinate: CLLocationCoordinate2D) {
         
         // create an object of the model
-        let pin = PinInfo.init(locationName: "some name", coordinate: coordinate, rating: "rating")
+        let pin = PinInfo.init(locationName: "some name", coordinate: coordinate)
         self.ref.child("Pins").childByAutoId().setValue( pin.makeDictionary() )
     }
 }

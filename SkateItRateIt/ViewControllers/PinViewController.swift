@@ -8,8 +8,68 @@
 
 import UIKit
 
-class PinViewController: UIViewController, UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UINavigationControllerDelegate {
+class PinViewController: UIViewController, UINavigationControllerDelegate {
     
+   
+    @IBOutlet weak var getDirectionsButton: UIBarButtonItem!
+    @IBOutlet weak var doneButton: UIBarButtonItem!
+    @IBOutlet weak var textField: UITextField!
+    
+    
+    let reviews = ["Lame! Don't waste your gas. 😒",
+                   "Needs improvement. 🤨",
+                   "Worth the trip! 😎",
+                   "Sick! 😜",
+                   "Gnarley! Gotta try it! 🤩"]
+    
+    var selectedReview: String?
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        createReviewPicker()
+        //picker.delegate = self
+        createToolbar()
+    }
+    
+    func createReviewPicker() {
+        let reviewPicker = UIPickerView()
+        reviewPicker.delegate = self
+        
+        textField.inputView = reviewPicker
+    }
+    
+    func createToolbar() {
+        
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(PinViewController.dismissKeyboard))
+        
+        toolBar.setItems([doneButton], animated: true)
+        toolBar.isUserInteractionEnabled = true
+        
+        textField.inputAccessoryView = toolBar
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    @IBAction func getDirections(_ sender: UIBarButtonItem) {
+    }
+    
+    
+    
+    
+    @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
+         dismiss(animated: true, completion: nil)
+    }
+}
+    
+
+extension PinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+
     //Number of columns of data in picker
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -17,44 +77,19 @@ class PinViewController: UIViewController, UIImagePickerControllerDelegate, UIPi
     
     //Number of rows of data in picker
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
+        return reviews.count
     }
     
-    
-    
-    @IBOutlet weak var doneButton: UIBarButtonItem!
-    @IBOutlet weak var picker: UIPickerView!
-    
-    var pickerData: [String] = [String]()
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        //Connect data
-        self.picker.delegate = self
-        self.picker.dataSource = self
-        
-        //Input the data into the array
-        pickerData = ["Lame! Don't waste your gas. 😒", "Needs improvement. 🤨", "Worth the trip! 😎", "Sick! 😜", "Gnarley! Gotta try it! 🤩"]
+    // The data to return for the row and component (column) that's being passed in
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return reviews[row]
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
-        // The data to return for the row and component (column) that's being passed in
-        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-            return pickerData[row]
-        }
-        
-        // Capture the picker view selection
-        func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        }
-    }
-    
-    
-    @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+    // Capture the picker view selection
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedReview = reviews[row]
+        textField.text = selectedReview
         
     }
+
 }

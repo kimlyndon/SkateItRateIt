@@ -43,9 +43,9 @@ The AppIcon image is of the Foundation Spot in Asheville, NC. Photography credit
 <img src = "images/Screen%20Shot%202019-01-21%20at%201.28.27%20PM.png" width="200">
 <img src = "images/Screen%20Shot%202019-01-21%20at%201.38.54%20PM.png" width="150">
       
-The Launch Screen image is an original artwork by my 6 year old daughter who loves to skate with her daddy. 
+The Launch Screen image is an original photo taken by me of our map with the Santa Cruz Screaming Hand mini sticker (sticker art created by Jim Phillips).  
 
-<img src = "images/IMG_7307.jpg" width="80">
+<img src = "images/Screen%20Shot%202019-01-22%20at%205.57.37%20PM.png" height="100">
 
 The ebay.com store belongs to Jeremy Lyndon (husband).  
 

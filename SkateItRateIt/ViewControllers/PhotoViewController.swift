@@ -55,7 +55,7 @@ class PhotoViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let photoView = PhotoViewController()
         print("***Collection View: Number of items in section***")
-        return fetchedResultsController.sections?[section].numberOfObjects ?? 3 //TODO: Fix this to use without fetched results controller. (number of images per row)
+        return 3
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -77,17 +77,18 @@ class PhotoViewController: UICollectionViewController {
         cell.imageView.image = #imageLiteral(resourceName: "Screen Shot 2019-01-02 at 1.13.10 PM")
         activityIndicator.startAnimating()
         
-         let aPhoto = fetchedResultsController.object(at: indexPath) //TODO: Adapt to use without fetched results controller (data to display)
+         let aPhoto = UIImageView.init()
         
-        if aPhoto.image != nil {
+        if let image = aPhoto.image {
             
-            cell.imageView.image = UIImage(data: aPhoto.image!)
+            cell.imageView.image = image
             cell.imageView.alpha = 1.0
             activityIndicator.stopAnimating()
             activityIndicator.hidesWhenStopped = true
+        }
             return cell
         }
     }
-}
+
 
  
