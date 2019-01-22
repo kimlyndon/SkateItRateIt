@@ -13,7 +13,8 @@ class PinViewController: UIViewController, UINavigationControllerDelegate {
    
     @IBOutlet weak var getDirectionsButton: UIBarButtonItem!
     @IBOutlet weak var doneButton: UIBarButtonItem!
-    @IBOutlet weak var picker: UIPickerView!
+    @IBOutlet weak var textField: UITextField!
+    
     
     let reviews = ["Lame! Don't waste your gas. 😒",
                    "Needs improvement. 🤨",
@@ -27,13 +28,15 @@ class PinViewController: UIViewController, UINavigationControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         createReviewPicker()
-        picker.delegate = self
+        //picker.delegate = self
         createToolbar()
     }
     
     func createReviewPicker() {
         let reviewPicker = UIPickerView()
         reviewPicker.delegate = self
+        
+        textField.inputView = reviewPicker
     }
     
     func createToolbar() {
@@ -43,8 +46,10 @@ class PinViewController: UIViewController, UINavigationControllerDelegate {
         
         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(PinViewController.dismissKeyboard))
         
-        toolBar.setItems([doneButton], animated: false)
+        toolBar.setItems([doneButton], animated: true)
         toolBar.isUserInteractionEnabled = true
+        
+        textField.inputAccessoryView = toolBar
     }
     
     @objc func dismissKeyboard() {
@@ -83,6 +88,7 @@ extension PinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     // Capture the picker view selection
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedReview = reviews[row]
+        textField.text = selectedReview
         
     }
 

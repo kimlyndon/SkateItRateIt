@@ -15,7 +15,7 @@
             <objects>
                 <navigationController id="zKe-34-4cZ" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XXt-E6-e2U">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -157,18 +157,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ezN-7A-hxI">
-                                <rect key="frame" x="0.0" y="170" width="320" height="162"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="162" id="Ysp-Sj-xI6"/>
-                                </constraints>
-                            </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review It: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6t-VI-DOZ">
-                                <rect key="frame" x="16" y="130.5" width="288" height="31.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6vy-U8-pf1">
                                 <rect key="frame" x="0.0" y="392" width="320" height="44"/>
                                 <items>
@@ -206,25 +194,27 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Review It!" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hes-sq-dsd" userLabel="Review It">
+                                <rect key="frame" x="16" y="223" width="288" height="34"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="f3i-DW-6hL" firstAttribute="top" secondItem="yNR-D1-Kd6" secondAttribute="top" constant="44" id="0QE-Ta-GbU"/>
                             <constraint firstItem="kef-BQ-TzX" firstAttribute="trailing" secondItem="yNR-D1-Kd6" secondAttribute="trailing" id="2aI-Aa-7aE"/>
-                            <constraint firstItem="yNR-D1-Kd6" firstAttribute="bottom" secondItem="ezN-7A-hxI" secondAttribute="bottom" constant="104" id="2eE-mp-p3K"/>
                             <constraint firstItem="yNR-D1-Kd6" firstAttribute="trailing" secondItem="f3i-DW-6hL" secondAttribute="trailing" constant="16" id="33I-Zy-IOm"/>
-                            <constraint firstItem="f3i-DW-6hL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="f6t-VI-DOZ" secondAttribute="leading" id="4hj-NU-Npw"/>
                             <constraint firstItem="6vy-U8-pf1" firstAttribute="trailing" secondItem="yNR-D1-Kd6" secondAttribute="trailing" id="8Jl-t3-qwZ"/>
-                            <constraint firstItem="ezN-7A-hxI" firstAttribute="trailing" secondItem="yNR-D1-Kd6" secondAttribute="trailing" id="BrN-vJ-aXG"/>
                             <constraint firstItem="f3i-DW-6hL" firstAttribute="top" secondItem="kef-BQ-TzX" secondAttribute="bottom" id="JRW-CX-3vo"/>
-                            <constraint firstItem="ezN-7A-hxI" firstAttribute="centerX" secondItem="f6t-VI-DOZ" secondAttribute="centerX" id="LvK-Pg-rwR"/>
-                            <constraint firstItem="ezN-7A-hxI" firstAttribute="leading" secondItem="yNR-D1-Kd6" secondAttribute="leading" id="ThK-vJ-XJ0"/>
+                            <constraint firstItem="hes-sq-dsd" firstAttribute="top" secondItem="f3i-DW-6hL" secondAttribute="bottom" constant="128" id="NdN-ST-Vn8"/>
+                            <constraint firstItem="yNR-D1-Kd6" firstAttribute="trailing" secondItem="hes-sq-dsd" secondAttribute="trailing" constant="16" id="RqC-bQ-CGQ"/>
                             <constraint firstItem="6vy-U8-pf1" firstAttribute="leading" secondItem="yNR-D1-Kd6" secondAttribute="leading" id="UYe-jT-qiS"/>
                             <constraint firstItem="kef-BQ-TzX" firstAttribute="top" secondItem="yNR-D1-Kd6" secondAttribute="top" id="fiu-ag-ItP"/>
                             <constraint firstItem="f3i-DW-6hL" firstAttribute="leading" secondItem="o6q-v1-qeT" secondAttribute="leadingMargin" id="j0r-PH-WyK"/>
-                            <constraint firstItem="ezN-7A-hxI" firstAttribute="top" secondItem="f6t-VI-DOZ" secondAttribute="bottom" constant="8" id="jL0-B7-nZ6"/>
                             <constraint firstItem="kef-BQ-TzX" firstAttribute="leading" secondItem="yNR-D1-Kd6" secondAttribute="leading" id="qAo-4g-6vY"/>
-                            <constraint firstItem="f3i-DW-6hL" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="f6t-VI-DOZ" secondAttribute="trailing" id="rp9-mk-Bst"/>
+                            <constraint firstItem="hes-sq-dsd" firstAttribute="leading" secondItem="yNR-D1-Kd6" secondAttribute="leading" constant="16" id="wUA-jY-vCg"/>
                             <constraint firstItem="6vy-U8-pf1" firstAttribute="bottom" secondItem="yNR-D1-Kd6" secondAttribute="bottom" id="zsL-Vy-Cqa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yNR-D1-Kd6"/>
@@ -234,12 +224,12 @@
                     <connections>
                         <outlet property="doneButton" destination="gN2-EV-Rhe" id="mdE-Fe-KC7"/>
                         <outlet property="getDirectionsButton" destination="Sv1-1e-zr9" id="mM9-WP-3ns"/>
-                        <outlet property="picker" destination="ezN-7A-hxI" id="vRY-Uv-mhy"/>
+                        <outlet property="textField" destination="hes-sq-dsd" id="pVP-Ju-eQH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pwr-lq-UJy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="579" y="534"/>
+            <point key="canvasLocation" x="577.5" y="533.75"/>
         </scene>
         <!--Photo Editor View Controller-->
         <scene sceneID="rBs-pB-cBN">
