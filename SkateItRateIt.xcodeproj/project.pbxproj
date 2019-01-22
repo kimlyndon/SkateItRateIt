@@ -437,7 +437,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F14A9E9260B9735F66AF2698 /* Pods-SkateItRateIt.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 87T6RG3PX5;
 				INFOPLIST_FILE = "$(SRCROOT)/SkateItRateIt/SupportingFiles/Info.plist";
@@ -456,7 +456,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2FD3664D9B1A2FCD3F7139CB /* Pods-SkateItRateIt.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 87T6RG3PX5;
 				INFOPLIST_FILE = "$(SRCROOT)/SkateItRateIt/SupportingFiles/Info.plist";

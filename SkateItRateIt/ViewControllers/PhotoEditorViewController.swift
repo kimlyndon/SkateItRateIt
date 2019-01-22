@@ -97,13 +97,13 @@ extension PhotoEditorViewController: UIImagePickerControllerDelegate {
     private func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: AnyObject]) {
         
         // constant to hold the information about the photo
-        if let photo = info[UIImagePickerControllerOriginalImage] as? UIImage, let photoData = UIImageJPEGRepresentation(photo, 0.8) {
+     /*  if let photo = info[UIImagePickerControllerOriginalImage] as? UIImage, let photoData = UIImageJPEGRepresentation(photo, 0.8) {
             
             // call function to upload photo message
             uploadPhotos(photoData: photoData)
         }
         picker.dismiss(animated: true, completion: nil)
-    }
+    } */
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
@@ -125,9 +125,10 @@ extension PhotoEditorViewController: UIImagePickerControllerDelegate {
                 return
             }
             // add imageURL to database
-            self.saveButton([PinInfo.photoUrl: self.storageRef!.child((metadata?.path)!).description])
+           // self.saveButton([PinInfo.photoUrl: self.storageRef!.child((metadata?.path)!).description])
         }
 }
 
 }
 
+}
