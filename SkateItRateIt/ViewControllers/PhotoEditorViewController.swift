@@ -26,6 +26,7 @@ class PhotoEditorViewController: UIViewController, UIImagePickerControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureStorage()
         imagePicker.delegate = self
     }
     
