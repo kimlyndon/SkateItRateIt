@@ -67,6 +67,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
             
             let alertController = UIAlertController(title: "Location Services", message: "Please enable location services", preferredStyle: .alert)
             present(alertController, animated: true, completion: nil)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alertController.addAction(cancelAction)
         }
     }
     
@@ -80,6 +82,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         case .denied:
             let alertController = UIAlertController(title: "Enable Location Services", message: "This app works only when location services are enabled. Please go to your Settings and enable location services for this app.", preferredStyle: .alert)
             present(alertController, animated: true, completion: nil)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alertController.addAction(cancelAction)
             break
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
@@ -87,6 +91,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         case .restricted:
             let alertController = UIAlertController(title: "Enable Location Services", message: "This app works only when location services are enabled. Please go to your Settings and enable location services for this app.", preferredStyle: .alert)
             present(alertController, animated: true, completion: nil)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alertController.addAction(cancelAction)
             break
         case .authorizedAlways:
             break
