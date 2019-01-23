@@ -71,6 +71,8 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
 
 extension PinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
+    //MARK: Picker
+    
     //Number of columns of data in picker
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zKe-34-4cZ">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,7 +15,7 @@
             <objects>
                 <navigationController id="zKe-34-4cZ" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XXt-E6-e2U">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -31,11 +31,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="SkateItRateIt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EPZ-G4-luR">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="4DJ-2h-FIT"/>
@@ -60,7 +60,7 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap a pin to view location rating" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7u4-tm-t4b">
-                                <rect key="frame" x="0.0" y="543" width="320" height="25"/>
+                                <rect key="frame" x="0.0" y="455" width="320" height="25"/>
                                 <color key="backgroundColor" red="1" green="0.92842398177229613" blue="0.69414540709757988" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="5VV-Vg-Ca6"/>
@@ -105,11 +105,11 @@
             <objects>
                 <viewController id="Fhw-T2-Had" userLabel="CSS View Controller" customClass="CSSViewController" customModule="SkateItRateIt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Ly-I0-6l4">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wYV-Ok-ZPa">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -154,7 +154,7 @@
             <objects>
                 <viewController id="BHC-oE-rax" customClass="PinViewController" customModule="SkateItRateIt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o6q-v1-qeT">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate It!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3i-DW-6hL">
@@ -178,18 +178,9 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="🛹    Review It! (click here)            " textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hes-sq-dsd" userLabel="Review It">
-                                <rect key="frame" x="16" y="211" width="288" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Qhf-cx-sf6">
-                                <rect key="frame" x="16" y="249" width="288" height="230"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Qhf-cx-sf6">
+                                <rect key="frame" x="0.0" y="229" width="320" height="163"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="230" id="Itu-me-Odn"/>
-                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hLt-LV-Hv1">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -197,7 +188,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zjq-zA-Wcu" customClass="PhotoCell" customModule="SkateItRateIt" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="zjq-zA-Wcu" customClass="PhotoCell" customModule="SkateItRateIt" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -222,7 +213,7 @@
                                 </cells>
                             </collectionView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rKk-H2-xxc">
-                                <rect key="frame" x="0.0" y="480" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="-494" width="0.0" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="done" id="SLC-DC-ixu">
                                         <connections>
@@ -237,27 +228,31 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="🛹    Review It! (click here)            " textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hes-sq-dsd" userLabel="Review It">
+                                <rect key="frame" x="16" y="191" width="288" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="f3i-DW-6hL" firstAttribute="top" secondItem="yNR-D1-Kd6" secondAttribute="top" constant="44" id="0QE-Ta-GbU"/>
+                            <constraint firstItem="f3i-DW-6hL" firstAttribute="top" secondItem="kef-BQ-TzX" secondAttribute="bottom" id="0QE-Ta-GbU"/>
+                            <constraint firstItem="hes-sq-dsd" firstAttribute="top" secondItem="f3i-DW-6hL" secondAttribute="bottom" constant="87" id="0Xm-rs-Xsl"/>
                             <constraint firstItem="kef-BQ-TzX" firstAttribute="trailing" secondItem="yNR-D1-Kd6" secondAttribute="trailing" id="2aI-Aa-7aE"/>
                             <constraint firstItem="yNR-D1-Kd6" firstAttribute="trailing" secondItem="f3i-DW-6hL" secondAttribute="trailing" constant="16" id="33I-Zy-IOm"/>
-                            <constraint firstItem="yNR-D1-Kd6" firstAttribute="trailing" secondItem="hes-sq-dsd" secondAttribute="trailing" constant="16" id="5mX-87-ABC"/>
                             <constraint firstItem="rKk-H2-xxc" firstAttribute="leading" secondItem="kef-BQ-TzX" secondAttribute="leading" id="5ob-EY-l0D"/>
-                            <constraint firstItem="Qhf-cx-sf6" firstAttribute="top" secondItem="hes-sq-dsd" secondAttribute="bottom" constant="8" id="8g6-me-Auf"/>
-                            <constraint firstItem="yNR-D1-Kd6" firstAttribute="trailing" secondItem="Qhf-cx-sf6" secondAttribute="trailing" constant="16" id="B9T-qj-ZwL"/>
-                            <constraint firstItem="Qhf-cx-sf6" firstAttribute="top" secondItem="o6q-v1-qeT" secondAttribute="top" constant="249" id="BX7-Fn-ifd"/>
-                            <constraint firstItem="f3i-DW-6hL" firstAttribute="top" secondItem="kef-BQ-TzX" secondAttribute="bottom" id="JRW-CX-3vo"/>
+                            <constraint firstItem="yNR-D1-Kd6" firstAttribute="trailing" secondItem="Qhf-cx-sf6" secondAttribute="trailing" id="B9T-qj-ZwL"/>
+                            <constraint firstItem="rKk-H2-xxc" firstAttribute="top" secondItem="Qhf-cx-sf6" secondAttribute="bottom" id="Fio-C2-gHU"/>
                             <constraint firstItem="hes-sq-dsd" firstAttribute="leading" secondItem="yNR-D1-Kd6" secondAttribute="leading" constant="16" id="Maq-t6-R8T"/>
                             <constraint firstItem="yNR-D1-Kd6" firstAttribute="trailing" secondItem="hes-sq-dsd" secondAttribute="trailing" constant="16" id="RqC-bQ-CGQ"/>
+                            <constraint firstItem="Qhf-cx-sf6" firstAttribute="top" secondItem="hes-sq-dsd" secondAttribute="bottom" constant="8" symbolic="YES" id="eTf-U2-0w4"/>
                             <constraint firstItem="kef-BQ-TzX" firstAttribute="top" secondItem="yNR-D1-Kd6" secondAttribute="top" id="fiu-ag-ItP"/>
-                            <constraint firstItem="rKk-H2-xxc" firstAttribute="top" secondItem="Qhf-cx-sf6" secondAttribute="bottom" constant="1" id="g72-DG-bZs"/>
-                            <constraint firstItem="Qhf-cx-sf6" firstAttribute="leading" secondItem="yNR-D1-Kd6" secondAttribute="leading" constant="16" id="gOx-GT-dhd"/>
+                            <constraint firstItem="Qhf-cx-sf6" firstAttribute="leading" secondItem="yNR-D1-Kd6" secondAttribute="leading" id="gOx-GT-dhd"/>
                             <constraint firstItem="Qhf-cx-sf6" firstAttribute="centerX" secondItem="rKk-H2-xxc" secondAttribute="centerX" id="hPQ-Ht-Orv"/>
                             <constraint firstItem="f3i-DW-6hL" firstAttribute="leading" secondItem="o6q-v1-qeT" secondAttribute="leadingMargin" id="j0r-PH-WyK"/>
+                            <constraint firstItem="yNR-D1-Kd6" firstAttribute="bottom" secondItem="rKk-H2-xxc" secondAttribute="bottom" id="k5t-Hy-IFg"/>
                             <constraint firstItem="kef-BQ-TzX" firstAttribute="leading" secondItem="yNR-D1-Kd6" secondAttribute="leading" id="qAo-4g-6vY"/>
-                            <constraint firstItem="hes-sq-dsd" firstAttribute="leading" secondItem="yNR-D1-Kd6" secondAttribute="leading" constant="16" id="wUA-jY-vCg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yNR-D1-Kd6"/>
                     </view>
@@ -273,18 +268,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pwr-lq-UJy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="575.625" y="532.3943661971831"/>
+            <point key="canvasLocation" x="573.75" y="530"/>
         </scene>
         <!--Photo Editor View Controller-->
         <scene sceneID="rBs-pB-cBN">
             <objects>
                 <viewController id="616-EY-N3l" userLabel="Photo Editor View Controller" customClass="PhotoEditorViewController" customModule="SkateItRateIt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kz9-ao-Bpr">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fKe-xc-v0N" userLabel="ImagePickerView">
-                                <rect key="frame" x="0.0" y="64" width="320" height="440"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="352"/>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tsJ-5b-Ygd">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -305,7 +300,7 @@
                                 </items>
                             </navigationBar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5W-Sq-ze5">
-                                <rect key="frame" x="0.0" y="504" width="320" height="64"/>
+                                <rect key="frame" x="0.0" y="416" width="320" height="64"/>
                                 <items>
                                     <barButtonItem systemItem="camera" id="JRa-7f-IQ0">
                                         <connections>

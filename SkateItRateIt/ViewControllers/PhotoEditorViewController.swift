@@ -60,6 +60,7 @@ class PhotoEditorViewController: UIViewController,  UINavigationControllerDelega
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         
+        
     }
     
     
@@ -78,9 +79,7 @@ class PhotoEditorViewController: UIViewController,  UINavigationControllerDelega
         let images = generateImage()
         let activityViewController = UIActivityViewController(activityItems: [images], applicationActivities: nil)
         activityViewController.completionWithItemsHandler = {activity, didComplete, item, error in if didComplete {
-            self.saveButtonPressed(self.saveButton)
-            self.dismiss(animated: true, completion: nil)
-            self.navigationController?.popViewController(animated: true)
+          
             }
         }
         present(activityViewController, animated: true, completion: nil)
