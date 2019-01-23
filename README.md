@@ -14,14 +14,10 @@
   Tapping a pin will give the user the option to get directions to that location, or take the user to the RateIt view. 
   
 ### RateIt Scene
-  The user can rate the spot with stars as well as add a generic review from a selection that spans from negative, to neutral, to positive. Ratings are cumulative and the average rating review will show in this scene under the "⭐️⭐️⭐️⭐️⭐️." The RateIt view has the option to return to the map by pressing "Done," or uploading a picture via the "Grab Pic" button.
+  The user can rate the spot with stars as well as add a generic review from a selection that spans from negative, to neutral, to positive. Ratings are cumulative and the average rating review will show in this scene under the "⭐️⭐️⭐️⭐️⭐️." The RateIt view has the option to return to the map by pressing "Done," or uploading a picture via the "Grab Pic" button which will segue to the Photo Editor. The RateIt scene also has a collection view of persisted photos associated with each location. As more users upload photos, the collection will grow. There is currently no option to remove photos but this option will be available in a later update.
   
 ### Photo Editor
   This scene allows the user to choose from the camera option to take a photo, choose an image from the photo album, share that image to social media or through e-mail and text, and save the image to the persisted collection view. The user can navigate back to the previous screen and then back to the map if preferred, depending on the order in which the user decides to use the app. 
-  
-### Photo View
-  This is the saved and persisted photo collection associated with each "Spot." As more users save photos, the collection will grow. There is currently no option to remove photos but this option will be available in a later update. Once the user is finished viewing images, the "Done" button will take them back to the previous scene. 
-  
   
 ## How To: 
 
@@ -50,6 +46,14 @@ The Launch Screen image is an original photo taken by me of our map with the San
 The ebay.com store belongs to Jeremy Lyndon (husband).  
 
 <img src = "images/Screen%20Shot%202019-01-02%20at%201.13.10%20PM.png" width="80">
+
+## Requirements
+Xcode 9 and above
+
+Swift 4 and above
+
+
+
       
 
 
