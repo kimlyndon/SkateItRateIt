@@ -18,7 +18,8 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
     @IBOutlet weak var photoView: UICollectionView!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
-    let reviews = ["Lame! Don't waste your gas. 😒",
+    let reviews = [" ",
+                   "Lame! Don't waste your gas. 😒",
                    "Needs improvement. 🤨",
                    "Worth the trip! 😎",
                    "Sick! 😜",

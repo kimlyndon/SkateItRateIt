@@ -60,7 +60,6 @@ class PhotoEditorViewController: UIViewController,  UINavigationControllerDelega
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         
-        
     }
     
     
@@ -94,6 +93,7 @@ extension PhotoEditorViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         // constant to hold the information about the photo
+        
         if let photo = info[.originalImage] as? UIImage {
             if  let photoData = photo.jpegData(compressionQuality: 0.8) {
                 
@@ -102,38 +102,59 @@ extension PhotoEditorViewController: UIImagePickerControllerDelegate {
             }
             
             picker.dismiss(animated: true, completion: nil)
-        }
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
-    }
-    
-    func uploadPhotos(photoData: Data) {
-        
-        // Create a reference to the file you want to upload
-        let riversRef = storageRef.child("spot_photos/" + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpg")
-        
-        // Upload the file to the path "images/rivers.jpg"
-        riversRef.putData(photoData, metadata: nil) { (metadata, error) in
-            guard let metadata = metadata else {
-                // Uh-oh, an error occurred!
-                return
-            }
-            // Metadata contains file metadata such as size, content-type.
-            print ("size: ",metadata.size)
-            // You can also access to download URL after upload.
-            riversRef.downloadURL { (url, error) in
-                guard let downloadURL = url else {
-                    // Uh-oh, an error occurred!
-                    return
+            
                 }
-                print("download url is: ", downloadURL) // you need to store this url to your pin model object's photoUrl array. and that sync that model with firebase.
+            }
+            
+            func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+                picker.dismiss(animated: true, completion: nil)
+            }
+            
+            func uploadPhotos(photoData: Data) {
+                
+                // Create a reference to the file you want to upload
+                let riversRef = storageRef.child("spot_photos/" + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpg")
+                
+                // Upload the file to the path "images/rivers.jpg"
+                riversRef.putData(photoData, metadata: nil) { (metadata, error) in
+                    guard let metadata = metadata else {
+                        // Uh-oh, an error occurred!
+                        return
+                    }
+                    
+                    // Metadata contains file metadata such as size, content-type.
+                    print ("size: ",metadata.size)
+                    // You can also access to download URL after upload.
+                    riversRef.downloadURL { (url, error) in
+                        guard let downloadURL = url else {
+                            // Uh-oh, an error occurred!
+                            return
+                        }
+                        print("download url is: ", downloadURL) // you need to store this url to your pin model object's photoUrl array. and then sync that model with firebase.
+                    }
+                    
+                    
+                    // Metadata contains file metadata such as size, content-type.
+                    print ("size: ",metadata.size)
+                    // You can also access to download URL after upload.
+                    riversRef.downloadURL { (url, error) in
+                        guard let downloadURL = url else {
+                            // Uh-oh, an error occurred!
+                            return
+                        }
+                        print("download url is: ", downloadURL) // you need to store this url to your pin model object's photoUrl array. and that sync that model with firebase.
+                    }
+                    
+                    
+                    
+                }
+                
+                
             }
             
         }
-        
-    }
     
-    
-}
+
+
+
+
