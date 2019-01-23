@@ -93,7 +93,6 @@ extension PhotoEditorViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         // constant to hold the information about the photo
-        
         if let photo = info[.originalImage] as? UIImage {
             if  let photoData = photo.jpegData(compressionQuality: 0.8) {
                 
@@ -133,22 +132,7 @@ extension PhotoEditorViewController: UIImagePickerControllerDelegate {
                         print("download url is: ", downloadURL) // you need to store this url to your pin model object's photoUrl array. and then sync that model with firebase.
                     }
                     
-                    
-                    // Metadata contains file metadata such as size, content-type.
-                    print ("size: ",metadata.size)
-                    // You can also access to download URL after upload.
-                    riversRef.downloadURL { (url, error) in
-                        guard let downloadURL = url else {
-                            // Uh-oh, an error occurred!
-                            return
-                        }
-                        print("download url is: ", downloadURL) // you need to store this url to your pin model object's photoUrl array. and that sync that model with firebase.
-                    }
-                    
-                    
-                    
                 }
-                
                 
             }
             

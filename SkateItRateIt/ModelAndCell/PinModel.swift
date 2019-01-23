@@ -32,11 +32,6 @@ class PinInfo: NSObject {
         if let spot = dictionary["locationName"] as? String {
             self.locationName = spot
         }
-       
-       /* if let rate = dictionary["rating"] as? String{
-            self.rating = rate
-        }*/
-        
         
         
         let locationDictionary  =  dictionary["location"] as! Dictionary<String, Any>
