@@ -79,7 +79,7 @@ class PhotoEditorViewController: UIViewController,  UINavigationControllerDelega
         let images = generateImage()
         let activityViewController = UIActivityViewController(activityItems: [images], applicationActivities: nil)
         activityViewController.completionWithItemsHandler = {activity, didComplete, item, error in if didComplete {
-          
+            
             }
         }
         present(activityViewController, animated: true, completion: nil)
@@ -95,12 +95,14 @@ extension PhotoEditorViewController: UIImagePickerControllerDelegate {
         
         // constant to hold the information about the photo
         if let photo = info[.originalImage] as? UIImage {
-            let photoData = photo.jpegData(compressionQuality: 0.8)
+            if  let photoData = photo.jpegData(compressionQuality: 0.8) {
+                
+                // call function to upload photo
+                uploadPhotos(photoData: photoData)
+            }
             
-            // call function to upload photo
-            uploadPhotos(photoData: photoData as! Data)
+            picker.dismiss(animated: true, completion: nil)
         }
-        picker.dismiss(animated: true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -109,24 +111,29 @@ extension PhotoEditorViewController: UIImagePickerControllerDelegate {
     
     func uploadPhotos(photoData: Data) {
         
-        // build a path using the user’s ID and a timestamp
-        let imagePath = "spot_photos/" + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpg"
+        // Create a reference to the file you want to upload
+        let riversRef = storageRef.child("spot_photos/" + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpg")
         
-        // set content type to “image/jpeg” in firebase storage metadata
-        let metadata = StorageMetadata()
-        metadata.contentType = "image/jpeg"
-        
-        // create a child node at imagePath with imageData and metadata
-        storageRef!.child(imagePath).putData(photoData, metadata: metadata) { (metadata, error) in
-            if error != nil {
-                print("Error uploading photo")
+        // Upload the file to the path "images/rivers.jpg"
+        riversRef.putData(photoData, metadata: nil) { (metadata, error) in
+            guard let metadata = metadata else {
+                // Uh-oh, an error occurred!
                 return
             }
-            // add imageURL to database
-            // self.saveButton([PinInfo.photoUrl: self.storageRef!.child((metadata?.path)!).description])
+            // Metadata contains file metadata such as size, content-type.
+            print ("size: ",metadata.size)
+            // You can also access to download URL after upload.
+            riversRef.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                    // Uh-oh, an error occurred!
+                    return
+                }
+                print("download url is: ", downloadURL) // you need to store this url to your pin model object's photoUrl array. and that sync that model with firebase.
+            }
+            
         }
+        
     }
     
+    
 }
-
-
