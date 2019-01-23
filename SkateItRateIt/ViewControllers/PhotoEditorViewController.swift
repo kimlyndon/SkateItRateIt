@@ -14,7 +14,7 @@ class PhotoEditorViewController: UIViewController,  UINavigationControllerDelega
     var storageRef: StorageReference!
     let storage = Storage.storage()
     let imageCache = NSCache<NSString, UIImage>()
-
+    
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -59,15 +59,13 @@ class PhotoEditorViewController: UIViewController,  UINavigationControllerDelega
     
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
-     let pictureViewController = PhotoViewController()
-        present(pictureViewController, animated: true, completion: nil)
         
     }
     
     
     @IBAction func cameraButtonPressed() {
-      pick(sourceType: .camera)
-    
+        pick(sourceType: .camera)
+        
     }
     
     @IBAction func pickAnImageFromAlbum(_ sender: UIBarButtonItem) {
@@ -92,13 +90,13 @@ class PhotoEditorViewController: UIViewController,  UINavigationControllerDelega
 }
 
 extension PhotoEditorViewController: UIImagePickerControllerDelegate {
-
+    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         // constant to hold the information about the photo
-      if let photo = info[.originalImage] as? UIImage {
-         let photoData = photo.jpegData(compressionQuality: 0.8)
+        if let photo = info[.originalImage] as? UIImage {
+            let photoData = photo.jpegData(compressionQuality: 0.8)
             
             // call function to upload photo
             uploadPhotos(photoData: photoData as! Data)
@@ -126,10 +124,10 @@ extension PhotoEditorViewController: UIImagePickerControllerDelegate {
                 return
             }
             // add imageURL to database
-           // self.saveButton([PinInfo.photoUrl: self.storageRef!.child((metadata?.path)!).description])
+            // self.saveButton([PinInfo.photoUrl: self.storageRef!.child((metadata?.path)!).description])
         }
-}
-
+    }
+    
 }
 
 
