@@ -14,7 +14,6 @@
 		980DFD0A21A4D488007C60EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 980DFD0821A4D488007C60EA /* LaunchScreen.storyboard */; };
 		980FBF3321E175D100CB377C /* CSSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980FBF3221E175D100CB377C /* CSSViewController.swift */; };
 		985733EF21E2908A00956E38 /* PinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985733EE21E2908A00956E38 /* PinViewController.swift */; };
-		9857341021E524DA00956E38 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9857340F21E524DA00956E38 /* PhotoViewController.swift */; };
 		9857341B21E53E2700956E38 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9857341A21E53E2700956E38 /* GoogleService-Info.plist */; };
 		9857341E21E5484400956E38 /* PinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9857341D21E5484400956E38 /* PinModel.swift */; };
 		98A5C41821ED025A00A891B8 /* PhotoEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A5C41721ED025A00A891B8 /* PhotoEditorViewController.swift */; };
@@ -47,7 +46,6 @@
 		980DFD0B21A4D488007C60EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		980FBF3221E175D100CB377C /* CSSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSSViewController.swift; sourceTree = "<group>"; };
 		985733EE21E2908A00956E38 /* PinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewController.swift; sourceTree = "<group>"; };
-		9857340F21E524DA00956E38 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		9857341A21E53E2700956E38 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9857341D21E5484400956E38 /* PinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinModel.swift; sourceTree = "<group>"; };
 		98A5C41721ED025A00A891B8 /* PhotoEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditorViewController.swift; sourceTree = "<group>"; };
@@ -103,7 +101,6 @@
 			children = (
 				980DFCFE21A4D487007C60EA /* MapViewController.swift */,
 				985733EE21E2908A00956E38 /* PinViewController.swift */,
-				9857340F21E524DA00956E38 /* PhotoViewController.swift */,
 				98A5C41721ED025A00A891B8 /* PhotoEditorViewController.swift */,
 			);
 			path = ViewControllers;
@@ -291,7 +288,6 @@
 				98A5C41A21F12A8E00A891B8 /* PhotoCell.swift in Sources */,
 				98A5C41821ED025A00A891B8 /* PhotoEditorViewController.swift in Sources */,
 				9857341E21E5484400956E38 /* PinModel.swift in Sources */,
-				9857341021E524DA00956E38 /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

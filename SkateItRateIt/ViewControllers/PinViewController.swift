@@ -7,14 +7,16 @@
 //
 
 import UIKit
+import Kingfisher
 
-class PinViewController: UIViewController, UINavigationControllerDelegate {
+class PinViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-   
+    
     @IBOutlet weak var getDirectionsButton: UIBarButtonItem!
     @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var textField: UITextField!
-    
+    @IBOutlet weak var photoView: UICollectionView!
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
     let reviews = ["Lame! Don't waste your gas. 😒",
                    "Needs improvement. 🤨",
@@ -28,7 +30,6 @@ class PinViewController: UIViewController, UINavigationControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         createReviewPicker()
-        //picker.delegate = self
         createToolbar()
     }
     
@@ -57,19 +58,19 @@ class PinViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     @IBAction func getDirections(_ sender: UIBarButtonItem) {
+        
+        
     }
-    
-    
     
     
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
-         dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }
-    
+
 
 extension PinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-
+    
     //Number of columns of data in picker
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -91,5 +92,53 @@ extension PinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         textField.text = selectedReview
         
     }
-
+    
+    // MARK: - COLLECTION VIEW
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let space:CGFloat = 8.0
+        let dimension = (view.frame.size.width - (2 * space)) / 3.0
+        let dimension2 = (view.frame.size.height - (2 * space)) / 3.0
+        
+        return CGSize(width: dimension, height: dimension2)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        let photoView = UICollectionView()
+        print("***Collection View: Number of items in section***")
+        return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if indexPath.item == 3 {
+            print("***Collection View: Cell For Row at Index Path***")
+        }
+        
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PhotoCell
+        
+        
+        //MARK: Activity Indicator
+        let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
+        activityIndicator.frame = cell.bounds
+        cell.backgroundColor = UIColor.darkGray
+        cell.imageView.alpha = 0.5
+        cell.addSubview(activityIndicator)
+        cell.imageView.image = #imageLiteral(resourceName: "Screen Shot 2019-01-02 at 1.13.10 PM")
+        activityIndicator.startAnimating()
+        
+        let aPhoto = UIImageView.init()
+        
+        if let image = aPhoto.image {
+            
+            cell.imageView.image = image
+            cell.imageView.alpha = 1.0
+            activityIndicator.stopAnimating()
+            activityIndicator.hidesWhenStopped = true
+        }
+        return cell
+    }
 }
+
