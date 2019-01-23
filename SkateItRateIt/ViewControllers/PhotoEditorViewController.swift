@@ -117,18 +117,18 @@ extension PhotoEditorViewController: UIImagePickerControllerDelegate {
                 // Upload the file to the path "images/rivers.jpg"
                 riversRef.putData(photoData, metadata: nil) { (metadata, error) in
                     guard let metadata = metadata else {
-                        // Uh-oh, an error occurred!
+                        print("Unable to upload file.")
                         return
                     }
                     
-                    // Metadata contains file metadata such as size, content-type.
-                    print ("size: ",metadata.size)
-                    // You can also access to download URL after upload.
+                   print ("size: ",metadata.size)
+                    
                     riversRef.downloadURL { (url, error) in
                         guard let downloadURL = url else {
-                            // Uh-oh, an error occurred!
+                            print("Unable to access URL") 
                             return
                         }
+                        
                         print("download url is: ", downloadURL) // you need to store this url to your pin model object's photoUrl array. and then sync that model with firebase.
                     }
                     
