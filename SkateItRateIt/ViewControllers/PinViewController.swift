@@ -17,6 +17,7 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var photoView: UICollectionView!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    @IBOutlet weak var ratingControl: RatingControl!
     
     let reviews = [" ",
                    "Lame! Don't waste your gas. 😒",
@@ -118,7 +119,6 @@ extension PinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let photoView = UICollectionView()
         print("***Collection View: Number of items in section***")
         return 3
     }
@@ -150,8 +150,10 @@ extension PinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
             cell.imageView.alpha = 1.0
             activityIndicator.stopAnimating()
             activityIndicator.hidesWhenStopped = true
+           
         }
-        return cell
+         return cell
+        }
+    
     }
-}
 
