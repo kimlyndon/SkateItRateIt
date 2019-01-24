@@ -15,7 +15,7 @@
             <objects>
                 <navigationController id="zKe-34-4cZ" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XXt-E6-e2U">
-                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -221,8 +221,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GXP-kN-Iqd" customClass="RatingControl" customModule="SkateItRateIt" customModuleProvider="target">
-                                <rect key="frame" x="34" y="112" width="252" height="44"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="GXP-kN-Iqd" customClass="RatingControl" customModule="SkateItRateIt" customModuleProvider="target">
+                                <rect key="frame" x="16" y="112" width="280" height="44"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -231,12 +231,12 @@
                             <constraint firstItem="kef-BQ-TzX" firstAttribute="trailing" secondItem="yNR-D1-Kd6" secondAttribute="trailing" id="2aI-Aa-7aE"/>
                             <constraint firstItem="yNR-D1-Kd6" firstAttribute="trailing" secondItem="f3i-DW-6hL" secondAttribute="trailing" constant="16" id="33I-Zy-IOm"/>
                             <constraint firstItem="rKk-H2-xxc" firstAttribute="leading" secondItem="kef-BQ-TzX" secondAttribute="leading" id="5ob-EY-l0D"/>
+                            <constraint firstItem="GXP-kN-Iqd" firstAttribute="leading" secondItem="hes-sq-dsd" secondAttribute="leading" id="6nQ-DY-Hmc"/>
                             <constraint firstItem="GXP-kN-Iqd" firstAttribute="top" secondItem="f3i-DW-6hL" secondAttribute="bottom" constant="8" id="Aaz-az-Sfg"/>
                             <constraint firstItem="yNR-D1-Kd6" firstAttribute="trailing" secondItem="Qhf-cx-sf6" secondAttribute="trailing" id="B9T-qj-ZwL"/>
                             <constraint firstItem="rKk-H2-xxc" firstAttribute="top" secondItem="Qhf-cx-sf6" secondAttribute="bottom" id="Fio-C2-gHU"/>
                             <constraint firstItem="hes-sq-dsd" firstAttribute="leading" secondItem="yNR-D1-Kd6" secondAttribute="leading" constant="16" id="Maq-t6-R8T"/>
                             <constraint firstItem="yNR-D1-Kd6" firstAttribute="trailing" secondItem="hes-sq-dsd" secondAttribute="trailing" constant="16" id="RqC-bQ-CGQ"/>
-                            <constraint firstItem="yNR-D1-Kd6" firstAttribute="trailing" secondItem="GXP-kN-Iqd" secondAttribute="trailing" constant="34" id="avQ-13-g8w"/>
                             <constraint firstItem="Qhf-cx-sf6" firstAttribute="top" secondItem="hes-sq-dsd" secondAttribute="bottom" constant="8" symbolic="YES" id="eTf-U2-0w4"/>
                             <constraint firstItem="kef-BQ-TzX" firstAttribute="top" secondItem="yNR-D1-Kd6" secondAttribute="top" id="fiu-ag-ItP"/>
                             <constraint firstItem="Qhf-cx-sf6" firstAttribute="leading" secondItem="yNR-D1-Kd6" secondAttribute="leading" id="gOx-GT-dhd"/>
