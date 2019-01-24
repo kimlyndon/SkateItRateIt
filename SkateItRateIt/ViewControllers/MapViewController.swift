@@ -119,8 +119,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
                 
                 //create annotation
                 let annotation = MKPointAnnotation()
-                annotation.title = "View Rating"
-                annotation.subtitle = "Get Directions" //TODO: Add means to get actual directions
                 
                 // user created pin coordinates to add on map.
                 annotation.coordinate = pin.coordinate!
@@ -138,6 +136,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     @IBAction func dropIn(_ sender: UIBarButtonItem) {
         self.mapView.addAnnotation(self.newPin)
         self.ref.child("Pins").childByAutoId().setValue(["location":["Lat": Double(self.annotation.coordinate.latitude), "long":Double(annotation.coordinate.longitude)]])
+        
     }
     
     // Long press pin drop
