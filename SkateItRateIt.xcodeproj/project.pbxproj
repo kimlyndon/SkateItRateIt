@@ -13,6 +13,7 @@
 		980DFD0721A4D488007C60EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 980DFD0621A4D488007C60EA /* Assets.xcassets */; };
 		980DFD0A21A4D488007C60EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 980DFD0821A4D488007C60EA /* LaunchScreen.storyboard */; };
 		980FBF3321E175D100CB377C /* CSSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980FBF3221E175D100CB377C /* CSSViewController.swift */; };
+		98510B5321FA828D00316C01 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98510B5221FA828D00316C01 /* Reachability.swift */; };
 		985733EF21E2908A00956E38 /* PinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985733EE21E2908A00956E38 /* PinViewController.swift */; };
 		9857341B21E53E2700956E38 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9857341A21E53E2700956E38 /* GoogleService-Info.plist */; };
 		9857341E21E5484400956E38 /* PinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9857341D21E5484400956E38 /* PinModel.swift */; };
@@ -46,6 +47,7 @@
 		980DFD0921A4D488007C60EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		980DFD0B21A4D488007C60EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		980FBF3221E175D100CB377C /* CSSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSSViewController.swift; sourceTree = "<group>"; };
+		98510B5221FA828D00316C01 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		985733EE21E2908A00956E38 /* PinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewController.swift; sourceTree = "<group>"; };
 		9857341A21E53E2700956E38 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9857341D21E5484400956E38 /* PinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinModel.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				980DFCFC21A4D487007C60EA /* AppDelegate.swift */,
+				98510B5221FA828D00316C01 /* Reachability.swift */,
 				98A5C41B21F12ECB00A891B8 /* ModelAndCell */,
 				980FBF3121E1758F00CB377C /* ViewControllers */,
 				985733ED21E2901C00956E38 /* WebView */,
@@ -261,6 +264,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -269,6 +273,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -289,6 +294,7 @@
 				980FBF3321E175D100CB377C /* CSSViewController.swift in Sources */,
 				985733EF21E2908A00956E38 /* PinViewController.swift in Sources */,
 				98A5C42221FA51B500A891B8 /* RatingControl.swift in Sources */,
+				98510B5321FA828D00316C01 /* Reachability.swift in Sources */,
 				98A5C41A21F12A8E00A891B8 /* PhotoCell.swift in Sources */,
 				98A5C41821ED025A00A891B8 /* PhotoEditorViewController.swift in Sources */,
 				9857341E21E5484400956E38 /* PinModel.swift in Sources */,

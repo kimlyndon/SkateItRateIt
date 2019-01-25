@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseStorage
+import Reachability
 
 class PhotoEditorViewController: UIViewController,  UINavigationControllerDelegate  {
     

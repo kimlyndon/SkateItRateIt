@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import Reachability
 
 class PinViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     

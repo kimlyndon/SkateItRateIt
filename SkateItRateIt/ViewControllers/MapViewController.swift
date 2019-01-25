@@ -11,6 +11,7 @@ import UIKit
 import MapKit
 import CoreLocation
 import Firebase
+import Reachability
 
 class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognizerDelegate {
     
@@ -33,8 +34,41 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         ref.keepSynced(true)
         checkLocationServices()
         self.loadPins()
+        
+        
+        let reachability = Reachability()
+        
+        reachability!.whenReachable = { reachability in
+            if reachability.connection == .wifi {
+                let alertController = UIAlertController(title: "Alert", message: "Reachable via WiFi", preferredStyle: .alert)
+                
+                let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(defaultAction)
+                
+                self.present(alertController, animated: true, completion: nil)
+                
+            }
+            else {
+                let alertController = UIAlertController(title: "Alert", message: "Reachable via Cellular", preferredStyle: .alert)
+                
+                let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(defaultAction)
+                
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
+        reachability!.whenUnreachable = { reachability in
+            let alertController = UIAlertController(title: "Alert", message: "Not Reachable", preferredStyle: .alert)
+            
+            let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(defaultAction)
+            
+            self.present(alertController, animated: true, completion: nil)
+        }
+        
+        try! reachability!.startNotifier()
+       
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

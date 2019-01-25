@@ -10,5 +10,6 @@ pod 'Firebase/Core'
 pod 'Kingfisher'
 pod 'Firebase/Database'
 pod 'Firebase/Storage'
+pod 'Reachability'
 
 end
