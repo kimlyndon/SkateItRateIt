@@ -18,6 +18,7 @@ class PinInfo: NSObject {
     var id: String?
     var photoUrl: [String]?
     var downloadURL: String?
+    var review: String?
     
     init(locationName: String, coordinate: CLLocationCoordinate2D) {
         self.locationName = locationName

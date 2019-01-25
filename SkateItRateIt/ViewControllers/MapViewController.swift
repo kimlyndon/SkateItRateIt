@@ -35,7 +35,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         checkLocationServices()
         self.loadPins()
         
-       //Reachability
+    
+        //Reachability
         let reachability = Reachability()
         
         reachability!.whenReachable = { reachability in
@@ -71,10 +72,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         
     }
     
+    
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         centerViewOnUserLocation()
     }
+    
+    
+    
     
     //Location
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithOtherGestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -92,6 +99,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
             mapView.setRegion(region, animated: true)
         }
     }
+    
     
     
     // Did the user enable location services? If not, show alert.
@@ -140,9 +148,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     fileprivate func loadPins() {
         
         var annotations = [MKPointAnnotation]()
-        
-      /* let rating = ??? as! Int
-         let review = ??? as! String */
     
         //fetch the data from firebase.
         self.ref.child("Pins").observeSingleEvent(of: .value, with: { (snapshot) in
@@ -159,8 +164,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
                 
                 //create annotation
                 let annotation = MKPointAnnotation()
-              /*  annotation.title = "\(rating)"
-                annotation.subtitle = "\(review)" */
+               /* annotation.title = "\(pin.rating!)"
+                annotation.subtitle = "\(pin.review!)" */
                 
                 // user created pin coordinates to add on map.
                 annotation.coordinate = pin.coordinate!
@@ -202,7 +207,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
             let pin = PinInfo.init(locationName: "Spot", coordinate: coordinate)
             
             //add map annotation
-            _ = MKPointAnnotation()
+            let annotation = MKPointAnnotation()
             annotation.coordinate = coordinate
             
             //add annotation to map
@@ -215,7 +220,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     func addPin(coordinate: CLLocationCoordinate2D) {
         
         // create an object of the model
-        let pin = PinInfo.init(locationName: "some name", coordinate: coordinate)
+        let pin = PinInfo.init(locationName: "Spot", coordinate: coordinate)
         self.ref.child("Pins").childByAutoId().setValue( pin.makeDictionary() )
     }
 }
