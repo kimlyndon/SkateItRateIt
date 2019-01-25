@@ -52,6 +52,10 @@ Xcode 9 and above
 
 Swift 4 and above
 
+## Licensing/Copyrights
+This app includes Reachability for connectivity alerts. Information regarding this can be found here: 
+https://github.com/ashleymills/Reachability.swift
+
 
 
       
