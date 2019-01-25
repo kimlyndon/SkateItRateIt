@@ -159,11 +159,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
                 
                 annotations.append(annotation)
             }
+            
+            //add annotation to map
+            self.mapView.addAnnotations(annotations)
           
         })
 
-        //add annotation to map
-        self.mapView.addAnnotations(annotations)
     }
     
     //Drop pin to current location
@@ -176,11 +177,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     // Long press pin drop
     @IBAction func getTouchLocation(_ gestureRecognizer: UILongPressGestureRecognizer) {
         if gestureRecognizer.state == .began {
+            
             let point = gestureRecognizer.location(in: self.mapView)
             let coordinate = self.mapView.convert(point, toCoordinateFrom: self.mapView)
             let pin = PinInfo.init(locationName: "Spot", coordinate: coordinate)
             
             //add map annotation
+            let annotation = MKPointAnnotation()
             self.annotation.coordinate = coordinate
             
             //add annotation to map
