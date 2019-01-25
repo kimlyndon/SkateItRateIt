@@ -67,7 +67,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         }
         
         try! reachability!.startNotifier()
-       
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -137,7 +137,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     //Load Pins:
     fileprivate func loadPins() {
         
-       var annotations = [MKPointAnnotation]()
+        var annotations = [MKPointAnnotation]()
         
         //fetch the data from firebase.
         self.ref.child("Pins").observeSingleEvent(of: .value, with: { (snapshot) in
@@ -148,23 +148,22 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
                 let pin  = PinInfo.init(dictionary:child.value as! Dictionary<String, Any>)
                 pin.id = child.key
                 
-                //add to the array
-                self.pinArray.append(pin)
-                
-                //create annotation
-                let annotation = MKPointAnnotation()
-                
-                // user created pin coordinates to add on map.
-                annotation.coordinate = pin.coordinate!
-                
-                annotations.append(annotation)
+                if let coordinate = pin.coordinate {
+                    //add to the array
+                    self.pinArray.append(pin)
+                    //create annotation
+                    let annotation = MKPointAnnotation()
+                    // user created pin coordinates to add on map.
+                    annotation.coordinate = coordinate
+                    annotations.append(annotation)
+                }
             }
             
             //add annotation to map
             self.mapView.addAnnotations(annotations)
-          
+            
         })
-
+        
     }
     
     //Drop pin to current location

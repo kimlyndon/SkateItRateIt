@@ -122,7 +122,6 @@ extension PhotoEditorViewController: UIImagePickerControllerDelegate {
                         print("Unable to upload file.")
                         return
                     }
-                    
                    print ("size: ",metadata.size)
                     
                     riversRef.downloadURL { (url, error) in

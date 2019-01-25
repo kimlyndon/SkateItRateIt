@@ -36,7 +36,11 @@ class PinInfo: NSObject {
         
         
         let locationDictionary  =  dictionary["location"] as! Dictionary<String, Any>
-        self.coordinate = CLLocationCoordinate2D.init(latitude: locationDictionary["Lat"] as! Double, longitude: locationDictionary["long"]  as! Double)
+        if let lat = locationDictionary["Lat"] as? Double,
+            let long = locationDictionary["long"] as? Double {
+            
+            self.coordinate = CLLocationCoordinate2D.init(latitude:lat, longitude:long )
+        }
     }
     
     func makeDictionary() -> Dictionary<String, Any>  {
@@ -45,7 +49,7 @@ class PinInfo: NSObject {
             "locationName" : self.locationName,
             "rating" : self.rating
             ] as [String : Any]
-       
+        
         return dictionary 
     }
 }
