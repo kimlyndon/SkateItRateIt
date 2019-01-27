@@ -17,6 +17,8 @@
 		985733EF21E2908A00956E38 /* PinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985733EE21E2908A00956E38 /* PinViewController.swift */; };
 		9857341B21E53E2700956E38 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9857341A21E53E2700956E38 /* GoogleService-Info.plist */; };
 		9857341E21E5484400956E38 /* PinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9857341D21E5484400956E38 /* PinModel.swift */; };
+		98591D9B21FD80D80028B973 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98591D9A21FD80D80028B973 /* Constants.swift */; };
+		98591D9D21FD80F40028B973 /* FlickrClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98591D9C21FD80F40028B973 /* FlickrClient.swift */; };
 		98A5C41821ED025A00A891B8 /* PhotoEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A5C41721ED025A00A891B8 /* PhotoEditorViewController.swift */; };
 		98A5C41A21F12A8E00A891B8 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A5C41921F12A8E00A891B8 /* PhotoCell.swift */; };
 		98A5C42221FA51B500A891B8 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A5C42121FA51B500A891B8 /* RatingControl.swift */; };
@@ -51,6 +53,8 @@
 		985733EE21E2908A00956E38 /* PinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewController.swift; sourceTree = "<group>"; };
 		9857341A21E53E2700956E38 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9857341D21E5484400956E38 /* PinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinModel.swift; sourceTree = "<group>"; };
+		98591D9A21FD80D80028B973 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		98591D9C21FD80F40028B973 /* FlickrClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrClient.swift; sourceTree = "<group>"; };
 		98A5C41721ED025A00A891B8 /* PhotoEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditorViewController.swift; sourceTree = "<group>"; };
 		98A5C41921F12A8E00A891B8 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		98A5C42121FA51B500A891B8 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
@@ -92,6 +96,7 @@
 			children = (
 				980DFCFC21A4D487007C60EA /* AppDelegate.swift */,
 				98510B5221FA828D00316C01 /* Reachability.swift */,
+				98591D9921FD809C0028B973 /* Service */,
 				98A5C41B21F12ECB00A891B8 /* ModelAndCell */,
 				980FBF3121E1758F00CB377C /* ViewControllers */,
 				985733ED21E2901C00956E38 /* WebView */,
@@ -117,6 +122,15 @@
 				980FBF3221E175D100CB377C /* CSSViewController.swift */,
 			);
 			path = WebView;
+			sourceTree = "<group>";
+		};
+		98591D9921FD809C0028B973 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				98591D9A21FD80D80028B973 /* Constants.swift */,
+				98591D9C21FD80F40028B973 /* FlickrClient.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		98A5C41B21F12ECB00A891B8 /* ModelAndCell */ = {
@@ -294,8 +308,10 @@
 				980FBF3321E175D100CB377C /* CSSViewController.swift in Sources */,
 				985733EF21E2908A00956E38 /* PinViewController.swift in Sources */,
 				98A5C42221FA51B500A891B8 /* RatingControl.swift in Sources */,
+				98591D9B21FD80D80028B973 /* Constants.swift in Sources */,
 				98510B5321FA828D00316C01 /* Reachability.swift in Sources */,
 				98A5C41A21F12A8E00A891B8 /* PhotoCell.swift in Sources */,
+				98591D9D21FD80F40028B973 /* FlickrClient.swift in Sources */,
 				98A5C41821ED025A00A891B8 /* PhotoEditorViewController.swift in Sources */,
 				9857341E21E5484400956E38 /* PinModel.swift in Sources */,
 			);
