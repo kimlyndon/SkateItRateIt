@@ -71,8 +71,11 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
     }
     
     @IBAction func getDirections(_ sender: UIBarButtonItem) {
+        
+        let url = URL(string: "https://www.google.com/maps/dir/?api=1&origin&destination")
+        let request = URLRequest(url: url!)
         //TODO: Complete url and accompanying code.
-       // let url = URL(string: "https://www.google.com/maps/dir/?api=1&origin=current+location&destination=pin")
+
         
     }
     

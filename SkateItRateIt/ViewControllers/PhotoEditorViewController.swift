@@ -60,6 +60,7 @@ class PhotoEditorViewController: UIViewController,  UINavigationControllerDelega
     
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
+        //TODO: Code to save image to collection view
        /* let url = URL(string: <#T##String#>)
         imagePickerView.kf.setImage(with: url) */
         
