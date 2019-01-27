@@ -97,6 +97,7 @@ extension PhotoEditorViewController: UIImagePickerControllerDelegate {
         // constant to hold the information about the photo
         if let photo = info[.originalImage] as? UIImage {
             if  let photoData = photo.jpegData(compressionQuality: 0.8) {
+                imagePickerView.image = photo
                 
                 // call function to upload photo
                 uploadPhotos(photoData: photoData)
