@@ -129,6 +129,7 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="backButton" destination="RVV-xF-vfb" id="tic-eV-lbP"/>
                         <outlet property="webView" destination="wYV-Ok-ZPa" id="N4U-lP-sbw"/>
                     </connections>
                 </viewController>
@@ -278,12 +279,11 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="20"/>
                                 <items>
                                     <navigationItem title="Photo Check" id="t7N-g6-DP0">
-                                        <barButtonItem key="backBarButtonItem" title="Back" id="9uf-yJ-klz">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="fym-4h-RXA">
                                             <connections>
-                                                <action selector="backButtonPressed:" destination="616-EY-N3l" id="fSf-9Q-fIt"/>
+                                                <action selector="backButtonPressed:" destination="616-EY-N3l" id="luF-Hd-KZB"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="fym-4h-RXA"/>
                                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="OVD-2K-8GK">
                                             <connections>
                                                 <action selector="saveButtonPressed:" destination="616-EY-N3l" id="dcC-KD-jhH"/>
@@ -342,7 +342,7 @@
                         <viewLayoutGuide key="safeArea" id="Qcp-AQ-0H4"/>
                     </view>
                     <connections>
-                        <outlet property="backButton" destination="9uf-yJ-klz" id="R1N-sW-Ls6"/>
+                        <outlet property="backButton" destination="fym-4h-RXA" id="NnE-XG-6DV"/>
                         <outlet property="camera" destination="JRa-7f-IQ0" id="l7m-sO-846"/>
                         <outlet property="imagePickerView" destination="fKe-xc-v0N" id="6YM-Z7-RwZ"/>
                         <outlet property="photoAlbumButton" destination="O8U-2v-04e" id="nZy-Ae-V3P"/>
