@@ -74,7 +74,7 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
         
         let url = URL(string: "https://www.google.com/maps/dir/?api=1&origin&destination")
         let request = URLRequest(url: url!)
-        //TODO: Complete url and accompanying code.
+        //TODO: Complete code call.
 
         
     }
