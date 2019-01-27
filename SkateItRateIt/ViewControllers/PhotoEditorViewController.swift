@@ -60,7 +60,8 @@ class PhotoEditorViewController: UIViewController,  UINavigationControllerDelega
     
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
-        //TODO: Save selected photo to collection view
+       /* let url = URL(string: <#T##String#>)
+        imagePickerView.kf.setImage(with: url) */
         
     }
     
@@ -131,7 +132,7 @@ extension PhotoEditorViewController: UIImagePickerControllerDelegate {
                             return
                         }
                         
-                        print("download url is: ", downloadURL) // you need to store this url to your pin model object's photoUrl array. and then sync that model with firebase.
+                        print("download url is: ", downloadURL)
                     }
                     
                 }

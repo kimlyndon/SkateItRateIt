@@ -141,7 +141,7 @@ extension PinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         cell.backgroundColor = UIColor.darkGray
         cell.imageView.alpha = 0.5
         cell.addSubview(activityIndicator)
-        cell.imageView.image = #imageLiteral(resourceName: "Screen Shot 2019-01-02 at 1.13.10 PM")
+        cell.imageView.image = #imageLiteral(resourceName: "Screen Shot 2019-01-22 at 5.57.37 PM")
         activityIndicator.startAnimating()
         
         let aPhoto = UIImageView.init()
