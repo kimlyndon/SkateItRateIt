@@ -16,7 +16,7 @@ class PinInfo: NSObject {
     var coordinate: CLLocationCoordinate2D?
     var rating: [Int]?
     var id: String?
-    var photoUrl: [String]?
+    var photoUrl = [String]()
     var downloadURL: String?
     var review: String?
     
@@ -47,8 +47,9 @@ class PinInfo: NSObject {
     func makeDictionary() -> Dictionary<String, Any>  {
         let  dictionary = [
             "location" : ["Lat":self.coordinate?.latitude, "long":self.coordinate?.longitude],
-            "locationName" : self.locationName,
-            "rating" : self.rating
+            "locationName" : self.locationName ?? "" ,
+            "rating" : self.rating ?? "",
+            "imageURL" : self.photoUrl ?? ""
             ] as [String : Any]
         
         return dictionary 

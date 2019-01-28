@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseStorage
+import FirebaseDatabase
 import Reachability
 
 class PhotoEditorViewController: UIViewController,  UINavigationControllerDelegate  {
@@ -15,6 +16,7 @@ class PhotoEditorViewController: UIViewController,  UINavigationControllerDelega
     var storageRef: StorageReference!
     let storage = Storage.storage()
     let imageCache = NSCache<NSString, UIImage>()
+    var pinInfoRef : PinInfo! // a reference that would contain the pin we want to manipulate (add photo, review, rating etc).
     
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var backButton: UIBarButtonItem!
@@ -62,8 +64,8 @@ class PhotoEditorViewController: UIViewController,  UINavigationControllerDelega
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         //TODO: Code to save image to collection view
-       /* let url = URL(string: <#T##String#>)
-        imagePickerView.kf.setImage(with: url) */
+        /* let url = URL(string: <#T##String#>)
+         imagePickerView.kf.setImage(with: url) */
         
     }
     
@@ -90,6 +92,7 @@ class PhotoEditorViewController: UIViewController,  UINavigationControllerDelega
         
         
     }
+    
 }
 
 extension PhotoEditorViewController: UIImagePickerControllerDelegate {
@@ -108,41 +111,52 @@ extension PhotoEditorViewController: UIImagePickerControllerDelegate {
             
             picker.dismiss(animated: true, completion: nil)
             
-                }
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func uploadPhotos(photoData: Data) {
+        
+        // Create a reference to the file you want to upload
+        let riversRef = storageRef.child("spot_photos/" + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpg")
+        
+        // Upload the file to the path "images/rivers.jpg"
+        riversRef.putData(photoData, metadata: nil) { (metadata, error) in
+            guard let metadata = metadata else {
+                print("Unable to upload file.")
+                return
             }
+            print ("size: ",metadata.size)
             
-            func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-                picker.dismiss(animated: true, completion: nil)
-            }
-            
-            func uploadPhotos(photoData: Data) {
-                
-                // Create a reference to the file you want to upload
-                let riversRef = storageRef.child("spot_photos/" + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpg")
-                
-                // Upload the file to the path "images/rivers.jpg"
-                riversRef.putData(photoData, metadata: nil) { (metadata, error) in
-                    guard let metadata = metadata else {
-                        print("Unable to upload file.")
-                        return
-                    }
-                   print ("size: ",metadata.size)
-                    
-                    riversRef.downloadURL { (url, error) in
-                        guard let downloadURL = url else {
-                            print("Unable to access URL") 
-                            return
-                        }
-                        
-                        print("download url is: ", downloadURL)
-                    }
-                    
+            riversRef.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                    print("Unable to access URL")
+                    return
                 }
-                
+                self.savePhotoImageUrlToFirebase(downloadURL )
+                print("download url is: ", downloadURL)
             }
             
         }
+        
+    }
     
+    func savePhotoImageUrlToFirebase(_ url : URL ) {
+        
+        if let pinref = self.pinInfoRef{
+            pinref.photoUrl.append(url.absoluteString) // adding url to our photourl object of pinfomodel.
+            print (pinref.makeDictionary())
+            if let identity = pinref.id {
+                Database.database().reference().child("Pins/" + "\(identity)").setValue(pinref.makeDictionary())
+            }
+        }
+    }
+    
+}
+
 
 
 

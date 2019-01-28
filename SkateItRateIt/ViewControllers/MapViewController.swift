@@ -19,11 +19,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     
     var ref: DatabaseReference!
     var pinArray = [PinInfo]()
+    var selectedAnnotation = SRPointAnnotation()
     
-    let newPin =  MKPointAnnotation() 
+    let newPin =  SRPointAnnotation()
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 10000
-    let annotation = MKPointAnnotation()
+    let annotation = SRPointAnnotation()
+    
     
     
     override func viewDidLoad() {
@@ -35,7 +37,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         checkLocationServices()
         self.loadPins()
         
-    
+        
         //Reachability
         let reachability = Reachability()
         
@@ -71,9 +73,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         try! reachability!.startNotifier()
         
     }
-    
-    
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -147,8 +146,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     //Load Pins:
     fileprivate func loadPins() {
         
-        var annotations = [MKPointAnnotation]()
-    
+        var annotations = [SRPointAnnotation]()
+        
         //fetch the data from firebase.
         self.ref.child("Pins").observeSingleEvent(of: .value, with: { (snapshot) in
             
@@ -158,30 +157,19 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
                 let pin  = PinInfo.init(dictionary:child.value as! Dictionary<String, Any>)
                 pin.id = child.key
                 
-
                 //add to the array
-                self.pinArray.append(pin)
                 
-                //create annotation
-                let annotation = MKPointAnnotation()
-               /* annotation.title = "\(pin.rating!)"
-                annotation.subtitle = "\(pin.review!)" */
-                
-                // user created pin coordinates to add on map.
-                annotation.coordinate = pin.coordinate!
-                
-                annotations.append(annotation)
-
                 if let coordinate = pin.coordinate {
                     //add to the array
                     self.pinArray.append(pin)
                     //create annotation
-                    let annotation = MKPointAnnotation()
+                    let annotation = SRPointAnnotation()
+                    annotation.pinInfoRef = pin
                     // user created pin coordinates to add on map.
                     annotation.coordinate = coordinate
                     annotations.append(annotation)
                 }
-
+                
             }
             
             //add annotation to map
@@ -207,7 +195,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
             let pin = PinInfo.init(locationName: "Spot", coordinate: coordinate)
             
             //add map annotation
-            let annotation = MKPointAnnotation()
+            let annotation = SRPointAnnotation()
             annotation.coordinate = coordinate
             
             //add annotation to map
@@ -244,8 +232,13 @@ extension MapViewController: CLLocationManagerDelegate {
     }
     
     //Segue to ReviewViewController when user taps pin
+    
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        performSegue(withIdentifier: "pin", sender: self)
+        if let annotation = view.annotation as? SRPointAnnotation{
+            self.selectedAnnotation = annotation
+            performSegue(withIdentifier: "pin", sender: self)
+        }
+        
     }
     
     // Make the annotation a red pin
@@ -273,6 +266,15 @@ extension MapViewController: CLLocationManagerDelegate {
             }
             
             return pinView
+        }
+    }
+    
+    // Since we got to pass reference of our model to the next view controller we need to make sure that we override following method.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "pin" {
+            if let destinationVC = segue.destination as? PinViewController {
+                destinationVC.pinInfoRef = self.selectedAnnotation.pinInfoRef
+            }
         }
     }
 }
