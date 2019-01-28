@@ -20,6 +20,8 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var ratingControl: RatingControl!
     
+    var pinInfoRef : PinInfo! // a reference that would contain the pin we want to manipulate (add photo, review, rating etc).
+    
     let reviews = [" ",
                    "Lame! Don't waste your gas. 😒",
                    "Needs improvement. 🤨",
@@ -83,6 +85,14 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
     
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "photoEditorSegue" {
+            if let destinationVC = segue.destination as? PhotoEditorViewController {
+                destinationVC.pinInfoRef = self.pinInfoRef
+            }
+        }
     }
 }
 

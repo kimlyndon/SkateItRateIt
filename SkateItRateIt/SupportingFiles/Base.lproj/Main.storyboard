@@ -135,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Nw-W8-Jy9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="452" y="-191"/>
+            <point key="canvasLocation" x="572" y="-191"/>
         </scene>
         <!--Pin View Controller-->
         <scene sceneID="vlY-aU-ud1">
@@ -166,8 +166,8 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Qhf-cx-sf6">
-                                <rect key="frame" x="0.0" y="226" width="414" height="535"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Qhf-cx-sf6">
+                                <rect key="frame" x="0.0" y="226" width="414" height="543"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hLt-LV-Hv1">
                                     <size key="itemSize" width="50" height="50"/>
@@ -211,18 +211,18 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Tub-BT-JLu"/>
                                     <barButtonItem title="Grab Pic" id="A9b-Rn-ycy">
                                         <connections>
-                                            <segue destination="616-EY-N3l" kind="presentation" id="Ow0-dq-CT5"/>
+                                            <segue destination="616-EY-N3l" kind="presentation" identifier="photoEditorSegue" id="Ow0-dq-CT5"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="🛹    Review It! (click here)            " textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hes-sq-dsd" userLabel="Review It">
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="🛹    Review It! (click here)            " textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hes-sq-dsd" userLabel="Review It">
                                 <rect key="frame" x="16" y="188" width="382" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="GXP-kN-Iqd" customClass="RatingControl" customModule="SkateItRateIt" customModuleProvider="target">
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="GXP-kN-Iqd" customClass="RatingControl" customModule="SkateItRateIt" customModuleProvider="target">
                                 <rect key="frame" x="69" y="136" width="280" height="44"/>
                             </stackView>
                         </subviews>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		058AD32F21FE802E00117FD4 /* SRPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058AD32E21FE802E00117FD4 /* SRPointAnnotation.swift */; };
 		980DFCFD21A4D487007C60EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980DFCFC21A4D487007C60EA /* AppDelegate.swift */; };
 		980DFCFF21A4D487007C60EA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980DFCFE21A4D487007C60EA /* MapViewController.swift */; };
 		980DFD0221A4D487007C60EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 980DFD0021A4D487007C60EA /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		058AD32E21FE802E00117FD4 /* SRPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRPointAnnotation.swift; sourceTree = "<group>"; };
 		0CD6B16CEAECA018B9B0AD33 /* Pods_SkateItRateIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SkateItRateIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FD3664D9B1A2FCD3F7139CB /* Pods-SkateItRateIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkateItRateIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-SkateItRateIt/Pods-SkateItRateIt.release.xcconfig"; sourceTree = "<group>"; };
 		980DFCF921A4D487007C60EA /* SkateItRateIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkateItRateIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +141,7 @@
 				9857341D21E5484400956E38 /* PinModel.swift */,
 				98A5C41921F12A8E00A891B8 /* PhotoCell.swift */,
 				98A5C42121FA51B500A891B8 /* RatingControl.swift */,
+				058AD32E21FE802E00117FD4 /* SRPointAnnotation.swift */,
 			);
 			path = ModelAndCell;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				980DFCFD21A4D487007C60EA /* AppDelegate.swift in Sources */,
 				980FBF3321E175D100CB377C /* CSSViewController.swift in Sources */,
 				985733EF21E2908A00956E38 /* PinViewController.swift in Sources */,
+				058AD32F21FE802E00117FD4 /* SRPointAnnotation.swift in Sources */,
 				98A5C42221FA51B500A891B8 /* RatingControl.swift in Sources */,
 				98591D9B21FD80D80028B973 /* Constants.swift in Sources */,
 				98510B5321FA828D00316C01 /* Reachability.swift in Sources */,
