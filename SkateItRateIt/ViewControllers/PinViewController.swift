@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import Kingfisher
+import CoreLocation
 import Reachability
 
 class PinViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -20,6 +21,8 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
     @IBOutlet weak var photoView: UICollectionView!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var ratingControl: RatingControl!
+    
+    let locationManager = CLLocationManager()
     
     var pinInfoRef : PinInfo! // a reference that would contain the pin we want to manipulate (add photo, review, rating etc).
     var selectedAnnotation = SRPointAnnotation()
@@ -48,6 +51,8 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
         flowLayout.itemSize = CGSize(width: dimension, height: dimension2)
         
         photoView.delegate = self
+        
+        
 
     }
     
@@ -76,9 +81,19 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
     }
     
     @IBAction func getDirections(_ sender: UIBarButtonItem) {
-        UIApplication.shared.openURL(URL(string:"https://www.google.com/maps/search/?api=1&query=\(selectedAnnotation.coordinate.latitude),\(selectedAnnotation.coordinate.longitude)")!)
         
+        let startPoint  = "?saddr=\(self.locationManager.location?.coordinate.latitude ?? 0.0),\(self.locationManager.location?.coordinate.longitude ?? 0.0)"
+        let endpoint = "&daddr=\(self.pinInfoRef.coordinate?.latitude ?? 0.0),\(self.pinInfoRef.coordinate?.longitude ?? 0.0)"
         
+        if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
+            if let url = URL(string:
+                "comgooglemaps://\(startPoint)\(endpoint)&directionsmode=driving") {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+            
+        } else {
+            print("Can't use comgooglemaps://");
+        }
     }
     
     
