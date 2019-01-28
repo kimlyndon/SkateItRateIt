@@ -167,7 +167,7 @@
                                 </items>
                             </navigationBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Qhf-cx-sf6">
-                                <rect key="frame" x="0.0" y="226" width="414" height="543"/>
+                                <rect key="frame" x="0.0" y="226" width="414" height="535"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hLt-LV-Hv1">
                                     <size key="itemSize" width="50" height="50"/>
@@ -232,20 +232,20 @@
                             <constraint firstItem="kef-BQ-TzX" firstAttribute="trailing" secondItem="yNR-D1-Kd6" secondAttribute="trailing" id="2aI-Aa-7aE"/>
                             <constraint firstItem="yNR-D1-Kd6" firstAttribute="trailing" secondItem="f3i-DW-6hL" secondAttribute="trailing" constant="16" id="33I-Zy-IOm"/>
                             <constraint firstItem="rKk-H2-xxc" firstAttribute="leading" secondItem="kef-BQ-TzX" secondAttribute="leading" id="5ob-EY-l0D"/>
-                            <constraint firstItem="yNR-D1-Kd6" firstAttribute="trailing" secondItem="Qhf-cx-sf6" secondAttribute="trailing" id="B9T-qj-ZwL"/>
-                            <constraint firstItem="rKk-H2-xxc" firstAttribute="top" secondItem="Qhf-cx-sf6" secondAttribute="bottom" id="Fio-C2-gHU"/>
+                            <constraint firstItem="Qhf-cx-sf6" firstAttribute="top" secondItem="hes-sq-dsd" secondAttribute="bottom" constant="8" symbolic="YES" id="CHT-hu-jZ8"/>
                             <constraint firstItem="GXP-kN-Iqd" firstAttribute="top" secondItem="f3i-DW-6hL" secondAttribute="bottom" constant="8" symbolic="YES" id="IeW-7t-wOF"/>
                             <constraint firstItem="hes-sq-dsd" firstAttribute="leading" secondItem="yNR-D1-Kd6" secondAttribute="leading" constant="16" id="Maq-t6-R8T"/>
                             <constraint firstItem="yNR-D1-Kd6" firstAttribute="trailing" secondItem="hes-sq-dsd" secondAttribute="trailing" constant="16" id="RqC-bQ-CGQ"/>
                             <constraint firstItem="hes-sq-dsd" firstAttribute="top" secondItem="GXP-kN-Iqd" secondAttribute="bottom" constant="8" symbolic="YES" id="UVf-zd-5NY"/>
                             <constraint firstItem="GXP-kN-Iqd" firstAttribute="centerX" secondItem="f3i-DW-6hL" secondAttribute="centerX" id="X3p-xK-C3Q"/>
-                            <constraint firstItem="Qhf-cx-sf6" firstAttribute="top" secondItem="hes-sq-dsd" secondAttribute="bottom" constant="8" symbolic="YES" id="eTf-U2-0w4"/>
+                            <constraint firstItem="Qhf-cx-sf6" firstAttribute="leading" secondItem="rKk-H2-xxc" secondAttribute="leading" id="f7e-0e-qG5"/>
                             <constraint firstItem="kef-BQ-TzX" firstAttribute="top" secondItem="yNR-D1-Kd6" secondAttribute="top" id="fiu-ag-ItP"/>
-                            <constraint firstItem="Qhf-cx-sf6" firstAttribute="leading" secondItem="yNR-D1-Kd6" secondAttribute="leading" id="gOx-GT-dhd"/>
-                            <constraint firstItem="Qhf-cx-sf6" firstAttribute="centerX" secondItem="rKk-H2-xxc" secondAttribute="centerX" id="hPQ-Ht-Orv"/>
+                            <constraint firstItem="Qhf-cx-sf6" firstAttribute="trailing" secondItem="kef-BQ-TzX" secondAttribute="trailing" id="hSf-aG-ApN"/>
                             <constraint firstItem="f3i-DW-6hL" firstAttribute="leading" secondItem="o6q-v1-qeT" secondAttribute="leadingMargin" id="j0r-PH-WyK"/>
                             <constraint firstItem="yNR-D1-Kd6" firstAttribute="bottom" secondItem="rKk-H2-xxc" secondAttribute="bottom" id="k5t-Hy-IFg"/>
                             <constraint firstItem="kef-BQ-TzX" firstAttribute="leading" secondItem="yNR-D1-Kd6" secondAttribute="leading" id="qAo-4g-6vY"/>
+                            <constraint firstItem="Qhf-cx-sf6" firstAttribute="trailing" secondItem="rKk-H2-xxc" secondAttribute="trailing" id="qow-KB-qtL"/>
+                            <constraint firstItem="yNR-D1-Kd6" firstAttribute="bottom" secondItem="Qhf-cx-sf6" secondAttribute="bottom" constant="52" id="uzk-Sd-VIC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yNR-D1-Kd6"/>
                     </view>
