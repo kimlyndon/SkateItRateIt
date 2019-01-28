@@ -46,7 +46,7 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
         
         photoView.delegate = self
         
-    
+        
     }
     
     func createReviewPicker() {
@@ -75,10 +75,8 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
     
     @IBAction func getDirections(_ sender: UIBarButtonItem) {
         
-        let url = URL(string: "https://www.google.com/maps/dir/?api=1&origin&destination")
-        let request = URLRequest(url: url!)
-        //TODO: Complete code call.
-
+       // let directionsURL = URL(string: "https://www.google.com/maps/dir/?api=1&origin&destination")
+        // OR: let directionsURL = "https://www.google.com/maps/search/?api=1&query=\(selectedPin.coordinate.latitude),\(selectedPin.coordinate.longitude)" and add "selectedPin" to PinModel? 
         
     }
     
@@ -155,7 +153,7 @@ extension PinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         cell.backgroundColor = UIColor.darkGray
         cell.imageView.alpha = 0.5
         cell.addSubview(activityIndicator)
-        cell.imageView.image = #imageLiteral(resourceName: "Screen Shot 2019-01-22 at 5.57.37 PM")
+        cell.imageView.image = #imageLiteral(resourceName: "loading image")
         activityIndicator.startAnimating()
         
         let aPhoto = UIImageView.init()
@@ -166,10 +164,31 @@ extension PinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
             cell.imageView.alpha = 1.0
             activityIndicator.stopAnimating()
             activityIndicator.hidesWhenStopped = true
-           
+        
         }
-         return cell
+            return cell
+
         }
     
+    func downloadSinglePhoto1(photoURL: URL) -> Data? {
+        
+        return FlickrClient.sharedInstance().makeImageDataFrom1(flickrURL: photoURL)
     }
+    
+    //MARK: Did select item at: performs a segue with selected image
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        // Grab the PEVC from Storyboard
+        let photoCheck = self.storyboard!.instantiateViewController(withIdentifier: "PhotoEditorViewController") as! PhotoEditorViewController
+        
+        //Populate view controller with data from the selected item
+        photoCheck.imagePickerView = photoView?[(indexPath as NSIndexPath).row]
+        
+        // Present the view controller using navigation
+        self.navigationController!.pushViewController(photoCheck, animated: true)
+        
+    }
+    
+}
+
 
