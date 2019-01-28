@@ -56,7 +56,7 @@ class PhotoEditorViewController: UIViewController,  UINavigationControllerDelega
     
     @IBAction func backButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
-        print("Back button pressed")
+    
     }
     
     
