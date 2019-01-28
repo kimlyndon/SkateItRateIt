@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 import Kingfisher
 import Reachability
 
@@ -21,6 +22,7 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
     @IBOutlet weak var ratingControl: RatingControl!
     
     var pinInfoRef : PinInfo! // a reference that would contain the pin we want to manipulate (add photo, review, rating etc).
+    var selectedAnnotation = SRPointAnnotation()
     
     let reviews = [" ",
                    "Lame! Don't waste your gas. 😒",
@@ -30,7 +32,6 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
                    "Gnarley! Gotta try it! 🤩"]
     
     var selectedReview: String?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +48,7 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
         flowLayout.itemSize = CGSize(width: dimension, height: dimension2)
         
         photoView.delegate = self
-        
-        
+
     }
     
     func createReviewPicker() {
@@ -76,9 +76,8 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
     }
     
     @IBAction func getDirections(_ sender: UIBarButtonItem) {
+        UIApplication.shared.openURL(URL(string:"https://www.google.com/maps/search/?api=1&query=\(selectedAnnotation.coordinate.latitude),\(selectedAnnotation.coordinate.longitude)")!)
         
-       // let directionsURL = URL(string: "https://www.google.com/maps/dir/?api=1&origin&destination")
-        // OR: let directionsURL = "https://www.google.com/maps/search/?api=1&query=\(selectedPin.coordinate.latitude),\(selectedPin.coordinate.longitude)" and add "selectedPin" to PinModel? 
         
     }
     
@@ -172,7 +171,7 @@ extension PinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 
         }
     
-    func downloadSinglePhoto1(photoURL: URL) -> Data? {
+   /* func downloadSinglePhoto1(photoURL: URL) -> Data? {
         
         return FlickrClient.sharedInstance().makeImageDataFrom1(flickrURL: photoURL)
     }
@@ -189,7 +188,7 @@ extension PinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         // Present the view controller using navigation
         self.navigationController!.pushViewController(photoCheck, animated: true)
         
-    }
+    }*/
     
 }
 
