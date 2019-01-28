@@ -36,6 +36,10 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
     
     var selectedReview: String?
     
+    var downloadedPhotos = [Data]()
+    var photoInfo: [FlickrClient.Photo]?
+    var urlsToDownload = [URL]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         createReviewPicker()
@@ -54,6 +58,27 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
         
         
 
+    }
+    
+    fileprivate func downloadPhotos(_ completionForDownload: @escaping (_ success: Bool) -> Void) {
+        print("downloadPhotos")
+        
+      //  clearAll()
+      /*  FlickrClient.sharedInstance().downloadPhotosForLocation1(lat: //pin.latitude, lon: pin.longitude) { (success, urls) in
+            
+            guard let urls = urls else {
+                print("no url's returned in completion handler")
+                return
+            }
+            
+            if (success == false) {
+                print("JSON DL did not complete")
+                return
+            }
+            
+            
+            self.urlsToDownload.append(contentsOf: urls)
+        } */
     }
     
     func createReviewPicker() {
@@ -83,7 +108,7 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
     @IBAction func getDirections(_ sender: UIBarButtonItem) {
         
         let startPoint  = "?saddr=\(self.locationManager.location?.coordinate.latitude ?? 0.0),\(self.locationManager.location?.coordinate.longitude ?? 0.0)"
-        let endpoint = "&daddr=\(self.pinInfoRef.coordinate?.latitude ?? 0.0),\(self.pinInfoRef.coordinate?.longitude ?? 0.0)"
+        let endpoint = "&daddr=\(self.pinInfoRef!.coordinate?.latitude ?? 0.0),\(self.pinInfoRef.coordinate?.longitude ?? 0.0)"
         
         if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
             if let url = URL(string:
@@ -186,7 +211,7 @@ extension PinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 
         }
     
-   /* func downloadSinglePhoto1(photoURL: URL) -> Data? {
+ /*  func downloadSinglePhoto1(photoURL: URL) -> Data? {
         
         return FlickrClient.sharedInstance().makeImageDataFrom1(flickrURL: photoURL)
     }
