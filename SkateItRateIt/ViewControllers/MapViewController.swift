@@ -161,8 +161,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
                     
                     //create annotation
                     let annotation = SRPointAnnotation()
-                    annotation.title = "\(pin.rating!)"
-                    annotation.subtitle = "\(pin.review!)"
+            //        annotation.title = "\(pin.rating!)"
+            //       annotation.subtitle = "\(pin.review!)"
                     annotation.coordinate = coordinate // user created pin coordinates to add on map.
                     annotation.pinInfoRef = pin // getting pin reference
                     annotations.append(annotation)

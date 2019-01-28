@@ -27,7 +27,7 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
     let reviews = [" ",
                    "Lame! Don't waste your gas. 😒",
                    "Needs improvement. 🤨",
-                   "Worth the trip! 😎",
+                   "Not bad, but not memorable either. 😒",
                    "Sick! 😜",
                    "Gnarley! Gotta try it! 🤩"]
     
