@@ -55,6 +55,7 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
         flowLayout.itemSize = CGSize(width: dimension, height: dimension2)
         
         photoView.delegate = self
+        photoView.dataSource = self
         
         
 
