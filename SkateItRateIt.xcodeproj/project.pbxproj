@@ -465,7 +465,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 87T6RG3PX5;
+				DEVELOPMENT_TEAM = 4ZWUHKK6XF;
 				INFOPLIST_FILE = "$(SRCROOT)/SkateItRateIt/SupportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -484,7 +484,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 87T6RG3PX5;
+				DEVELOPMENT_TEAM = 4ZWUHKK6XF;
 				INFOPLIST_FILE = "$(SRCROOT)/SkateItRateIt/SupportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
