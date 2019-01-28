@@ -225,13 +225,6 @@ extension MapViewController: CLLocationManagerDelegate {
         // Last known location. If no location use guard statement
         guard let location = locations.last else { return }
         
-        // Removing below code because it will tend to lock down the screen whenever there is going to he location update. which is the case with the actual device move.
-        
-        /*let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        let region = MKCoordinateRegion.init(center: center, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
-        mapView.setRegion(region, animated: true)*/
-        
-        
         newPin.coordinate = location.coordinate
         
     }
