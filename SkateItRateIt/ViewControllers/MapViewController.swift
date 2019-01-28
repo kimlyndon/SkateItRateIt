@@ -157,16 +157,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
                 let pin  = PinInfo.init(dictionary:child.value as! Dictionary<String, Any>)
                 pin.id = child.key
                 if let coordinate = pin.coordinate {
-                    //add to the array
-                    self.pinArray.append(pin)
+                   
                     
                     //create annotation
-                    let annotation = SRPointAnnotation()   //create annotation
+                    let annotation = SRPointAnnotation()
                     annotation.title = "\(pin.rating!)"
                     annotation.subtitle = "\(pin.review!)"
-                    annotation.coordinate = pin.coordinate! // user created pin coordinates to add on map.
-                    annotation.pinInfoRef = pin
+                    annotation.coordinate = coordinate // user created pin coordinates to add on map.
+                    annotation.pinInfoRef = pin // getting pin reference
                     annotations.append(annotation)
+                    self.pinArray.append(pin) //add to the array
                 }
                 
             }
