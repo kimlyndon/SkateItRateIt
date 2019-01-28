@@ -34,6 +34,8 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
         super.viewDidLoad()
         createReviewPicker()
         createToolbar()
+        
+        //Set the Flow Layout
         let space:CGFloat = 3.0
         let dimension = (view.frame.size.width - (2 * space)) / 3.0
         let dimension2 = (view.frame.size.height - (2 * space)) / 3.0
@@ -172,7 +174,7 @@ extension PinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         let photoCheck = self.storyboard!.instantiateViewController(withIdentifier: "PhotoEditorViewController") as! PhotoEditorViewController
         
         //Populate view controller with data from the selected item
-        photoCheck.imagePickerView = photoView?[(indexPath as NSIndexPath).row]
+        photoCheck.imagePickerView = ?????[(indexPath as NSIndexPath).row]
         
         // Present the view controller using navigation
         self.navigationController!.pushViewController(photoCheck, animated: true)
