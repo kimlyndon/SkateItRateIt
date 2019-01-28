@@ -64,8 +64,7 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
     fileprivate func downloadPhotos(_ completionForDownload: @escaping (_ success: Bool) -> Void) {
         print("downloadPhotos")
         
-      //  clearAll()
-      /*  FlickrClient.sharedInstance().downloadPhotosForLocation1(lat: //pin.latitude, lon: pin.longitude) { (success, urls) in
+       FlickrClient.sharedInstance().downloadPhotosForLocation1(lat: pin.latitude, lon: pin.longitude) { (success, urls) in
             
             guard let urls = urls else {
                 print("no url's returned in completion handler")
@@ -79,7 +78,7 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
             
             
             self.urlsToDownload.append(contentsOf: urls)
-        } */
+        }
     }
     
     func createReviewPicker() {
@@ -212,12 +211,12 @@ extension PinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 
         }
     
- /*  func downloadSinglePhoto1(photoURL: URL) -> Data? {
+     func downloadSinglePhoto1(photoURL: URL) -> Data? {
         
         return FlickrClient.sharedInstance().makeImageDataFrom1(flickrURL: photoURL)
     }
     
-    //MARK: Did select item at: performs a segue with selected image
+    //MARK: User chooses an image from collection view
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         // Grab the PEVC from Storyboard
@@ -229,7 +228,7 @@ extension PinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         // Present the view controller using navigation
         self.navigationController!.pushViewController(photoCheck, animated: true)
         
-    }*/
+    }
     
 }
 
