@@ -56,26 +56,8 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
         
         photoView.delegate = self
         photoView.dataSource = self
-        
-        
-        
-
-       FlickrClient.sharedInstance().downloadPhotosForLocation1(lat: pin.latitude, lon: pin.longitude) { (success, urls) in
-            
-            guard let urls = urls else {
-                print("no url's returned in completion handler")
-                return
-            }
-            
-            if (success == false) {
-                print("JSON DL did not complete")
-                return
-            }
-            
-            
-            self.urlsToDownload.append(contentsOf: urls)
-        }
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.photoView.reloadData()
     }
@@ -167,14 +149,14 @@ extension PinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         
         let space:CGFloat = 8.0
         let dimension = (view.frame.size.width - (3 * space)) / 3.0
-        //let dimension2 = (view.frame.size.height - (2 * space)) / 3.0
+        
         
         return CGSize(width: dimension, height: dimension)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("***Collection View: Number of items in section***")
-        return self.pinInfoRef.photoUrl.count
+        return self.pinInfoRef!.photoUrl.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

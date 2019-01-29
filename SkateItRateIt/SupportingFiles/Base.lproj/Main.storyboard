@@ -288,9 +288,9 @@
                                                 <action selector="backButtonPressed:" destination="616-EY-N3l" id="luF-Hd-KZB"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="OVD-2K-8GK">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="OVD-2K-8GK" userLabel="Share Button">
                                             <connections>
-                                                <action selector="saveButtonPressed:" destination="616-EY-N3l" id="dcC-KD-jhH"/>
+                                                <action selector="shareButtonPressed:" destination="616-EY-N3l" id="YSN-jR-RJ4"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -305,11 +305,6 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="G6H-dB-u7h"/>
-                                    <barButtonItem systemItem="action" id="5vq-cp-rZF">
-                                        <connections>
-                                            <action selector="shareButtonPressed:" destination="616-EY-N3l" id="ho7-cZ-LR9"/>
-                                        </connections>
-                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="9CO-h4-KkF"/>
                                     <barButtonItem title="Album" id="O8U-2v-04e">
                                         <connections>
@@ -351,7 +346,7 @@
                         <outlet property="imagePickerView" destination="fKe-xc-v0N" id="6YM-Z7-RwZ"/>
                         <outlet property="photoAlbumButton" destination="O8U-2v-04e" id="nZy-Ae-V3P"/>
                         <outlet property="saveButton" destination="OVD-2K-8GK" id="BHU-UZ-fma"/>
-                        <outlet property="shareButton" destination="5vq-cp-rZF" id="whn-pU-Pax"/>
+                        <outlet property="shareButton" destination="OVD-2K-8GK" id="ghA-vy-1Ix"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C2x-2c-Q4P" userLabel="First Responder" sceneMemberID="firstResponder"/>

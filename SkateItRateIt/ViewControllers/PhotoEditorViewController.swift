@@ -20,7 +20,6 @@ class PhotoEditorViewController: UIViewController,  UINavigationControllerDelega
     
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var backButton: UIBarButtonItem!
-    @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var camera: UIBarButtonItem!
     @IBOutlet weak var photoAlbumButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
@@ -61,14 +60,6 @@ class PhotoEditorViewController: UIViewController,  UINavigationControllerDelega
     @IBAction func backButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     
-    }
-    
-    
-    @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
-        //TODO: Code to save uploaded image to collection view
-        /* let url = URL(string: <#T##String#>)
-         imagePickerView.kf.setImage(with: url) */
-        
     }
     
     
