@@ -36,9 +36,7 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
     
     var selectedReview: Int?
     
-    var downloadedPhotos = [Data]()
-    var photoInfo: [FlickrClient.Photo]?
-    var urlsToDownload = [URL]()
+    var photosArray = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,10 +54,29 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
         
         photoView.delegate = self
         photoView.dataSource = self
+      
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
+        
+         self.photosArray = [String]()
+        for url in self.pinInfoRef.photoUrl{
+            self.photosArray.append(url)
+        }
         self.photoView.reloadData()
+        FlickrClient.sharedInstance().downloadPhotosForLocation1(lat:self.pinInfoRef.coordinate?.latitude ?? 0.0 , lon:self.pinInfoRef.coordinate?.longitude ?? 0.0) { (success, urlArray) in
+            if success{
+                if let array = urlArray {
+                    for url in array {
+                        self.photosArray.append(url.absoluteString)
+                    }
+                }
+                DispatchQueue.main.async {
+                    self.photoView.reloadData()
+                }
+                
+            }
+        }
     }
     
     func createReviewPicker() {
@@ -164,7 +181,7 @@ extension PinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("***Collection View: Number of items in section***")
-        return self.pinInfoRef!.photoUrl.count
+        return  self.photosArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -175,7 +192,7 @@ extension PinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PhotoCell
-        cell.imageView.kf.setImage(with:  URL.init(string: self.pinInfoRef.photoUrl[indexPath.row]), placeholder:#imageLiteral(resourceName: "loading image"))
+        cell.imageView.kf.setImage(with:  URL.init(string:  self.photosArray[indexPath.row]), placeholder:#imageLiteral(resourceName: "loading image"))
         return cell
         
     }
@@ -186,4 +203,11 @@ extension PinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
 }
+
+
+
+
+
+
+
 
