@@ -14,11 +14,11 @@ import MapKit
 class PinInfo: NSObject {
     var locationName: String?
     var coordinate: CLLocationCoordinate2D?
-    var rating: [Int]?
     var id: String?
     var photoUrl = [String]()
     var downloadURL: String?
-    var review: String?
+    var reviews = [Int] ()
+    var ratings = [Int] ()
     
     init(locationName: String, coordinate: CLLocationCoordinate2D) {
         self.locationName = locationName
@@ -39,6 +39,14 @@ class PinInfo: NSObject {
             self.photoUrl = urlArray
         }
         
+        if let urlArray = dictionary["ratings"] as? [Int] {
+            self.ratings = urlArray
+        }
+        
+        if let urlArray = dictionary["reviews"] as? [Int] {
+            self.reviews = urlArray
+        }
+        
         let locationDictionary  =  dictionary["location"] as! Dictionary<String, Any>
         if let lat = locationDictionary["Lat"] as? Double,
             let long = locationDictionary["long"] as? Double {
@@ -52,7 +60,8 @@ class PinInfo: NSObject {
         let  dictionary = [
             "location" : ["Lat":self.coordinate?.latitude, "long":self.coordinate?.longitude],
             "locationName" : self.locationName ?? "" ,
-            "rating" : self.rating ?? "",
+            "ratings" : self.ratings,
+            "reviews" : self.reviews,
             "imageURL" : self.photoUrl
             ] as [String : Any]
         
