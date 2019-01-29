@@ -21,6 +21,7 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
     @IBOutlet weak var photoView: UICollectionView!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var ratingControl: RatingControl!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     let locationManager = CLLocationManager()
     
@@ -38,11 +39,7 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
     
     var photosArray = [String]()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        createReviewPicker()
-        createToolbar()
-        
+    fileprivate func configureFlowLayout() {
         //Set the Flow Layout
         let space:CGFloat = 3.0
         let dimension = (view.frame.size.width - (2 * space)) / 3.0
@@ -51,6 +48,16 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
         flowLayout.itemSize = CGSize(width: dimension, height: dimension2)
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        createReviewPicker()
+        createToolbar()
+        activityIndicator.startAnimating()
+        
+        configureFlowLayout()
         
         photoView.delegate = self
         photoView.dataSource = self
@@ -58,6 +65,7 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
          self.photosArray = [String]()
         for url in self.pinInfoRef.photoUrl{
@@ -77,6 +85,13 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
                 
             }
         }
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        activityIndicator.stopAnimating()
+        activityIndicator.hidesWhenStopped = true
     }
     
     func createReviewPicker() {
@@ -188,13 +203,14 @@ extension PinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         
         if indexPath.item == 3 {
             print("***Collection View: Cell For Row at Index Path***")
+            
+           
         }
         
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PhotoCell
         cell.imageView.kf.setImage(with:  URL.init(string:  self.photosArray[indexPath.row]), placeholder:#imageLiteral(resourceName: "loading image"))
         return cell
-        
     }
     
     func downloadSinglePhoto1(photoURL: URL) -> Data? {

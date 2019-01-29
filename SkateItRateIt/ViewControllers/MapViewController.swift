@@ -26,6 +26,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     let regionInMeters: Double = 10000
     let annotation = SRPointAnnotation()
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.showsUserLocation = true
@@ -35,49 +36,50 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         checkLocationServices()
         self.loadPins()
         
-        
-        //Reachability
-        let reachability = Reachability()
-        
-        reachability!.whenReachable = { reachability in
-            if reachability.connection == .wifi {
-                let alertController = UIAlertController(title: "Alert", message: "Reachable via WiFi", preferredStyle: .alert)
-                
-                let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alertController.addAction(defaultAction)
-                
-                self.present(alertController, animated: true, completion: nil)
-                
-            }
-            else {
-                let alertController = UIAlertController(title: "Alert", message: "Reachable via Cellular", preferredStyle: .alert)
-                
-                let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alertController.addAction(defaultAction)
-                
-                self.present(alertController, animated: true, completion: nil)
-            }
-        }
-        
-        reachability!.whenUnreachable = { reachability in
-            let alertController = UIAlertController(title: "Alert", message: "Not Reachable", preferredStyle: .alert)
-            
-            let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alertController.addAction(defaultAction)
-            
-            self.present(alertController, animated: true, completion: nil)
-        }
-        
-        try! reachability!.startNotifier()
-        
     }
-    
+      
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         centerViewOnUserLocation()
+        
     }
     
+    //Reachability
+    func setReachability() {
+    let reachability = Reachability()
     
+    reachability!.whenReachable = { reachability in
+    if reachability.connection == .wifi {
+    let alertController = UIAlertController(title: "Alert", message: "Reachable via WiFi", preferredStyle: .alert)
+    
+    let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+    alertController.addAction(defaultAction)
+    
+    self.present(alertController, animated: true, completion: nil)
+    
+    }
+    else {
+    let alertController = UIAlertController(title: "Alert", message: "Reachable via Cellular", preferredStyle: .alert)
+    
+    let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+    alertController.addAction(defaultAction)
+    
+    self.present(alertController, animated: true, completion: nil)
+    }
+    }
+    
+    reachability!.whenUnreachable = { reachability in
+    let alertController = UIAlertController(title: "Alert", message: "Not Reachable", preferredStyle: .alert)
+    
+    let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+    alertController.addAction(defaultAction)
+    
+    self.present(alertController, animated: true, completion: nil)
+    }
+    
+    try! reachability!.startNotifier()
+    
+    }
     
     
     //Location
@@ -157,21 +159,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
                 if let coordinate = pin.coordinate {
                     
                     
-                    //create annotation
+                    //create annotation with current star rating
                     let annotation = SRPointAnnotation()
                     
                     if pin.reviews.count > 0 {
-                        annotation.title = "\(pin.reviews.reduce(0, +)/pin.reviews.count)"
+                        annotation.title = "\(pin.ratings.reduce(0, +)/pin.ratings.count) stars"
                     }
                     else {
-                        annotation.title = "No Reviews!"
-                    }
-                    
-                    if pin.ratings.count > 0 {
-                        annotation.subtitle = "\(pin.ratings.reduce(0, +)/pin.ratings.count) stars"
-                    }
-                    else {
-                        annotation.subtitle = "No ratings!"
+                        annotation.title = "No Ratings!"
                     }
                     
                     annotation.coordinate = coordinate // user created pin coordinates to add on map.
@@ -287,4 +282,5 @@ extension MapViewController: CLLocationManagerDelegate {
         }
     }
 }
+
 
