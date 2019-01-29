@@ -56,33 +56,11 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
         
         photoView.delegate = self
         photoView.dataSource = self
-        
-        
-        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.photoView.reloadData()
     }
-    
-    //    fileprivate func downloadPhotos(_ completionForDownload: @escaping (_ success: Bool) -> Void) {
-    //        print("downloadPhotos")
-    //
-    //       FlickrClient.sharedInstance().downloadPhotosForLocation1(lat: pin.latitude, lon: pin.longitude) { (success, urls) in
-    //
-    //            guard let urls = urls else {
-    //                print("no url's returned in completion handler")
-    //                return
-    //            }
-    //
-    //            if (success == false) {
-    //                print("JSON DL did not complete")
-    //                return
-    //            }
-    //
-    //
-    //            self.urlsToDownload.append(contentsOf: urls)
-    //        }
-    //    }
     
     func createReviewPicker() {
         let reviewPicker = UIPickerView()
@@ -179,14 +157,14 @@ extension PinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         
         let space:CGFloat = 8.0
         let dimension = (view.frame.size.width - (3 * space)) / 3.0
-        //let dimension2 = (view.frame.size.height - (2 * space)) / 3.0
+        
         
         return CGSize(width: dimension, height: dimension)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("***Collection View: Number of items in section***")
-        return self.pinInfoRef.photoUrl.count
+        return self.pinInfoRef!.photoUrl.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -207,20 +185,7 @@ extension PinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         return FlickrClient.sharedInstance().makeImageDataFrom1(flickrURL: photoURL)
     }
     
-    //MARK: User chooses an image from collection view
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        // Grab the PEVC from Storyboard
-        let photoCheck = self.storyboard!.instantiateViewController(withIdentifier: "PhotoEditorViewController") as! PhotoEditorViewController
-        
-        //Populate view controller with data from the selected item
-        //photoCheck.imagePickerView = ?????[(indexPath as NSIndexPath).row]
-        
-        // Present the view controller using navigation
-        self.navigationController!.pushViewController(photoCheck, animated: true)
-        
     }
     
-}
 
 

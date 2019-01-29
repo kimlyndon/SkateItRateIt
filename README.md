@@ -11,7 +11,7 @@
 ### Map Scene
   When SkateIt/RateIt loads, the user will see a map that, as more users plot destinations, will be populated with pins. The user's current location will be identified by the blue circle. There is a button to "Get Gear" that leads the user to California Skateboard Supply, an e-bay store that sells all things skate. User can navigate back to the map with the "Back" button. 
   If the user is currently at a "Spot," he/she can drop a pin via the "Drop In" button. Should the user know where the spot is, he/she can also perform a long press drop pin action. 
-  Tapping a pin will give the user the option to get directions to that location, or take the user to the RateIt view. 
+  Tapping a pin will give the user options to get directions to that location as well as rate and review the location. 
   
 ### RateIt Scene
   The user can rate the spot with stars as well as add a generic review from a selection that spans from negative, to neutral, to positive. Ratings are cumulative and the average rating review will show in this scene under the "⭐️⭐️⭐️⭐️⭐️." The RateIt view has the option to return to the map by pressing "Done," or uploading a picture via the "Grab Pic" button which will segue to the Photo Editor. The RateIt scene also has a collection view of persisted photos associated with each location. As more users upload photos, the collection will grow. There is currently no option to remove photos but this option will be available in a later update.
