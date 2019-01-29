@@ -25,6 +25,7 @@
   You may clone this repo to your local repo or download it to your desktop via zipfile. Open the project folder. 
   
 ### Run
+  Prior to running the app, the user needs to run cocoapods 'pod install' on the command line to install all the dependencies needed.
   After opening the project foler, click on the xcodeproj and choose run ▶️.
   
 ### NOTE: 
