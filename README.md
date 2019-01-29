@@ -26,7 +26,7 @@
   
 ### Run
   Prior to running the app, the user needs to run cocoapods 'pod install' on the command line to install all the dependencies needed.
-  After opening the project foler, click on the xcodeproj and choose run ▶️.
+  After opening the project folder, click on the xcodeproj and choose run ▶️.
   
 ### NOTE: 
   Please note that if you are running this app on the simulator, the camera option is not functional. If you are running it on your iphone, the camera option will be available. I hope you enjoy this app and please skate responsibly!
