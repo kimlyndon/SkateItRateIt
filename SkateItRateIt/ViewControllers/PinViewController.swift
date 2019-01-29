@@ -58,13 +58,9 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
         photoView.dataSource = self
         
         
-
-    }
-    
-    fileprivate func downloadPhotos(_ completionForDownload: @escaping (_ success: Bool) -> Void) {
-        print("downloadPhotos")
         
-      /* FlickrClient.sharedInstance().downloadPhotosForLocation1(lat: pin.latitude, lon: pin.longitude) { (success, urls) in
+
+       FlickrClient.sharedInstance().downloadPhotosForLocation1(lat: pin.latitude, lon: pin.longitude) { (success, urls) in
             
             guard let urls = urls else {
                 print("no url's returned in completion handler")
@@ -78,7 +74,10 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
             
             
             self.urlsToDownload.append(contentsOf: urls)
-        } */
+        }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.photoView.reloadData()
     }
     
     func createReviewPicker() {
@@ -167,15 +166,15 @@ extension PinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let space:CGFloat = 8.0
-        let dimension = (view.frame.size.width - (2 * space)) / 3.0
-        let dimension2 = (view.frame.size.height - (2 * space)) / 3.0
+        let dimension = (view.frame.size.width - (3 * space)) / 3.0
+        //let dimension2 = (view.frame.size.height - (2 * space)) / 3.0
         
-        return CGSize(width: dimension, height: dimension2)
+        return CGSize(width: dimension, height: dimension)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("***Collection View: Number of items in section***")
-        return 3
+        return self.pinInfoRef.photoUrl.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -186,32 +185,12 @@ extension PinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PhotoCell
+        cell.imageView.kf.setImage(with:  URL.init(string: self.pinInfoRef.photoUrl[indexPath.row]), placeholder:#imageLiteral(resourceName: "loading image"))
+        return cell
         
-        
-        //MARK: Activity Indicator
-        let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
-        activityIndicator.frame = cell.bounds
-        cell.backgroundColor = UIColor.darkGray
-        cell.imageView.alpha = 0.5
-        cell.addSubview(activityIndicator)
-        cell.imageView.image = #imageLiteral(resourceName: "loading image")
-        activityIndicator.startAnimating()
-        
-        let aPhoto = UIImageView.init()
-        
-        if let image = aPhoto.image {
-            
-            cell.imageView.image = image
-            cell.imageView.alpha = 1.0
-            activityIndicator.stopAnimating()
-            activityIndicator.hidesWhenStopped = true
-        
-        }
-            return cell
-
-        }
+    }
     
-     func downloadSinglePhoto1(photoURL: URL) -> Data? {
+    func downloadSinglePhoto1(photoURL: URL) -> Data? {
         
         return FlickrClient.sharedInstance().makeImageDataFrom1(flickrURL: photoURL)
     }
@@ -223,8 +202,9 @@ extension PinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         let photoCheck = self.storyboard!.instantiateViewController(withIdentifier: "PhotoEditorViewController") as! PhotoEditorViewController
         
         //Populate view controller with data from the selected item
+
        // photoCheck.imagePickerView = ?????[(indexPath as NSIndexPath).row]
-        
+
         // Present the view controller using navigation
         self.navigationController!.pushViewController(photoCheck, animated: true)
         

@@ -32,6 +32,7 @@ class PhotoEditorViewController: UIViewController,  UINavigationControllerDelega
         configureStorage()
         imagePicker.delegate = self
     }
+   
     
     func configureStorage() {
         storageRef = Storage.storage().reference()
@@ -152,6 +153,7 @@ extension PhotoEditorViewController: UIImagePickerControllerDelegate {
             print (pinref.makeDictionary())
             if let identity = pinref.id {
                 Database.database().reference().child("Pins/" + "\(identity)").setValue(pinref.makeDictionary())
+                self.dismiss(animated: true, completion: nil)
             }
         }
     }

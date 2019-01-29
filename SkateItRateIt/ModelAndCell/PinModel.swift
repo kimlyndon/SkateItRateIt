@@ -35,6 +35,9 @@ class PinInfo: NSObject {
             self.locationName = spot
         }
         
+        if let urlArray = dictionary["imageURL"] as? [String] {
+            self.photoUrl = urlArray
+        }
         
         let locationDictionary  =  dictionary["location"] as! Dictionary<String, Any>
         if let lat = locationDictionary["Lat"] as? Double,
@@ -42,6 +45,7 @@ class PinInfo: NSObject {
             
             self.coordinate = CLLocationCoordinate2D.init(latitude:lat, longitude:long )
         }
+        
     }
     
     func makeDictionary() -> Dictionary<String, Any>  {
@@ -49,7 +53,7 @@ class PinInfo: NSObject {
             "location" : ["Lat":self.coordinate?.latitude, "long":self.coordinate?.longitude],
             "locationName" : self.locationName ?? "" ,
             "rating" : self.rating ?? "",
-            "imageURL" : self.photoUrl ?? ""
+            "imageURL" : self.photoUrl
             ] as [String : Any]
         
         return dictionary 

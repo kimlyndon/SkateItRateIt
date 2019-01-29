@@ -26,8 +26,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     let regionInMeters: Double = 10000
     let annotation = SRPointAnnotation()
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.showsUserLocation = true
@@ -224,9 +222,7 @@ extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // Last known location. If no location use guard statement
         guard let location = locations.last else { return }
-        
         newPin.coordinate = location.coordinate
-        
     }
     
     // When permission auth changes.
