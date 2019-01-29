@@ -268,7 +268,7 @@ extension MapViewController: CLLocationManagerDelegate {
         }
     }
     
-    // Since we got to pass reference of our model to the next view controller we need to make sure that we override following method.
+    // Since we pass reference of our model to the next view controller we need to make sure that we override following method.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "pin" {
             if let destinationVC = segue.destination as? PinViewController {

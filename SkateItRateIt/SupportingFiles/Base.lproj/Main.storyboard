@@ -135,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Nw-W8-Jy9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="572" y="-191"/>
+            <point key="canvasLocation" x="572" y="-383"/>
         </scene>
         <!--Pin View Controller-->
         <scene sceneID="vlY-aU-ud1">
@@ -158,7 +158,7 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate It!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3i-DW-6hL">
-                                <rect key="frame" x="20" y="88" width="378" height="40"/>
+                                <rect key="frame" x="164" y="88" width="90" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ku4-W5-uGA"/>
                                 </constraints>
@@ -167,7 +167,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="GXP-kN-Iqd" customClass="RatingControl" customModule="SkateItRateIt" customModuleProvider="target">
-                                <rect key="frame" x="85" y="136" width="248" height="44"/>
+                                <rect key="frame" x="69" y="136" width="280" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="nRz-1o-fgE"/>
                                 </constraints>
@@ -233,9 +233,10 @@
                         <constraints>
                             <constraint firstItem="f3i-DW-6hL" firstAttribute="top" secondItem="kef-BQ-TzX" secondAttribute="bottom" id="0QE-Ta-GbU"/>
                             <constraint firstItem="kef-BQ-TzX" firstAttribute="trailing" secondItem="yNR-D1-Kd6" secondAttribute="trailing" id="2aI-Aa-7aE"/>
-                            <constraint firstItem="yNR-D1-Kd6" firstAttribute="trailing" secondItem="f3i-DW-6hL" secondAttribute="trailing" constant="16" id="33I-Zy-IOm"/>
+                            <constraint firstItem="yNR-D1-Kd6" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="f3i-DW-6hL" secondAttribute="trailing" id="33I-Zy-IOm"/>
                             <constraint firstItem="rKk-H2-xxc" firstAttribute="leading" secondItem="kef-BQ-TzX" secondAttribute="leading" id="5ob-EY-l0D"/>
                             <constraint firstItem="Qhf-cx-sf6" firstAttribute="top" secondItem="hes-sq-dsd" secondAttribute="bottom" constant="16" id="CHT-hu-jZ8"/>
+                            <constraint firstItem="GXP-kN-Iqd" firstAttribute="leading" secondItem="yNR-D1-Kd6" secondAttribute="leading" constant="69" id="Fva-kX-r2J"/>
                             <constraint firstItem="GXP-kN-Iqd" firstAttribute="top" secondItem="f3i-DW-6hL" secondAttribute="bottom" constant="8" symbolic="YES" id="IeW-7t-wOF"/>
                             <constraint firstItem="hes-sq-dsd" firstAttribute="leading" secondItem="yNR-D1-Kd6" secondAttribute="leading" constant="16" id="Maq-t6-R8T"/>
                             <constraint firstItem="yNR-D1-Kd6" firstAttribute="trailing" secondItem="hes-sq-dsd" secondAttribute="trailing" constant="16" id="RqC-bQ-CGQ"/>
@@ -244,12 +245,11 @@
                             <constraint firstItem="Qhf-cx-sf6" firstAttribute="leading" secondItem="rKk-H2-xxc" secondAttribute="leading" constant="8" id="f7e-0e-qG5"/>
                             <constraint firstItem="kef-BQ-TzX" firstAttribute="top" secondItem="yNR-D1-Kd6" secondAttribute="top" id="fiu-ag-ItP"/>
                             <constraint firstItem="Qhf-cx-sf6" firstAttribute="trailing" secondItem="kef-BQ-TzX" secondAttribute="trailing" constant="-8" id="hSf-aG-ApN"/>
-                            <constraint firstItem="f3i-DW-6hL" firstAttribute="leading" secondItem="o6q-v1-qeT" secondAttribute="leadingMargin" id="j0r-PH-WyK"/>
+                            <constraint firstItem="f3i-DW-6hL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="o6q-v1-qeT" secondAttribute="leadingMargin" id="j0r-PH-WyK"/>
                             <constraint firstItem="yNR-D1-Kd6" firstAttribute="bottom" secondItem="rKk-H2-xxc" secondAttribute="bottom" id="k5t-Hy-IFg"/>
                             <constraint firstItem="kef-BQ-TzX" firstAttribute="leading" secondItem="yNR-D1-Kd6" secondAttribute="leading" id="qAo-4g-6vY"/>
                             <constraint firstItem="Qhf-cx-sf6" firstAttribute="trailing" secondItem="rKk-H2-xxc" secondAttribute="trailing" id="qow-KB-qtL"/>
                             <constraint firstItem="yNR-D1-Kd6" firstAttribute="bottom" secondItem="Qhf-cx-sf6" secondAttribute="bottom" constant="52" id="uzk-Sd-VIC"/>
-                            <constraint firstItem="GXP-kN-Iqd" firstAttribute="width" secondItem="o6q-v1-qeT" secondAttribute="width" multiplier="0.6" id="yzo-Ug-Jwg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yNR-D1-Kd6"/>
                     </view>
@@ -345,13 +345,12 @@
                         <outlet property="camera" destination="JRa-7f-IQ0" id="l7m-sO-846"/>
                         <outlet property="imagePickerView" destination="fKe-xc-v0N" id="6YM-Z7-RwZ"/>
                         <outlet property="photoAlbumButton" destination="O8U-2v-04e" id="nZy-Ae-V3P"/>
-                        <outlet property="saveButton" destination="OVD-2K-8GK" id="BHU-UZ-fma"/>
                         <outlet property="shareButton" destination="OVD-2K-8GK" id="ghA-vy-1Ix"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C2x-2c-Q4P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1408.125" y="533.75"/>
+            <point key="canvasLocation" x="1583" y="529"/>
         </scene>
     </scenes>
 </document>

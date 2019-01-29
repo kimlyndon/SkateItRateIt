@@ -177,21 +177,7 @@ extension PinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         return FlickrClient.sharedInstance().makeImageDataFrom1(flickrURL: photoURL)
     }
     
-    //MARK: User chooses an image from collection view
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        // Grab the PEVC from Storyboard
-        let photoCheck = self.storyboard!.instantiateViewController(withIdentifier: "PhotoEditorViewController") as! PhotoEditorViewController
-        
-        //Populate view controller with data from the selected item
-
-       // photoCheck.imagePickerView = ?????[(indexPath as NSIndexPath).row]
-
-        // Present the view controller using navigation
-        self.navigationController!.pushViewController(photoCheck, animated: true)
-        
     }
     
-}
 
 
