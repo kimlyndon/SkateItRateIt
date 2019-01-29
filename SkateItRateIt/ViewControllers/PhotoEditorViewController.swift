@@ -31,7 +31,7 @@ class PhotoEditorViewController: UIViewController,  UINavigationControllerDelega
         configureStorage()
         imagePicker.delegate = self
     }
-   
+    
     
     func configureStorage() {
         storageRef = Storage.storage().reference()
@@ -59,7 +59,7 @@ class PhotoEditorViewController: UIViewController,  UINavigationControllerDelega
     
     @IBAction func backButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
-    
+        
     }
     
     

@@ -185,7 +185,5 @@ extension PinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         return FlickrClient.sharedInstance().makeImageDataFrom1(flickrURL: photoURL)
     }
     
-    }
-    
-
+}
 

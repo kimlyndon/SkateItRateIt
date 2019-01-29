@@ -155,25 +155,25 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
                 let pin  = PinInfo.init(dictionary:child.value as! Dictionary<String, Any>)
                 pin.id = child.key
                 if let coordinate = pin.coordinate {
-                   
+                    
                     
                     //create annotation
                     let annotation = SRPointAnnotation()
                     
                     if pin.reviews.count > 0 {
-                         annotation.title = "\(pin.reviews.reduce(0, +)/pin.reviews.count) stars"
+                        annotation.title = "\(pin.reviews.reduce(0, +)/pin.reviews.count)"
                     }
                     else {
                         annotation.title = "No Reviews!"
                     }
                     
                     if pin.ratings.count > 0 {
-                        annotation.subtitle = "\(pin.ratings.reduce(0, +)/pin.ratings.count) likes"
+                        annotation.subtitle = "\(pin.ratings.reduce(0, +)/pin.ratings.count) stars"
                     }
                     else {
                         annotation.subtitle = "No ratings!"
                     }
-            
+                    
                     annotation.coordinate = coordinate // user created pin coordinates to add on map.
                     annotation.pinInfoRef = pin // getting pin reference
                     annotations.append(annotation)
@@ -240,15 +240,15 @@ extension MapViewController: CLLocationManagerDelegate {
     //Segue to ReviewViewController when user taps pin's asscory view
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if let annotation = view.annotation as? SRPointAnnotation{
-                self.selectedAnnotation = annotation
-              performSegue(withIdentifier: "pin", sender: self)
+            self.selectedAnnotation = annotation
+            performSegue(withIdentifier: "pin", sender: self)
         }
     }
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-      
+        
         
     }
-   
+    
     // Make the annotation a red pin
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
