@@ -34,7 +34,7 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
                    "Sick! 😜",
                    "Gnarley! Gotta try it! 🤩"]
     
-    var selectedReview: String?
+    var selectedReview: Int?
     
     var downloadedPhotos = [Data]()
     var photoInfo: [FlickrClient.Photo]?
@@ -65,7 +65,6 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
     func createReviewPicker() {
         let reviewPicker = UIPickerView()
         reviewPicker.delegate = self
-        
         textField.inputView = reviewPicker
     }
     
@@ -103,8 +102,17 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
     }
     
     
-    @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+    @IBAction func doneButtonPressed(_ sender: UIBarButtonItem){
+        if let sr = selectedReview{
+            self.pinInfoRef.reviews.append(sr)
+        }
+        if  self.ratingControl.rating > 0{
+            self.pinInfoRef.ratings.append(self.ratingControl.rating)
+        }
+        if let identity = self.pinInfoRef.id {
+            Database.database().reference().child("Pins/" + "\(identity)").setValue(self.pinInfoRef.makeDictionary())
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -138,8 +146,8 @@ extension PinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     // Capture the picker view selection
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedReview = reviews[row]
-        textField.text = selectedReview
+        selectedReview = row
+        textField.text =  reviews[row]
         
     }
     
