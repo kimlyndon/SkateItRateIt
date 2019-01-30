@@ -26,7 +26,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     let regionInMeters: Double = 10000
     let annotation = SRPointAnnotation()
     let reachability = Reachability()
-
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.showsUserLocation = true
@@ -35,9 +37,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         ref.keepSynced(true)
         checkLocationServices()
         self.loadPins()
-       
+        
     }
-      
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -45,8 +47,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         centerViewOnUserLocation()
         setReachability()
     }
-
-     //Reachability
+    
+    //Reachability
     func setReachability() {
         
         reachability!.whenReachable = { reachability in
@@ -67,6 +69,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
                 
                 self.present(alertController, animated: true, completion: nil)
             }
+            
         }
         
         reachability!.whenUnreachable = { reachability in
@@ -79,9 +82,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         }
         
         try! reachability!.startNotifier()
+        
     }
     
-   
+    
     //Location
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithOtherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
@@ -189,7 +193,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         
         self.mapView.addAnnotation(self.newPin)
         self.ref.child("Pins").childByAutoId().setValue(["location":["Lat": Double(self.annotation.coordinate.latitude), "long":Double(annotation.coordinate.longitude)]])
+        
         self.loadPins()
+        
     }
     
     // Long press pin drop
