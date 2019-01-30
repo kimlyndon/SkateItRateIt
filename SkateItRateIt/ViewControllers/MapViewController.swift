@@ -25,8 +25,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 10000
     let annotation = SRPointAnnotation()
+    let reachability = Reachability()
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.showsUserLocation = true
@@ -38,12 +39,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         
         
     }
-      
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-         self.loadPins()
-       // let ratingControl = RatingControl()
+        self.loadPins()
+        // let ratingControl = RatingControl()
         //ratingControl.ratings.reduce(0, +)/ratings.count
         centerViewOnUserLocation()
         setReachability()
@@ -52,39 +53,39 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     
     //Reachability
     func setReachability() {
-        let reachability = Reachability()
+        
         
         reachability!.whenReachable = { reachability in
-        if reachability.connection == .wifi {
-        let alertController = UIAlertController(title: "Alert", message: "Reachable via WiFi", preferredStyle: .alert)
-        
-        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(defaultAction)
-        
-        self.present(alertController, animated: true, completion: nil)
-        
-        }
-        else {
-        let alertController = UIAlertController(title: "Alert", message: "Reachable via Cellular", preferredStyle: .alert)
-        
-        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(defaultAction)
-        
-        self.present(alertController, animated: true, completion: nil)
-        }
+            if reachability.connection == .wifi {
+                let alertController = UIAlertController(title: "Alert", message: "Reachable via WiFi", preferredStyle: .alert)
+                
+                let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(defaultAction)
+                
+                self.present(alertController, animated: true, completion: nil)
+                
+            }
+            else {
+                let alertController = UIAlertController(title: "Alert", message: "Reachable via Cellular", preferredStyle: .alert)
+                
+                let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(defaultAction)
+                
+                self.present(alertController, animated: true, completion: nil)
+            }
         }
         
         reachability!.whenUnreachable = { reachability in
-        let alertController = UIAlertController(title: "Alert", message: "Not Reachable", preferredStyle: .alert)
-        
-        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(defaultAction)
-        
-        self.present(alertController, animated: true, completion: nil)
+            let alertController = UIAlertController(title: "Alert", message: "Not Reachable", preferredStyle: .alert)
+            
+            let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(defaultAction)
+            
+            self.present(alertController, animated: true, completion: nil)
         }
         
         try! reachability!.startNotifier()
-    
+        
     }
     
     
