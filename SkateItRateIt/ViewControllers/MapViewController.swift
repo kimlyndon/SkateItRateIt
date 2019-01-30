@@ -25,7 +25,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 10000
     let annotation = SRPointAnnotation()
-    let reachability = Reachability()
+    let reachability = Reachability.init()
     
     
     override func viewDidLoad() {
@@ -195,8 +195,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     @IBAction func dropIn(_ sender: UIBarButtonItem) {
         
         self.mapView.addAnnotation(self.newPin)
-        self.ref.child("Pins").childByAutoId().setValue(["location":["Lat": Double(self.annotation.coordinate.latitude), "long":Double(annotation.coordinate.longitude)]])
-        self.loadPins()
+        self.ref.child("pins").childByAutoId().setValue(["location":["Lat": Double(self.annotation.coordinate.latitude), "long":Double(annotation.coordinate.longitude)]]) { (error, ref) in
+            if error == nil {
+                 self.loadPins()
+            }
+        }
+     
+       
         
     }
     
