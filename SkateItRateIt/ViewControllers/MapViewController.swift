@@ -189,8 +189,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     
     //Drop pin to current location
     @IBAction func dropIn(_ sender: UIBarButtonItem) {
-        
-        self.mapView.addAnnotation(self.newPin)
         self.ref.child("pins").childByAutoId().setValue(["location":["Lat": Double(self.annotation.coordinate.latitude), "long":Double(annotation.coordinate.longitude)]]) { (error, ref) in
             if error == nil {
                  self.loadPins()
