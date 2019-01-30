@@ -191,7 +191,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     @IBAction func dropIn(_ sender: UIBarButtonItem) {
         self.ref.child("Pins").childByAutoId().setValue(["location":["Lat": Double(self.annotation.coordinate.latitude), "long":Double(annotation.coordinate.longitude)]]) { (error, ref) in
             if error == nil {
-                 self.loadPins()
+                self.mapView.addAnnotation(self.annotation) // add a pin on map here would have an assurity that its been stored on firebase as well. I have removed to load all pins method just because it was confusing to display all of the pins been dropped rather than just the new one created. 
+                
             }
         }
      
