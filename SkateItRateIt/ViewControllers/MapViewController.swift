@@ -28,6 +28,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     let reachability = Reachability.init()
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.showsUserLocation = true
@@ -35,8 +36,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         ref = Database.database().reference()
         ref.keepSynced(true)
         checkLocationServices()
-        self.loadPins()
-        
         
     }
     
@@ -44,16 +43,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         super.viewWillAppear(animated)
         
         self.loadPins()
-        // let ratingControl = RatingControl()
-        //ratingControl.ratings.reduce(0, +)/ratings.count
         centerViewOnUserLocation()
         setReachability()
-        
     }
     
     //Reachability
     func setReachability() {
-        
         
         reachability!.whenReachable = { reachability in
             if reachability.connection == .wifi {
@@ -73,6 +68,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
                 
                 self.present(alertController, animated: true, completion: nil)
             }
+            
         }
         
         reachability!.whenUnreachable = { reachability in
@@ -221,6 +217,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
             self.mapView.addAnnotation(annotation)
             
             self.ref.child("Pins").childByAutoId().setValue( pin.makeDictionary() )
+    
         }
     }
     
