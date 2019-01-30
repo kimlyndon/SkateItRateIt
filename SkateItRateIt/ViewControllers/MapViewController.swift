@@ -5,7 +5,7 @@
 //  Created by Kim Lyndon on 11/20/18.
 //  Copyright © 2018 Kim Lyndon. All rights reserved.
 //
-//  loadPin method code for Firebase attributed to Fahad Shafique
+//  loadPin method code for Firebase attributed to Fahad Shafique.
 
 import UIKit
 import MapKit
@@ -20,12 +20,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     var ref: DatabaseReference!
     var pinArray = [PinInfo]()
     var selectedAnnotation = SRPointAnnotation()
-    
-    let newPin =  SRPointAnnotation()
+    let newPin = SRPointAnnotation()
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 10000
     let annotation = SRPointAnnotation()
-    let reachability = Reachability()
+    let reachability = Reachability.init()
     
     
     
@@ -189,9 +188,17 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     
     //Drop pin to current location
     @IBAction func dropIn(_ sender: UIBarButtonItem) {
-        
-        self.mapView.addAnnotation(self.newPin)
-        self.ref.child("Pins").childByAutoId().setValue(["location":["Lat": Double(self.annotation.coordinate.latitude), "long":Double(annotation.coordinate.longitude)]])
+    
+        self.ref.child("Pins").childByAutoId().setValue(["location":["Lat": Double(self.annotation.coordinate.latitude), "long":Double(annotation.coordinate.longitude)]]) { (error, ref) in
+            if error == nil {
+                let pin  = SRPointAnnotation()
+                pin.title = "New Spot"
+                pin.subtitle = "Press to add photos and ratings"
+                pin.coordinate = self.newPin.coordinate
+                self.mapView.addAnnotation(pin)
+            }
+           
+        }
         
         
     }
@@ -230,7 +237,7 @@ extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // Last known location. If no location use guard statement
         guard let location = locations.last else { return }
-        newPin.coordinate = location.coordinate
+        annotation.coordinate = location.coordinate
     }
     
     // When permission auth changes.
