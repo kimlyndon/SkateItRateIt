@@ -238,7 +238,7 @@ extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // Last known location. If no location use guard statement
         guard let location = locations.last else { return }
-        annotation.coordinate = location.coordinate
+        newPin.coordinate = location.coordinate
     }
     
     // When permission auth changes.
