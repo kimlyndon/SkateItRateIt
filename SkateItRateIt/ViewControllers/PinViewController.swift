@@ -61,14 +61,15 @@ class PinViewController: UIViewController, UICollectionViewDataSource, UICollect
         
         photoView.delegate = self
         photoView.dataSource = self
-      
+        
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-         self.photosArray = [String]()
-        for url in self.pinInfoRef.photoUrl{
+        self.photosArray = [String]()
+        
+        for url in self.pinInfoRef.photoUrl {
             self.photosArray.append(url)
         }
         self.photoView.reloadData()
@@ -203,11 +204,7 @@ extension PinViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         
         if indexPath.item == 3 {
             print("***Collection View: Cell For Row at Index Path***")
-            
-           
         }
-        
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PhotoCell
         cell.imageView.kf.setImage(with:  URL.init(string:  self.photosArray[indexPath.row]), placeholder:#imageLiteral(resourceName: "loading image"))
         return cell

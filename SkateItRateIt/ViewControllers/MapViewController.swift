@@ -188,18 +188,19 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     
     //Drop pin to current location
     @IBAction func dropIn(_ sender: UIBarButtonItem) {
-    
-        self.ref.child("Pins").childByAutoId().setValue(["location":["Lat": Double(self.annotation.coordinate.latitude), "long":Double(annotation.coordinate.longitude)]]) { (error, ref) in
+        
+        self.ref.child("Pins").childByAutoId().setValue(["location":["Lat": Double(self.newPin.coordinate.latitude), "long":Double(self.newPin.coordinate.longitude)]]) { (error, ref) in
             if error == nil {
                 let pin  = SRPointAnnotation()
-                pin.title = "New Spot"
+                pin.title = "New Pin"
                 pin.subtitle = "Press to add photos and ratings"
                 pin.coordinate = self.newPin.coordinate
-                self.mapView.addAnnotation(pin)
+                pin.pinInfoRef = PinInfo.init(locationName:"", coordinate: pin.coordinate)
+                pin.pinInfoRef.id = ref.key
+                self.mapView.addAnnotation(pin) // add a pin on map here would have an assurity that its been stored on firebase as well. I have removed to load all pins method just because it was confusing to display all of the pins been dropped rather than just the new one created.
+                
             }
-           
         }
-        
         
     }
     
