@@ -25,7 +25,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 10000
     let annotation = SRPointAnnotation()
-    
+    let reachability = Reachability()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,58 +35,53 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         ref.keepSynced(true)
         checkLocationServices()
         self.loadPins()
-        
-        
+       
     }
       
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let ratingControl = RatingControl()
-        ratingControl.ratings.reduce(0, +)/ratings.count
+        self.loadPins()
         centerViewOnUserLocation()
         setReachability()
-        
     }
-    
-    //Reachability
+
+     //Reachability
     func setReachability() {
-        let reachability = Reachability()
         
         reachability!.whenReachable = { reachability in
-        if reachability.connection == .wifi {
-        let alertController = UIAlertController(title: "Alert", message: "Reachable via WiFi", preferredStyle: .alert)
-        
-        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(defaultAction)
-        
-        self.present(alertController, animated: true, completion: nil)
-        
-        }
-        else {
-        let alertController = UIAlertController(title: "Alert", message: "Reachable via Cellular", preferredStyle: .alert)
-        
-        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(defaultAction)
-        
-        self.present(alertController, animated: true, completion: nil)
-        }
+            if reachability.connection == .wifi {
+                let alertController = UIAlertController(title: "Alert", message: "Reachable via WiFi", preferredStyle: .alert)
+                
+                let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(defaultAction)
+                
+                self.present(alertController, animated: true, completion: nil)
+                
+            }
+            else {
+                let alertController = UIAlertController(title: "Alert", message: "Reachable via Cellular", preferredStyle: .alert)
+                
+                let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(defaultAction)
+                
+                self.present(alertController, animated: true, completion: nil)
+            }
         }
         
         reachability!.whenUnreachable = { reachability in
-        let alertController = UIAlertController(title: "Alert", message: "Not Reachable", preferredStyle: .alert)
-        
-        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(defaultAction)
-        
-        self.present(alertController, animated: true, completion: nil)
+            let alertController = UIAlertController(title: "Alert", message: "Not Reachable", preferredStyle: .alert)
+            
+            let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(defaultAction)
+            
+            self.present(alertController, animated: true, completion: nil)
         }
         
         try! reachability!.startNotifier()
-    
     }
     
-    
+   
     //Location
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithOtherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
@@ -159,6 +154,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
             //iterate among children
             for child in snapshot.children.allObjects  as! [DataSnapshot]
             {
+                self.mapView.removeAnnotations(self.mapView.annotations)
                 let pin  = PinInfo.init(dictionary:child.value as! Dictionary<String, Any>)
                 pin.id = child.key
                 if let coordinate = pin.coordinate {
@@ -177,7 +173,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
                     annotation.coordinate = coordinate // user created pin coordinates to add on map.
                     annotation.pinInfoRef = pin // getting pin reference
                     annotations.append(annotation)
-                    self.pinArray.append(pin) //add to the array
                 }
                 
             }
@@ -194,7 +189,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         
         self.mapView.addAnnotation(self.newPin)
         self.ref.child("Pins").childByAutoId().setValue(["location":["Lat": Double(self.annotation.coordinate.latitude), "long":Double(annotation.coordinate.longitude)]])
-        
+        self.loadPins()
     }
     
     // Long press pin drop
