@@ -195,6 +195,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
                 pin.title = "New Pin"
                 pin.subtitle = "Press to add photos and ratings"
                 pin.coordinate = self.newPin.coordinate
+                pin.pinInfoRef = PinInfo.init(locationName:"", coordinate: pin.coordinate)
+                pin.pinInfoRef.id = ref.key
                 self.mapView.addAnnotation(pin) // add a pin on map here would have an assurity that its been stored on firebase as well. I have removed to load all pins method just because it was confusing to display all of the pins been dropped rather than just the new one created.
                 
             }
