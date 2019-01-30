@@ -36,7 +36,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         ref = Database.database().reference()
         ref.keepSynced(true)
         checkLocationServices()
-        self.loadPins()
         
     }
     
@@ -194,7 +193,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         self.mapView.addAnnotation(self.newPin)
         self.ref.child("Pins").childByAutoId().setValue(["location":["Lat": Double(self.annotation.coordinate.latitude), "long":Double(annotation.coordinate.longitude)]])
         
-        self.loadPins()
         
     }
     
@@ -214,6 +212,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
             self.mapView.addAnnotation(annotation)
             
             self.ref.child("Pins").childByAutoId().setValue( pin.makeDictionary() )
+    
         }
     }
     
