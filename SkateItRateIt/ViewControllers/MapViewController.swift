@@ -42,8 +42,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let ratingControl = RatingControl()
-        ratingControl.ratings.reduce(0, +)/ratings.count
+         self.loadPins()
+       // let ratingControl = RatingControl()
+        //ratingControl.ratings.reduce(0, +)/ratings.count
         centerViewOnUserLocation()
         setReachability()
         
@@ -159,6 +160,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
             //iterate among children
             for child in snapshot.children.allObjects  as! [DataSnapshot]
             {
+                self.mapView.removeAnnotations(self.mapView.annotations)
                 let pin  = PinInfo.init(dictionary:child.value as! Dictionary<String, Any>)
                 pin.id = child.key
                 if let coordinate = pin.coordinate {
@@ -177,7 +179,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
                     annotation.coordinate = coordinate // user created pin coordinates to add on map.
                     annotation.pinInfoRef = pin // getting pin reference
                     annotations.append(annotation)
-                    self.pinArray.append(pin) //add to the array
                 }
                 
             }
@@ -194,6 +195,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIGestureRecognize
         
         self.mapView.addAnnotation(self.newPin)
         self.ref.child("Pins").childByAutoId().setValue(["location":["Lat": Double(self.annotation.coordinate.latitude), "long":Double(annotation.coordinate.longitude)]])
+        self.loadPins()
         
     }
     
